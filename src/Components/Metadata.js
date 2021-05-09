@@ -5,9 +5,8 @@ import { Location } from '@reach/router';
 
 const PageMetadata = ({
   description,
-  meta,
+  meta = {},
   title,
-  image,
   canonicalUrl,
 }) => {
   return (
@@ -61,7 +60,7 @@ const PageMetadata = ({
                 property: `og:site_name`,
                 content: siteUri,
               },
-            ]}
+            ].concat(meta)}
           >
             <script type="application/ld+json">
               {`
