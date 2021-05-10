@@ -1,26 +1,22 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import { button } from 'Components/Styled/styles';
 import {
-  activePrimary,
+  highlightPrimary,
   highlightSecondary,
   fontActive,
   fontInactive,
 } from 'Components/Styled/colors';
 
-const BtnSelect = styled.span`
-  display: flex;
-  justify-content: center;
-  border-radius: 7px;
-  transition: all 0.23s;
+const SelectButton = styled.span`
+  ${button};
   padding: 0.9rem;
-  position: relative;
-  cursor: pointer;
 `;
 
-const ButtonSelect = styled(BtnSelect)`
+const ButtonSelect = styled(SelectButton)`
   background-color: ${(props) =>
-    props.active && activePrimary};
+    props.active && highlightPrimary};
 
   color: ${(props) =>
     props.active ? fontActive : fontInactive};
