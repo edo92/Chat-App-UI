@@ -32,6 +32,10 @@ export const activePrimary = css`
   ${({ theme }) => theme.colors.primary};
 `;
 
+export const activeSecondary = css`
+  ${({ theme }) => theme.colors.activeSecondary};
+`;
+
 export const fontSecondary = css`
   ${({ theme }) => theme.colors.fontSecondary};
 `;

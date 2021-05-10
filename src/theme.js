@@ -34,6 +34,8 @@ const baseColors = {
 const lightColors = {
   backgroundPrimary: light,
 
+  activeSecondary: primary,
+
   borderPrimary: border200,
   borderSecondary: border300,
 
@@ -49,6 +51,8 @@ const lightColors = {
 
 const darkColors = {
   backgroundPrimary: dark,
+
+  activeSecondary: font200,
 
   borderPrimary: border100,
   borderSecondary: boroder400,

@@ -2,10 +2,10 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import Icon from 'Components/Icon';
 import {
-  highlight,
+  border,
   fontSecondary,
   activeSecondary,
-} from 'Components/Common';
+} from 'Components/Styled/colors';
 
 export const BtnSimple = styled.button`
   display: inline-flex;
@@ -24,7 +24,7 @@ export const BtnSimple = styled.button`
 `;
 
 export const ButtonSimple = styled(BtnSimple)`
-  border: 1px solid ${highlight};
+  border: 1px solid ${border};
   color: ${fontSecondary};
 
   &: focus {
@@ -34,7 +34,7 @@ export const ButtonSimple = styled(BtnSimple)`
   }
 
   &: hover {
-    background-color: ${highlight};
+    background-color: ${border};
   }
 `;
 

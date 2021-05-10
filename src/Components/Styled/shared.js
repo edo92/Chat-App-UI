@@ -1,7 +1,11 @@
 import styled from 'styled-components';
+
+import { InputBase } from 'Components/Styled/base';
 import {
   fontSecondary,
   highlightSecondary,
+  activePrimary,
+  border,
 } from 'Components/Styled/colors';
 
 export const Section = styled.div`
@@ -15,4 +19,15 @@ export const Card = styled.div`
   box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
   background: ${highlightSecondary};
   color: ${fontSecondary};
+`;
+
+export const Input = styled(InputBase)`
+  color: ${fontSecondary};
+  border: 1px solid ${border};
+
+  &:focus {
+    outline-style: none;
+    outline-offset: 0px;
+    border: 1px solid ${activePrimary};
+  }
 `;

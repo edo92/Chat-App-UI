@@ -25,3 +25,17 @@ export const ListItem = styled.li`
   padding: 0;
   margin: 0;
 `;
+
+export const InputBase = styled.input`
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 300;
+  border-radius: 0.25rem;
+  transition: border-color 0.2s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+`;
