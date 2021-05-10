@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 
+/**
+ *
+ * @component
+ * @param {String} description  current page description
+ * @param {String} title        page title
+ * @param {String} canonicalUrl page pathnamee
+ */
 const PageMetadata = ({
   description,
-  meta = {},
   title,
   canonicalUrl,
 }) => {
@@ -60,7 +66,7 @@ const PageMetadata = ({
                 property: `og:site_name`,
                 content: siteUri,
               },
-            ].concat(meta)}
+            ]}
           >
             <script type="application/ld+json">
               {`
@@ -86,24 +92,24 @@ const site = {
   type: 'application',
   siteTitle: 'Chat X',
   description: `ChatX communication tool`,
-  email: 'edoter92@gmail.com',
+  email: 'chatx@gmail.com',
   url: 'http://chatx.com',
   uri: 'chatx.com',
   logo: 'http://chatx.com/og-image.png',
 };
 
 PageMetadata.defaultProps = {
-  description: `ChatX communication tool`,
-  meta: ['chat', 'chat x', 'communication'],
-  image: ``,
+  description: `communication tool`,
   title: `Chat X`,
+  canonicalUrl: '/',
+  meta: ['chat', 'chat x', 'communication'],
 };
 
 PageMetadata.propTypes = {
-  description: PropTypes.string,
-  meta: PropTypes.array,
-  image: PropTypes.string,
+  description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  canonicalUrl: PropTypes.string,
+  meta: PropTypes.array,
 };
 
 export default memo(PageMetadata);

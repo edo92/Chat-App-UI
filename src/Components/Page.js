@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Metadata from 'Components/Metadata';
 import { Container } from 'Components/Styled/base';
 import { background } from 'Components/Styled/colors';
+import Metadata from 'Components/Metadata';
 
 const PageWrapper = styled.div`
   background: ${background};
@@ -12,16 +12,16 @@ const PageWrapper = styled.div`
   overflow: hidden;
 `;
 
+/**
+ * @component
+ * @param {Object} metadata   Metadata for PageMetadata
+ * @param {children} children child component
+ */
 const Page = ({ metadata, children }) => {
-  const { path, title, description } = metadata;
   return (
     <PageWrapper>
       <Container>
-        <Metadata
-          path={path}
-          title={title}
-          description={description}
-        />
+        <Metadata {...metadata} />
         <>{children}</>
       </Container>
     </PageWrapper>
