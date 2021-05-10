@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { waveAnimation } from 'Styled/anim';
 import { InputBase } from 'Styled/base';
 import {
   fontSecondary,
