@@ -5,6 +5,7 @@ import { metadata } from './content';
 import PageWrapper from 'Components/Page';
 
 import Navigation from 'Partials/Navigation';
+import SideBar from 'Partials/SideBar';
 
 import {
   toggleNavTab,
@@ -40,6 +41,13 @@ class HomePage extends Component {
         <Navigation
           uiHandlers={uiHandlers}
           activeTab={uiState.navTab}
+        />
+
+        <SideBar
+          activeTab={uiState.navTab}
+          apiHandlers={apiHandlers}
+          toggleDrawer={toggleDrawer}
+          data={dataState.tabContext}
         />
       </PageWrapper>
     );
