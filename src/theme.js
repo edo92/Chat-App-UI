@@ -10,12 +10,17 @@ const error = 'red';
 
 const border100 = '#293145';
 const border200 = '#e6e6e6';
+const border300 = '#e9ecef';
+const boroder400 = '#384054';
 
 const highlight100 = 'rgba(0, 0, 0, 0.5)';
 const highlight200 = 'rgba(255, 255, 255, 0.3)';
+const highlight300 = '#333b4f';
 
 const font100 = 'black';
 const font200 = 'rgba(255, 255, 255, 0.5)';
+const font300 = '#212529';
+const font400 = 'rgba(255, 255, 255, 0.75)';
 
 const baseColors = {
   dark,
@@ -28,18 +33,32 @@ const baseColors = {
 
 const lightColors = {
   backgroundPrimary: light,
+
   borderPrimary: border200,
+  borderSecondary: border300,
+
+  highlightActive: border200,
+  highlightPrimary: border200,
   highlightSecondary: light,
   highlightTertiary: highlight100,
+
+  fontSecondary: font300,
   fontActive: primary,
   fontInactive: font100,
 };
 
 const darkColors = {
   backgroundPrimary: dark,
+
   borderPrimary: border100,
+  borderSecondary: boroder400,
+
+  highlightActive: highlight300,
+  highlightPrimary: primary,
   highlightSecondary: border100,
   highlightTertiary: highlight200,
+
+  fontSecondary: font400,
   fontActive: light,
   fontInactive: font200,
 };

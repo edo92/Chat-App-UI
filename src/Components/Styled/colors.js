@@ -8,6 +8,18 @@ export const border = css`
   ${({ theme }) => theme.colors.borderPrimary};
 `;
 
+export const borderSecondary = css`
+  ${({ theme }) => theme.colors.borderSecondary};
+`;
+
+export const highlightActive = css`
+  ${({ theme }) => theme.colors.highlightActive};
+`;
+
+export const highlightPrimary = css`
+  ${({ theme }) => theme.colors.highlightPrimary};
+`;
+
 export const highlightSecondary = css`
   ${({ theme }) => theme.colors.highlightSecondary};
 `;
@@ -18,6 +30,10 @@ export const highlightTertiary = css`
 
 export const activePrimary = css`
   ${({ theme }) => theme.colors.primary};
+`;
+
+export const fontSecondary = css`
+  ${({ theme }) => theme.colors.fontSecondary};
 `;
 
 export const fontActive = css`

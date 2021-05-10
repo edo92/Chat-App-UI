@@ -3,6 +3,11 @@ import styled from 'styled-components';
 
 import Link from 'Components/Link';
 import Logo from 'Components/Logo';
+import Tooltip from 'Components/Tooltip';
+import Select from 'Components/Select';
+import Icon from 'Components/Icon';
+import Dropdown from 'Components/Dropdown';
+import Avatar from 'Components/Avatar';
 
 import { border } from 'Components/Styled/colors';
 import { Section } from 'Components/Styled/shared';
@@ -34,6 +39,11 @@ const NavBody = styled.div`
   margin-top: 0.75rem;
 `;
 
+const NavFooter = styled.div`
+  margin-top: auto;
+  padding-bottom: 1rem;
+`;
+
 const NavList = styled(List)`
   display: flex;
   flex-direction: column;
@@ -45,6 +55,7 @@ const NavItem = styled(ListItem)`
 
 const Navigation = ({ activeTab, uiHandlers }) => {
   const { toggleNavTab, toggleTheme } = uiHandlers;
+
   return (
     <SectionArea md="visisble">
       <Container>
@@ -63,6 +74,33 @@ const Navigation = ({ activeTab, uiHandlers }) => {
               />
             </NavList>
           </NavBody>
+          <NavFooter>
+            <NavList>
+              <NavItem>
+                <Tooltip
+                  placement="right"
+                  title="Dark Mode"
+                >
+                  <Select onClick={toggleTheme}>
+                    <Icon icon={'Moon'} />
+                  </Select>
+                </Tooltip>
+              </NavItem>
+              <NavItem>
+                <Tooltip
+                  placement="right"
+                  title="User Menu"
+                >
+                  <Dropdown
+                    placement={'topRight'}
+                    overlay={dropmenu(uiHandlers)}
+                  >
+                    <Avatar size="md" />
+                  </Dropdown>
+                </Tooltip>
+              </NavItem>
+            </NavList>
+          </NavFooter>
         </InnerContainer>
       </Container>
     </SectionArea>
