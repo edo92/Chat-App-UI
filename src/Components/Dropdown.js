@@ -77,12 +77,13 @@ const DropDown = ({
   // hooks
   useOnClickOutside(ref, (data) => {
     if (disabled && data.includes('outside')) {
+      // promisify delay, solves outside click issue
       helpers.promisify(setIsOpen);
     }
 
     if (data.includes('inside')) {
-      setIsOpen(false);
-      setDisabled(true);
+      !isOpen && setIsOpen(false);
+      isOpen && setDisabled(true);
     }
   });
 
@@ -109,22 +110,20 @@ const DropDown = ({
       >
         <MenuContainer>
           <Menu>
-            <>
-              {overlay.map(
-                ({ name, toggle, divider }, index) => (
-                  <span key={name + index}>
-                    {name && (
-                      <Menu.Item
-                        onClick={(cnt) => toggle(cnt)}
-                      >
-                        <span>{name}</span>
-                      </Menu.Item>
-                    )}
-                    {divider && <Menu.Divider />}
-                  </span>
-                ),
-              )}
-            </>
+            {overlay.map(
+              ({ name, toggle, divider }, index) => (
+                <span key={name + index}>
+                  {name && (
+                    <Menu.Item
+                      onClick={(cnt) => toggle(cnt)}
+                    >
+                      <span>{name}</span>
+                    </Menu.Item>
+                  )}
+                  {divider && <Menu.Divider />}
+                </span>
+              ),
+            )}
           </Menu>
         </MenuContainer>
       </Content>

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import {
   background,
   statuses,
-} from 'Components/Styled/colors'
+} from 'Components/Styled/colors';
 
 const BadgeBase = styled.span`
   position: absolute;
@@ -23,6 +23,12 @@ const Badge = styled(BadgeBase)`
   border: ${(props) => props.border && borderStyle};
 `;
 
+/**
+ * @component
+ * @param {Boolean} border     adds border around badge
+ * @param {String}  status     success | warning | error
+ * @param {String}  className  passed by styled compnent
+ */
 const BadgeComponent = memo(
   ({ border, status, className }) => (
     <Badge
