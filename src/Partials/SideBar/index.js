@@ -10,15 +10,15 @@ import {
   InnerContainer,
   ListItem,
   List,
-} from 'Components/Styled/base';
+} from 'Styled/base';
 
 import {
   Section,
   Input,
-} from 'Components/Styled/shared';
+} from 'Styled/shared';
 
-import { TextSecondary } from 'Components/Styled/styles';
-import { border } from 'Components/Styled/colors';
+import { TextSecondary } from 'Styled/styles';
+import { border } from 'Styled/colors';
 
 const SectionArea = styled(Section)`
   border-right: 1px solid ${border};

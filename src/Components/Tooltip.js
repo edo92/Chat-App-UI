@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { highlightTertiary } from 'Components/Styled/colors';
+import { highlightTertiary } from 'Styled/colors';
 import helpers from 'helpers';
 
 const Container = styled.span`

@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import {
   highlightActive,
   fontSecondary,
-} from 'Components/Styled/colors';
+} from 'Styled/colors';
 
 export const button = css`
   display: flex;

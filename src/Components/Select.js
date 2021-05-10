@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { button } from 'Components/Styled/styles';
+import { button } from 'Styled/styles';
 import {
   highlightPrimary,
   highlightSecondary,
   fontActive,
   fontInactive,
-} from 'Components/Styled/colors';
+} from 'Styled/colors';
 
 const SelectButton = styled.span`
   ${button};

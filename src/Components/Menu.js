@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { List } from 'Components/Styled/base';
-import { HighlightOnHover } from 'Components/Styled/styles';
-import { borderSecondary } from 'Components/Styled/colors';
+import { List } from 'Styled/base';
+import { HighlightOnHover } from 'Styled/styles';
+import { borderSecondary } from 'Styled/colors';
 
 const MenuItem = styled.div`
   ${HighlightOnHover};

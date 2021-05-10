@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import {
   background,
   statuses,
-} from 'Components/Styled/colors';
+} from 'Styled/colors';
 
 const BadgeBase = styled.span`
   position: absolute;
