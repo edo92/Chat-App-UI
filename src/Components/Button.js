@@ -5,7 +5,7 @@ import {
   border,
   fontSecondary,
   activeSecondary,
-} from 'Components/Styled/colors';
+} from 'Styled/colors';
 
 export const BtnSimple = styled.button`
   display: inline-flex;

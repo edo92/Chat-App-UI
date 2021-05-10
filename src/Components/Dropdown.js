@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import helpers from 'helpers';
 
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
-import { Card } from 'Components/Styled/shared';
+import { Card } from 'Styled/shared';
 import Menu from 'Components/Menu';
 
 const Container = styled.div`

@@ -9,15 +9,15 @@ import Icon from 'Components/Icon';
 import Dropdown from 'Components/Dropdown';
 import Avatar from 'Components/Avatar';
 
-import { border } from 'Components/Styled/colors';
-import { Section } from 'Components/Styled/shared';
+import { border } from 'Styled/colors';
+import { Section } from 'Styled/shared';
 
 import {
   Container as Wrapper,
   InnerContainer,
   List,
   ListItem,
-} from 'Components/Styled/base';
+} from 'Styled/base';
 
 import TabPanel from './Tabs';
 import { dropmenu, tabsMenu } from './menu';

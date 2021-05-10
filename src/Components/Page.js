@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Container } from 'Components/Styled/base';
-import { background } from 'Components/Styled/colors';
+import { Container } from 'Styled/base';
+import { background } from 'Styled/colors';
 import Metadata from 'Components/Metadata';
 
 const PageWrapper = styled.div`

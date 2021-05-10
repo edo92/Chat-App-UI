@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { InputBase } from 'Components/Styled/base';
+import { InputBase } from 'Styled/base';
 import {
   fontSecondary,
   highlightSecondary,
   activePrimary,
   border,
-} from 'Components/Styled/colors';
+} from 'Styled/colors';
 
 export const Section = styled.div`
   @media (${({ md }) =>
