@@ -22,6 +22,11 @@ const MenuComponent = ({ children }) => {
   return <List>{children}</List>;
 };
 
+/**
+ *
+ * @param {Object}   children
+ * @param {Function} onClick
+ */
 const ItemMenuComponent = ({ children, onClick }) => {
   return (
     <MenuItem
