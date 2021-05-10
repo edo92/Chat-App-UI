@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Metadata.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">AdminBro Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Page.html">Page</a></li><li><a href="PageMetadata.html">PageMetadata</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>Metadata.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { Location } from '@reach/router';
+
+/**
+ *
+ * @component
+ * @param {String} description  current page description
+ * @param {Object} meta         meta tags
+ * @param {String} title        page title
+ * @param {String} canonicalUrl page pathnamee
+ */
+const PageMetadata = ({
+  description,
+  meta = {},
+  title,
+  canonicalUrl,
+}) => {
+  return (
+    &lt;Location>
+      {({ location }) => {
+        const { pathname } = location;
+        let canonicalPath = pathname;
+
+        const canonical =
+          canonicalUrl || `${site.url}${canonicalPath}`;
+
+        const desc = description || site.description;
+        const siteTitle = site.siteTitle;
+        const siteUrl = site.url;
+        const siteUri = site.uri;
+
+        return (
+          &lt;Helmet
+            htmlAttributes={{ lang: 'en' }}
+            title={title}
+            titleTemplate={`%s | ${siteTitle}`}
+            link={[
+              {
+                rel: 'canonical',
+                key: canonical,
+                href: canonical,
+              },
+            ]}
+            meta={[
+              {
+                name: `description`,
+                content: desc,
+              },
+              {
+                property: `og:title`,
+                content: `${title} | ${siteTitle}`,
+              },
+              {
+                property: `og:description`,
+                content: desc,
+              },
+              {
+                property: `og:type`,
+                content: `website`,
+              },
+              {
+                property: `og:url`,
+                content: siteUrl,
+              },
+              {
+                property: `og:site_name`,
+                content: siteUri,
+              },
+            ].concat(meta)}
+          >
+            &lt;script type="application/ld+json">
+              {`
+        {
+          "@context": "${site.url}",
+          "@type": "${site.type}",
+          "url": "${site.url}",
+          "email": "${site.emai}",
+          "name": "${site.name}",
+          "logo": "${site.logo}"
+        }
+      `}
+            &lt;/script>
+          &lt;/Helmet>
+        );
+      }}
+    &lt;/Location>
+  );
+};
+
+const site = {
+  name: 'ChatX',
+  type: 'application',
+  siteTitle: 'Chat X',
+  description: `ChatX communication tool`,
+  email: 'chatx@gmail.com',
+  url: 'http://chatx.com',
+  uri: 'chatx.com',
+  logo: 'http://chatx.com/og-image.png',
+};
+
+PageMetadata.defaultProps = {
+  description: `communication tool`,
+  title: `Chat X`,
+  canonicalUrl: '/',
+  meta: ['chat', 'chat x', 'communication'],
+};
+
+PageMetadata.propTypes = {
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  canonicalUrl: PropTypes.string,
+  meta: PropTypes.array,
+};
+
+export default memo(PageMetadata);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+</body>
+</html>
