@@ -7,6 +7,7 @@ import PageWrapper from 'Components/Page';
 import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
+import SideDrawer from 'Partials/SideDrawer';
 
 import {
   toggleNavTab,
@@ -54,6 +55,11 @@ class HomePage extends Component {
         <WorkBench
           activeTab={uiState.navTab}
           data={dataState.barContext}
+        />
+
+        <SideDrawer
+          toggle={toggleDrawer}
+          drawer={uiState.drawer}
         />
       </PageWrapper>
     );
