@@ -4,13 +4,16 @@ import {
   SET_THEME_MODE,
 } from '../static';
 
+const theme = JSON.parse(localStorage.getItem('theme'));
+const nav = JSON.parse(localStorage.getItem('nav'));
+
 const initialState = {
   theme: {
-    isDarkTheme: true,
+    isDarkTheme: theme?.isDarkTheme ?? true,
   },
   nav: {
-    tab: 'chat',
-    action: 'messages',
+    tab: nav?.tab ?? 'chat',
+    action: nav?.action ?? 'messages',
   },
   drawer: {
     isOpen: false,
