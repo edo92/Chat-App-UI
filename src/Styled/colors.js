@@ -29,11 +29,19 @@ export const highlightTertiary = css`
 `;
 
 export const activePrimary = css`
-  ${({ theme }) => theme.colors.primary};
+  ${({ theme }) => theme.colors.activePrimary};
 `;
 
 export const activeSecondary = css`
   ${({ theme }) => theme.colors.activeSecondary};
+`;
+
+export const activeTertiary = css`
+  ${({ theme }) => theme.colors.activeTertiary};
+`;
+
+export const fontPrimary = css`
+  ${({ theme }) => theme.colors.fontPrimary};
 `;
 
 export const fontSecondary = css`

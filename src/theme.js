@@ -21,6 +21,11 @@ const font100 = 'black';
 const font200 = 'rgba(255, 255, 255, 0.5)';
 const font300 = '#212529';
 const font400 = 'rgba(255, 255, 255, 0.75)';
+const font500 = '#6c757d';
+const font600 = '#969696';
+
+const active100 = '#f0f0f0';
+const active200 = '#1f273b';
 
 const baseColors = {
   dark,
@@ -34,7 +39,9 @@ const baseColors = {
 const lightColors = {
   backgroundPrimary: light,
 
+  activePrimary: primary,
   activeSecondary: primary,
+  activeTertiary: active100,
 
   borderPrimary: border200,
   borderSecondary: border300,
@@ -44,6 +51,7 @@ const lightColors = {
   highlightSecondary: light,
   highlightTertiary: highlight100,
 
+  fontPrimary: font600,
   fontSecondary: font300,
   fontActive: primary,
   fontInactive: font100,
@@ -52,7 +60,9 @@ const lightColors = {
 const darkColors = {
   backgroundPrimary: dark,
 
+  activePrimary: primary,
   activeSecondary: font200,
+  activeTertiary: active200,
 
   borderPrimary: border100,
   borderSecondary: boroder400,
@@ -62,6 +72,7 @@ const darkColors = {
   highlightSecondary: border100,
   highlightTertiary: highlight200,
 
+  fontPrimary: font500,
   fontSecondary: font400,
   fontActive: light,
   fontInactive: font200,

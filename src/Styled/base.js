@@ -39,3 +39,17 @@ export const InputBase = styled.input`
   transition: border-color 0.2s ease-in-out,
     box-shadow 0.15s ease-in-out;
 `;
+
+export const CountBase = styled.div`
+  width: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  font-size: 13px;
+  font-weight: 400;
+  height: 23px;
+  color: white;
+  border-radius: 50%;
+  margin-left: auto;
+`;
