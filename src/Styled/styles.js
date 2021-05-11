@@ -35,3 +35,10 @@ export const TextSecondary = css`
   ${TextBase};
   color: ${fontSecondary};
 `;
+
+export const ColorType = css`
+  ${({ type, theme }) =>
+    type
+      ? theme.colors[type] || theme.colors.primary
+      : 'none'};
+`;

@@ -30,9 +30,9 @@ const Image = styled.img`
 `;
 
 const Text = styled.p`
+  ${TextSecondary};
   font-size: 16px;
   font-weight: 300;
-  ${TextSecondary};
 `;
 
 const Workbench = ({ data }) => {
