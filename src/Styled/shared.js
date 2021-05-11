@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
-import { waveAnimation } from 'Styled/anim';
-import { InputBase } from 'Styled/base';
+import {
+  InputBase,
+  ListItem,
+  CountBase,
+} from 'Styled/base';
+
 import {
   fontSecondary,
   highlightSecondary,
   activePrimary,
+  activeTertiary,
   border,
+  fontPrimary,
 } from 'Styled/colors';
 
 export const Section = styled.div`
@@ -31,4 +37,33 @@ export const Input = styled(InputBase)`
     outline-offset: 0px;
     border: 1px solid ${activePrimary};
   }
+`;
+
+export const ListItemHighlight = styled(ListItem)`
+  border-bottom: 1px solid ${border};
+
+  background-color: ${({ active }) =>
+    active && activeTertiary};
+
+  font-weight: ${({ active }) =>
+    active ? '600' : '400'};
+`;
+
+export const Small = styled.small`
+  font-size: 11px;
+  font-weight: 400;
+  position: relative;
+`;
+
+export const SmallPrimary = styled(Small)`
+  color: ${(props) =>
+    props.active ? activePrimary : fontPrimary};
+`;
+
+export const ActiveColor = styled.span`
+  color: ${activePrimary};
+`;
+
+export const Count = styled(CountBase)`
+  background-color: ${activePrimary};
 `;

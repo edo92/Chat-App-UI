@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import Tooltip from 'Components/Tooltip';
-import Icon from 'Components/Icon';
-import { ButtonSimple } from 'Components/Button';
-
+import { Section, Input } from 'Styled/shared';
+import { TextSecondary } from 'Styled/styles';
+import { border } from 'Styled/colors';
 import {
   Container as MainContainer,
   InnerContainer,
@@ -12,13 +11,11 @@ import {
   List,
 } from 'Styled/base';
 
-import {
-  Section,
-  Input,
-} from 'Styled/shared';
-
-import { TextSecondary } from 'Styled/styles';
-import { border } from 'Styled/colors';
+import Tooltip from 'Components/Tooltip';
+import Icon from 'Components/Icon';
+import { ButtonSimple } from 'Components/Button';
+import Scrollbar from 'Components/Scrollbar';
+import UserList from './UserList';
 
 const SectionArea = styled(Section)`
   border-right: 1px solid ${border};
@@ -69,6 +66,10 @@ const SearchInput = styled(Input)`
   padding: 11.5px 15px;
 `;
 
+const SidebarBody = styled(Scrollbar)`
+  height: calc(100% - 180px);
+`;
+
 const SideBar = memo(
   ({ data, activeTab, apiHandlers, toggleDrawer }) => (
     <SectionArea md="visisble">
@@ -112,6 +113,26 @@ const SideBar = memo(
               />
             </Form>
           </SearchBox>
+          <SidebarBody>
+            {(activeTab === 'chat' || 'users') && (
+              <UserList
+                handleFetch={apiHandlers.getMessage}
+                activeTab={activeTab}
+                data={data}
+                menu={[
+                  {
+                    name: 'Profile',
+                    toggle: (cnt) =>
+                      toggleDrawer(true, cnt),
+                  },
+                  {
+                    name: 'Delete',
+                    toggle: () => console.log(),
+                  },
+                ]}
+              />
+            )}
+          </SidebarBody>
         </InnerContainer>
       </Container>
     </SectionArea>

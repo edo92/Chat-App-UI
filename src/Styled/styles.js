@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import {
   highlightActive,
   fontSecondary,
+  activePrimary,
 } from 'Styled/colors';
 
 export const button = css`
@@ -22,6 +23,12 @@ export const HighlightOnHover = css`
 export const TextBase = css`
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
+`;
+
+export const TextPrimary = css`
+  ${TextBase};
+  color: ${(props) =>
+    props.active ? activePrimary : fontSecondary};
 `;
 
 export const TextSecondary = css`
