@@ -15,8 +15,8 @@ const TabItem = styled(ListItem)`
 const TabPanel = ({ tabsMenu, selected, toggle }) => {
   return tabsMenu.map(
     ({ tab, icon, action, status }) => (
-      <>
-        <TabItem key={tab}>
+      <div key={tab}>
+        <TabItem>
           <Tootip placement="right" title={tab}>
             <>
               <ButtonSelect
@@ -29,7 +29,7 @@ const TabPanel = ({ tabsMenu, selected, toggle }) => {
             </>
           </Tootip>
         </TabItem>
-      </>
+      </div>
     ),
   );
 };
