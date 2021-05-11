@@ -65,11 +65,9 @@ const Messages = memo(({ messages = [] }) => (
                   fontSize={'sm'}
                   avatar={avatar}
                   text={
-                    <span>
-                      <SmallPrimary>
-                        <>{date}</>
-                      </SmallPrimary>
-                    </span>
+                    <SmallPrimary>
+                      <>{date}</>
+                    </SmallPrimary>
                   }
                 />
               </UserInfo>

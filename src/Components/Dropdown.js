@@ -61,74 +61,76 @@ const Content = styled(ContentStyle)`
  * @param {String | undefined} [left]        margin left in px
  */
 
-const DropDown = ({
-  children,
-  className,
-  align,
-  placement,
-  top,
-  left,
-  overlay,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const ref = createRef();
+const DropDown = memo(
+  ({
+    children,
+    className,
+    align,
+    placement,
+    top,
+    left,
+    overlay,
+  }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [disabled, setDisabled] = useState(false);
+    const ref = createRef();
 
-  // hooks
-  useOnClickOutside(ref, (data) => {
-    if (disabled && data.includes('outside')) {
-      // promisify delay, solves outside click issue
-      helpers.promisify(setIsOpen);
-    }
+    // hooks
+    useOnClickOutside(ref, (data) => {
+      if (disabled && data.includes('outside')) {
+        // promisify delay, solves outside click issue
+        helpers.promisify(setIsOpen);
+      }
 
-    if (data.includes('inside')) {
-      !isOpen && setIsOpen(false);
-      setDisabled(true);
-    }
-  });
+      if (data.includes('inside')) {
+        !isOpen && setIsOpen(false);
+        setDisabled(true);
+      }
+    });
 
-  // dropdown open/close state
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
+    // dropdown open/close state
+    const toggle = () => {
+      setIsOpen(!isOpen);
+    };
 
-  return (
-    <Container align={align} className={className}>
-      <div
-        ref={ref}
-        aria-label={className}
-        onClick={toggle}
-      >
-        {children}
-      </div>
+    return (
+      <Container align={align} className={className}>
+        <div
+          ref={ref}
+          aria-label={className}
+          onClick={toggle}
+        >
+          {children}
+        </div>
 
-      <Content
-        placement={placement}
-        isOpen={isOpen}
-        top={top}
-        left={left}
-      >
-        <MenuContainer>
-          <Menu>
-            {overlay.map(
-              ({ name, toggle, divider }, index) => (
-                <span key={name + index}>
-                  {name && (
-                    <Menu.Item
-                      onClick={(cnt) => toggle(cnt)}
-                    >
-                      <span>{name}</span>
-                    </Menu.Item>
-                  )}
-                  {divider && <Menu.Divider />}
-                </span>
-              ),
-            )}
-          </Menu>
-        </MenuContainer>
-      </Content>
-    </Container>
-  );
-};
+        <Content
+          placement={placement}
+          isOpen={isOpen}
+          top={top}
+          left={left}
+        >
+          <MenuContainer>
+            <Menu>
+              {overlay.map(
+                ({ name, toggle, divider }, index) => (
+                  <span key={name + index}>
+                    {name && (
+                      <Menu.Item
+                        onClick={(cnt) => toggle(cnt)}
+                      >
+                        <span>{name}</span>
+                      </Menu.Item>
+                    )}
+                    {divider && <Menu.Divider />}
+                  </span>
+                ),
+              )}
+            </Menu>
+          </MenuContainer>
+        </Content>
+      </Container>
+    );
+  },
+);
 
 export default memo(DropDown);

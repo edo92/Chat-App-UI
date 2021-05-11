@@ -16,7 +16,7 @@ const LinkElem = styled.a`
  * @param {Object} children   child component
  */
 
-const Link = ({ to, className, children }) => {
+const Link = memo(({ to, className, children }) => {
   // regex to test inner or outer link
   const DOMAIN_PATTERN = /^(?:https?:)?[/]{2,}([^/]+)/;
   const isExternal = DOMAIN_PATTERN.test(to);
@@ -31,6 +31,6 @@ const Link = ({ to, className, children }) => {
       {children}
     </LinkElem>
   );
-};
+});
 
 export default memo(Link);

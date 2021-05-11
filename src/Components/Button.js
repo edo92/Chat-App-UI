@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import Icon from 'Components/Icon';
+
+import { ColorType } from 'Styled/styles';
 import {
   border,
   fontSecondary,
@@ -8,6 +10,7 @@ import {
 } from 'Styled/colors';
 
 export const BtnSimple = styled.button`
+  background: ${ColorType};
   display: inline-flex;
   padding: 9px 14px;
   background: transparent;
@@ -39,7 +42,6 @@ export const ButtonSimple = styled(BtnSimple)`
 `;
 
 export const Button = styled(ButtonSimple)`
-  background: none;
   border-radius: 0.25rem;
   border-width: 1px;
 
@@ -71,27 +73,29 @@ export const Button = styled(ButtonSimple)`
  * @param {String} [title]    button title
  */
 
-const ButtonComponent = ({
-  onClick,
-  className,
-  icon,
-  color,
-  fill,
-  size,
-  title,
-}) => (
-  <Button className={className} onClick={onClick}>
-    {icon ? (
-      <Icon
-        icon={icon}
-        color={color}
-        size={size}
-        fill={fill}
-      />
-    ) : (
-      <span>{title}</span>
-    )}
-  </Button>
+const ButtonComponent = memo(
+  ({
+    onClick,
+    className,
+    icon,
+    color,
+    fill,
+    size,
+    title,
+  }) => (
+    <Button className={className} onClick={onClick}>
+      {icon ? (
+        <Icon
+          icon={icon}
+          color={color}
+          size={size}
+          fill={fill}
+        />
+      ) : (
+        <span>{title}</span>
+      )}
+    </Button>
+  ),
 );
 
 export default memo(ButtonComponent);

@@ -64,22 +64,24 @@ const Title = styled.div`
  * @param {Object} children   Children passed
  */
 
-const Tooltip = ({ children, placement, title }) => {
-  const toUppercase = helpers.firstChartUppercase;
+const Tooltip = memo(
+  ({ children, placement, title }) => {
+    const toUppercase = helpers.firstChartUppercase;
 
-  return (
-    <Container placement={placement}>
-      <Content>{children}</Content>
+    return (
+      <Container placement={placement}>
+        <Content>{children}</Content>
 
-      <div>
-        <TitleWrapper placement={placement}>
-          <div className="tooltip">
-            <Title>{toUppercase(title)}</Title>
-          </div>
-        </TitleWrapper>
-      </div>
-    </Container>
-  );
-};
+        <div>
+          <TitleWrapper placement={placement}>
+            <div className="tooltip">
+              <Title>{toUppercase(title)}</Title>
+            </div>
+          </TitleWrapper>
+        </div>
+      </Container>
+    );
+  },
+);
 
 export default memo(Tooltip);

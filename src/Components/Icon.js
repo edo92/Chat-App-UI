@@ -10,7 +10,7 @@ import Helpers from 'helpers';
  * @param {String} [color] color code
  */
 
-const Icon = ({ icon, size, color, fill }) => {
+const Icon = memo(({ icon, size, color, fill }) => {
   const uppercase = Helpers.firstChartUppercase;
 
   const iconSize = {
@@ -40,6 +40,6 @@ const Icon = ({ icon, size, color, fill }) => {
       style={sizeIcon}
     />
   );
-};
+});
 
 export default memo(Icon);

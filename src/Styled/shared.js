@@ -70,7 +70,7 @@ export const Count = styled(CountBase)`
 `;
 
 export const BorderBox = styled.div`
-  border-bottom: 1px solid ${border};
+  border-top: 1px solid ${border};
 `;
 
 export const MessageStyle = styled.div`
