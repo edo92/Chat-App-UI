@@ -17,7 +17,7 @@ const highlight100 = 'rgba(0, 0, 0, 0.5)';
 const highlight200 = 'rgba(255, 255, 255, 0.3)';
 const highlight300 = '#333b4f';
 
-const font100 = 'black';
+const font100 = '#000000d1';
 const font200 = 'rgba(255, 255, 255, 0.5)';
 const font300 = '#212529';
 const font400 = 'rgba(255, 255, 255, 0.75)';
