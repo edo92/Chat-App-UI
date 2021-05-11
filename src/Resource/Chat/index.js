@@ -1,5 +1,13 @@
 import React from 'react';
 
-const Chat = () => <div></div>;
+import Header from './Header';
+
+const Chat = ({ data }) => {
+  return (
+    <>
+      <Header user={data.user} />
+    </>
+  );
+};
 
 export default Chat;

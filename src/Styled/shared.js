@@ -7,12 +7,13 @@ import {
 } from 'Styled/base';
 
 import {
-  fontSecondary,
   highlightSecondary,
   activePrimary,
   activeTertiary,
   border,
+  fontHighlight,
   fontPrimary,
+  fontSecondary,
 } from 'Styled/colors';
 
 export const Section = styled.div`
@@ -66,4 +67,15 @@ export const ActiveColor = styled.span`
 
 export const Count = styled(CountBase)`
   background-color: ${activePrimary};
+`;
+
+export const BorderBox = styled.div`
+  border-bottom: 1px solid ${border};
+`;
+
+export const MessageStyle = styled.div`
+  background-color: ${(props) =>
+    props.outgoing ? activePrimary : fontHighlight};
+  color: ${(props) =>
+    props.outgoing ? 'white' : fontSecondary};
 `;

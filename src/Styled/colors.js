@@ -40,6 +40,10 @@ export const activeTertiary = css`
   ${({ theme }) => theme.colors.activeTertiary};
 `;
 
+export const fontHighlight = css`
+  ${({ theme }) => theme.colors.fontHighlight};
+`;
+
 export const fontPrimary = css`
   ${({ theme }) => theme.colors.fontPrimary};
 `;
