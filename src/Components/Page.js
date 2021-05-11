@@ -15,7 +15,7 @@ const PageWrapper = styled.div`
 /**
  * @component
  * @param {Object} metadata   Metadata for PageMetadata
- * @param {children} children child component
+ * @param {Object} children child component
  */
 const Page = memo(({ metadata, children }) => {
   return (
