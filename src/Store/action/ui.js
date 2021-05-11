@@ -6,6 +6,8 @@ import {
 
 export const toggleNavTab = (tab) => {
   return (dispatch) => {
+    localStorage.setItem('nav', JSON.stringify(tab));
+
     dispatch({
       type: SET_NAV_TAB,
       payload: tab,
@@ -19,6 +21,13 @@ export const toggleTheme = (mode) => {
 
     const setMode =
       typeof mode === 'object' ? !current : mode;
+
+    localStorage.setItem(
+      'theme',
+      JSON.stringify({
+        isDarkTheme: setMode,
+      }),
+    );
 
     dispatch({
       type: SET_THEME_MODE,
