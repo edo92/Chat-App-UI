@@ -76,6 +76,7 @@ export const BorderBox = styled.div`
 export const MessageStyle = styled.div`
   background-color: ${(props) =>
     props.outgoing ? activePrimary : fontHighlight};
+    
   color: ${(props) =>
     props.outgoing ? 'white' : fontSecondary};
 `;

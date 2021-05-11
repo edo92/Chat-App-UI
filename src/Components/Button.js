@@ -10,7 +10,6 @@ import {
 } from 'Styled/colors';
 
 export const BtnSimple = styled.button`
-  background: ${ColorType};
   display: inline-flex;
   padding: 9px 14px;
   background: transparent;
@@ -42,6 +41,8 @@ export const ButtonSimple = styled(BtnSimple)`
 `;
 
 export const Button = styled(ButtonSimple)`
+  background: ${ColorType};
+
   border-radius: 0.25rem;
   border-width: 1px;
 
@@ -71,6 +72,7 @@ export const Button = styled(ButtonSimple)`
  * @param {String} [color]    color code
  * @param {String} [size]     sm | md | lg options
  * @param {String} [title]    button title
+ * @param {String} [type]     button type/color primary | success | error | warning ..etc
  */
 
 const ButtonComponent = memo(
@@ -82,8 +84,13 @@ const ButtonComponent = memo(
     fill,
     size,
     title,
+    type,
   }) => (
-    <Button className={className} onClick={onClick}>
+    <Button
+      type={type}
+      className={className}
+      onClick={onClick}
+    >
       {icon ? (
         <Icon
           icon={icon}
