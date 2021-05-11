@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import { List } from 'Styled/base';
 import { HighlightOnHover } from 'Styled/styles';
@@ -27,15 +27,17 @@ const MenuComponent = ({ children }) => {
  * @param {Object}   children
  * @param {Function} onClick
  */
-const ItemMenuComponent = ({ children, onClick }) => {
-  return (
-    <MenuItem
-      onClick={() => onClick(children.props.children)}
-    >
-      <span>{children}</span>
-    </MenuItem>
-  );
-};
+const ItemMenuComponent = memo(
+  ({ children, onClick }) => {
+    return (
+      <MenuItem
+        onClick={() => onClick(children.props.children)}
+      >
+        <span>{children}</span>
+      </MenuItem>
+    );
+  },
+);
 
 MenuComponent.Item = ItemMenuComponent;
 MenuComponent.Divider = Divider;

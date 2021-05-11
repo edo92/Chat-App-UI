@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import { Container } from 'Styled/base';
@@ -17,7 +17,7 @@ const PageWrapper = styled.div`
  * @param {Object} metadata   Metadata for PageMetadata
  * @param {children} children child component
  */
-const Page = ({ metadata, children }) => {
+const Page = memo(({ metadata, children }) => {
   return (
     <PageWrapper>
       <Container>
@@ -26,6 +26,6 @@ const Page = ({ metadata, children }) => {
       </Container>
     </PageWrapper>
   );
-};
+});
 
 export default Page;

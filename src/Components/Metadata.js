@@ -10,66 +10,64 @@ import { Location } from '@reach/router';
  * @param {String} title        page title
  * @param {String} canonicalUrl page pathnamee
  */
-const PageMetadata = ({
-  description,
-  title,
-  canonicalUrl,
-}) => {
-  return (
-    <Location>
-      {({ location }) => {
-        const { pathname } = location;
-        let canonicalPath = pathname;
+const PageMetadata = memo(
+  ({ description, title, canonicalUrl }) => {
+    return (
+      <Location>
+        {({ location }) => {
+          const { pathname } = location;
+          let canonicalPath = pathname;
 
-        const canonical =
-          canonicalUrl || `${site.url}${canonicalPath}`;
+          const canonical =
+            canonicalUrl ||
+            `${site.url}${canonicalPath}`;
 
-        const desc = description || site.description;
-        const siteTitle = site.siteTitle;
-        const siteUrl = site.url;
-        const siteUri = site.uri;
+          const desc = description || site.description;
+          const siteTitle = site.siteTitle;
+          const siteUrl = site.url;
+          const siteUri = site.uri;
 
-        return (
-          <Helmet
-            htmlAttributes={{ lang: 'en' }}
-            title={title}
-            titleTemplate={`%s | ${siteTitle}`}
-            link={[
-              {
-                rel: 'canonical',
-                key: canonical,
-                href: canonical,
-              },
-            ]}
-            meta={[
-              {
-                name: `description`,
-                content: desc,
-              },
-              {
-                property: `og:title`,
-                content: `${title} | ${siteTitle}`,
-              },
-              {
-                property: `og:description`,
-                content: desc,
-              },
-              {
-                property: `og:type`,
-                content: `website`,
-              },
-              {
-                property: `og:url`,
-                content: siteUrl,
-              },
-              {
-                property: `og:site_name`,
-                content: siteUri,
-              },
-            ]}
-          >
-            <script type="application/ld+json">
-              {`
+          return (
+            <Helmet
+              htmlAttributes={{ lang: 'en' }}
+              title={title}
+              titleTemplate={`%s | ${siteTitle}`}
+              link={[
+                {
+                  rel: 'canonical',
+                  key: canonical,
+                  href: canonical,
+                },
+              ]}
+              meta={[
+                {
+                  name: `description`,
+                  content: desc,
+                },
+                {
+                  property: `og:title`,
+                  content: `${title} | ${siteTitle}`,
+                },
+                {
+                  property: `og:description`,
+                  content: desc,
+                },
+                {
+                  property: `og:type`,
+                  content: `website`,
+                },
+                {
+                  property: `og:url`,
+                  content: siteUrl,
+                },
+                {
+                  property: `og:site_name`,
+                  content: siteUri,
+                },
+              ]}
+            >
+              <script type="application/ld+json">
+                {`
         {
           "@context": "${site.url}",
           "@type": "${site.type}",
@@ -79,13 +77,14 @@ const PageMetadata = ({
           "logo": "${site.logo}"
         }
       `}
-            </script>
-          </Helmet>
-        );
-      }}
-    </Location>
-  );
-};
+              </script>
+            </Helmet>
+          );
+        }}
+      </Location>
+    );
+  },
+);
 
 const site = {
   name: 'ChatX',

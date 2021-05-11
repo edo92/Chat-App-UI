@@ -73,27 +73,29 @@ export const Button = styled(ButtonSimple)`
  * @param {String} [title]    button title
  */
 
-const ButtonComponent = ({
-  onClick,
-  className,
-  icon,
-  color,
-  fill,
-  size,
-  title,
-}) => (
-  <Button className={className} onClick={onClick}>
-    {icon ? (
-      <Icon
-        icon={icon}
-        color={color}
-        size={size}
-        fill={fill}
-      />
-    ) : (
-      <span>{title}</span>
-    )}
-  </Button>
+const ButtonComponent = memo(
+  ({
+    onClick,
+    className,
+    icon,
+    color,
+    fill,
+    size,
+    title,
+  }) => (
+    <Button className={className} onClick={onClick}>
+      {icon ? (
+        <Icon
+          icon={icon}
+          color={color}
+          size={size}
+          fill={fill}
+        />
+      ) : (
+        <span>{title}</span>
+      )}
+    </Button>
+  ),
 );
 
 export default memo(ButtonComponent);
