@@ -83,7 +83,7 @@ const DropDown = ({
 
     if (data.includes('inside')) {
       !isOpen && setIsOpen(false);
-      isOpen && setDisabled(true);
+      setDisabled(true);
     }
   });
 
