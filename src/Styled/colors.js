@@ -60,6 +60,10 @@ export const fontInactive = css`
   ${({ theme }) => theme.colors.fontInactive};
 `;
 
+export const smooth = css`
+  ${({ theme }) => theme.colors.smooth};
+`;
+
 export const statuses = css`
   ${({ status, theme: { colors } }) =>
     ({
