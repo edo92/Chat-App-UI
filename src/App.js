@@ -1,12 +1,14 @@
 import React from 'react';
+import { PrivateRoute } from 'Router';
+import Layout from 'Layout';
+
+// Dom
 import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom';
 
-import { PrivateRoute } from 'Router';
-import Layout from 'Layout';
-
+// Pages
 import Home from 'Pages/Dashboard';
 
 const App = () => (

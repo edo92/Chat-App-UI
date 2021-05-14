@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PageWrapper from 'Components/Page';
+// Page Metadata
 import { metadata } from './content';
+import PageWrapper from 'Components/Page';
 
 // Partials
 import Navigation from 'Partials/Navigation';
@@ -42,8 +43,6 @@ class HomePage extends Component {
       apiHandlers,
     } = this.props;
 
-    const { toggleDrawer, toggleModal } = uiHandlers;
-
     return (
       <PageWrapper metadata={metadata}>
         <Navigation
@@ -66,13 +65,13 @@ class HomePage extends Component {
         />
 
         <SideDrawer
-          toggle={toggleDrawer}
           drawer={uiState.drawer}
+          toggle={uiHandlers.toggleDrawer}
         />
 
         <ModalMenu
           modal={uiState.modal}
-          toggle={toggleModal}
+          toggle={uiHandlers.toggleModal}
         />
       </PageWrapper>
     );

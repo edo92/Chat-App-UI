@@ -74,7 +74,7 @@ const SidebarBody = styled(Scrollbar)`
 
 const SideBar = memo(
   ({ data, uiState, apiHandlers, uiHandlers }) => (
-    <SectionArea md="visisble">
+    <SectionArea md="hidden">
       <Container>
         <InnerContainer>
           <Header>
