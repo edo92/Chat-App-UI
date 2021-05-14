@@ -71,7 +71,7 @@ const SidebarBody = styled(Scrollbar)`
 `;
 
 const SideBar = memo(
-  ({ data, activeTab, apiHandlers, toggleDrawer }) => (
+  ({ data, uiState, apiHandlers, uiHandlers }) => (
     <SectionArea md="visisble">
       <Container>
         <InnerContainer>
@@ -114,16 +114,16 @@ const SideBar = memo(
             </Form>
           </SearchBox>
           <SidebarBody>
-            {(activeTab === 'chat' || 'users') && (
+            {(uiState.navTab === 'chat' || 'users') && (
               <UserList
                 handleFetch={apiHandlers.getMessage}
-                activeTab={activeTab}
+                activeTab={uiState.navTab}
                 data={data}
                 menu={[
                   {
                     name: 'Profile',
                     toggle: (cnt, id) => {
-                      toggleDrawer(true, cnt);
+                      uiHandlers.toggleDrawer(true, cnt);
                       apiHandlers.getUserProfile(id);
                     },
                   },
