@@ -52,6 +52,7 @@ const Content = styled(ContentStyle)`
 /**
  *
  * @component
+ * @param {string}  id                       target id
  * @param {Object} children                  child component
  * @param {String} className                 passed by styled-components or overwritten by user
  * @param {Array} [overlay]                  dropdown menu items array
@@ -63,6 +64,7 @@ const Content = styled(ContentStyle)`
 
 const DropDown = memo(
   ({
+    id,
     children,
     className,
     align,
@@ -77,28 +79,22 @@ const DropDown = memo(
 
     // hooks
     useOnClickOutside(ref, (data) => {
-      if (disabled && data.includes('outside')) {
-        // promisify delay, solves outside click issue
-        helpers.promisify(setIsOpen);
+      if (data.includes('inside')) {
+        isOpen && helpers.promisify(setIsOpen);
+        disabled && setDisabled(true);
       }
 
-      if (data.includes('inside')) {
-        !isOpen && setIsOpen(false);
-        setDisabled(true);
+      if (data.includes('outside')) {
+        setIsOpen(false);
       }
     });
-
-    // dropdown open/close state
-    const toggle = () => {
-      setIsOpen(!isOpen);
-    };
 
     return (
       <Container align={align} className={className}>
         <div
           ref={ref}
           aria-label={className}
-          onClick={toggle}
+          onClick={() => setIsOpen(!isOpen)}
         >
           {children}
         </div>
@@ -114,13 +110,17 @@ const DropDown = memo(
               {overlay.map(
                 ({ name, toggle, divider }, index) => (
                   <span key={name + index}>
-                    {name && (
-                      <Menu.Item
-                        onClick={(cnt) => toggle(cnt)}
-                      >
-                        <span>{name}</span>
-                      </Menu.Item>
-                    )}
+                    <>
+                      {name && (
+                        <Menu.Item
+                          onClick={(cnt) =>
+                            toggle(cnt, id)
+                          }
+                        >
+                          <span>{name}</span>
+                        </Menu.Item>
+                      )}
+                    </>
                     {divider && <Menu.Divider />}
                   </span>
                 ),
