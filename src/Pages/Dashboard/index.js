@@ -9,6 +9,7 @@ import Navigation from 'Partials/Navigation';
 import SideBar from 'Partials/SideBar';
 import WorkBench from 'Partials/WorkBench';
 import SideDrawer from 'Partials/SideDrawer';
+import ModalMenu from 'Partials/Modal';
 
 // Store ui actions -> ui
 import {
@@ -41,7 +42,7 @@ class HomePage extends Component {
       apiHandlers,
     } = this.props;
 
-    const { toggleDrawer } = uiHandlers;
+    const { toggleDrawer, toggleModal } = uiHandlers;
 
     return (
       <PageWrapper metadata={metadata}>
@@ -68,14 +69,19 @@ class HomePage extends Component {
           toggle={toggleDrawer}
           drawer={uiState.drawer}
         />
+
+        <ModalMenu
+          modal={uiState.modal}
+          toggle={toggleModal}
+        />
       </PageWrapper>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log('state', state);
   const { ui, data } = state;
+
   return {
     uiState: {
       navTab: ui.nav.tab,
