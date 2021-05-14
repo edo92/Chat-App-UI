@@ -28,8 +28,8 @@ import {
 } from 'Store/action/data';
 
 class HomePage extends Component {
-  // Initial fetch
   componentDidMount() {
+    // Initial fetch
     this.props.initFetch.getFriendList();
     this.props.initFetch.getChatList();
   }

@@ -10,6 +10,14 @@ import {
   AccountMenu,
 } from './submenu';
 
+const ButtonSave = styled(Button)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 1rem;
+  color: #fff;
+`;
+
 const Container = styled.div`
   display: inline-block;
   position: relative;
@@ -22,44 +30,42 @@ const Wrapper = styled.div`
   padding-top: 1.5rem;
 `;
 
-const ButtonSave = styled(Button)`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 1rem;
-  color: #fff;
-`;
+const Settings = memo(() => {
+  // Horizontal menu items
+  const menulist = [
+    'Account',
+    'Notification',
+    'Security',
+  ];
 
-/* ** OptionItems can be in form */
-// **** */
+  const DynamicMenu = ({ menu }) => (
+    <>
+      {menu === 'Security' && <SecurityMenu />}
+      {menu === 'Account' && <AccountMenu />}
+      {menu === 'Notification' && <NotificMenu />}
+    </>
+  );
 
-const Settings = memo(() => (
-  <Container>
-    <HzMenu
-      menus={['Account', 'Notification', 'Security']}
-    >
-      {(menu) => (
-        <>
+  const ButtonSubmit = () => (
+    <ButtonSave
+      title="Save"
+      type={'primary'}
+      onClick={() => {}}
+    />
+  );
+
+  return (
+    <Container>
+      <HzMenu menus={menulist}>
+        {(menu) => (
           <Wrapper>
-            <>
-              {menu === 'Security' && <SecurityMenu />}
-              {menu === 'Account' && <AccountMenu />}
-              {menu === 'Notification' && (
-                <NotificMenu />
-              )}
-            </>
+            <DynamicMenu menu={menu} />
+            <ButtonSubmit />
           </Wrapper>
-          <Wrapper>
-            <ButtonSave
-              onClick={() => {}}
-              type={'primary'}
-              title="Save"
-            />
-          </Wrapper>
-        </>
-      )}
-    </HzMenu>
-  </Container>
-));
+        )}
+      </HzMenu>
+    </Container>
+  );
+});
 
 export default Settings;
