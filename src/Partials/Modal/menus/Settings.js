@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
+import { List, ListItem } from 'Styled/base';
 
 import Switch from 'Components/Switch';
 import Button from 'Components/Button';
-
-import { List, ListItem } from 'Components/Common';
+import HzMenu from 'Components/HzMenu';
 
 const Container = styled.div`
   display: inline-block;
@@ -89,7 +89,26 @@ const SecurityMenu = memo(() => (
 
 const Settings = memo(() => (
   <Container>
-   
+    <HzMenu
+      menus={['Account', 'Notification', 'Security']}
+    >
+      {(menu) => (
+        <>
+          <Wrapper>
+            {menu === 'Account' && <AccountMenu />}
+            {menu === 'Notification' && <NotificMenu />}
+            {menu === 'Security' && <SecurityMenu />}
+          </Wrapper>
+          <Wrapper>
+            <ButtonSave
+              onClick={() => {}}
+              type={'primary'}
+              title="Save"
+            />
+          </Wrapper>
+        </>
+      )}
+    </HzMenu>
   </Container>
 ));
 

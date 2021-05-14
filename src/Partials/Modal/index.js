@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'Components/Modal';
+import SettingsMenu from './menus/Settings';
 
 const ModalMenu = ({ modal, toggle }) => (
   <div>
@@ -11,7 +12,7 @@ const ModalMenu = ({ modal, toggle }) => (
     >
       <>
         {modal.activeMenu === 'Settings' && (
-          <h1>hello world</h1>
+          <SettingsMenu />
         )}
       </>
     </Modal>
