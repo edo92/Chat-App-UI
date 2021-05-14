@@ -54,9 +54,9 @@ class HomePage extends Component {
         />
 
         <SideBar
-          activeTab={uiState.navTab}
+          uiState={uiState}
+          uiHandlers={uiHandlers}
           apiHandlers={apiHandlers}
-          toggleDrawer={toggleDrawer}
           data={dataState.tabContext}
         />
 
@@ -89,10 +89,8 @@ const mapStateToProps = (state) => {
       modal: ui.modal,
     },
     dataState: {
-      // gets data based on nav/tab selection
-      tabContext: data[ui.nav.tab],
-      // gets data based on nav/tab and sidebar sel.
-      barContext: data[ui.nav.action],
+      tabContext: data[ui.nav.tab], // gets data based on nav/tab selection
+      barContext: data[ui.nav.action], // gets data based on nav/tab and sidebar sel.
       profile: data.profile,
       masterUser: data.masterUser,
     },
