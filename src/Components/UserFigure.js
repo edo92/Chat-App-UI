@@ -81,54 +81,52 @@ const AvatarFigure = memo(({ children, status }) => (
 /**
  *
  * @component
- * @param {String} avatar   image url
- * @param {String} name     user's name
- * @param {String} [text]   underlaying text
- * @param {String} [active] is active state
- * @param {String} [status] badge status
+ * @param {String} avatar     image url
+ * @param {String} name       user's name
+ * @param {String} [text]     underlaying text
+ * @param {String} [active]   is active state
+ * @param {String} [status]   badge status
  * @param {String} [fontSize] name font size
  */
 
-const UserFigure = ({
-  text,
-  avatar,
-  name,
-  fontSize,
-  active,
-  status,
-}) => (
-  <>
-    <Figure>
-      {status && (
-        <CustomBadge
-          border={true}
-          status={
-            status === 'active' ? 'success' : 'warning'
-          }
-        />
-      )}
-      <AvatarFigure status={status} avatar={avatar}>
-        <>
-          {avatar.image ? (
-            <AvatarImg src={avatar.image} alt="avatar" />
-          ) : (
-            <AvatarTitle>{avatar.title}</AvatarTitle>
-          )}
-        </>
-      </AvatarFigure>
-    </Figure>
-    <ListBody>
-      <div>
-        <ContentTitle
-          fontSize={fontSize}
-          active={active}
-        >
-          {name}
-        </ContentTitle>
-        {text}
-      </div>
-    </ListBody>
-  </>
+const UserFigure = memo(
+  ({ text, avatar, name, fontSize, active, status }) => (
+    <>
+      <Figure>
+        {status && (
+          <CustomBadge
+            border={true}
+            status={
+              status === 'active' ? 'success' : 'warning'
+            }
+          />
+        )}
+        <AvatarFigure status={status} avatar={avatar}>
+          <>
+            {avatar.image ? (
+              <AvatarImg
+                src={avatar.image}
+                alt="avatar"
+              />
+            ) : (
+              <AvatarTitle>{avatar.title}</AvatarTitle>
+            )}
+          </>
+        </AvatarFigure>
+      </Figure>
+      <ListBody>
+        <div>
+          <ContentTitle
+            fontSize={fontSize}
+            active={active}
+          >
+            {name}
+          </ContentTitle>
+          {text}
+        </div>
+      </ListBody>
+    </>
+  ),
 );
 
 export default memo(UserFigure);

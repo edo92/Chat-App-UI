@@ -88,6 +88,19 @@ const TitleWrapper = styled.div`
   gap: 0.25rem;
 `;
 
+const Title = ({ icon, title }) => (
+  <TitleWrapper>
+    {icon && <Icon icon={icon} />}
+    <H3>{title}</H3>
+  </TitleWrapper>
+);
+
+const CloseHandler = ({ toggle }) => (
+  <Close onClick={() => toggle(false)}>
+    <>&times;</>
+  </Close>
+);
+
 /**
  *
  * @component
@@ -100,6 +113,7 @@ const TitleWrapper = styled.div`
 
 const ModalComponent = memo(
   ({ active, title, icon, toggle, children }) => {
+    // hook ref on content
     const ref = createRef();
 
     //  Outside click hook
@@ -113,13 +127,8 @@ const ModalComponent = memo(
       <Modal active={active}>
         <Content ref={ref}>
           <Header>
-            <TitleWrapper>
-              {icon && <Icon icon={icon} />}
-              <H3>{title}</H3>
-            </TitleWrapper>
-            <Close onClick={() => toggle(false)}>
-              &times;
-            </Close>
+            <Title icon={icon} title={title} />
+            <CloseHandler toggle={toggle} />
           </Header>
           <Body>{children}</Body>
         </Content>

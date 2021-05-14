@@ -31,12 +31,10 @@ const Img = styled.img`
  * @component
  * @param {String} size  sm | md
  */
-const Avatar = ({ size }) => {
-  return (
-    <Figure size={size}>
-      <Img src={WomenAvatar5} alt="avatar" />
-    </Figure>
-  );
-};
+const Avatar = memo(({ size }) => (
+  <Figure size={size}>
+    <Img src={WomenAvatar5} alt="avatar" />
+  </Figure>
+));
 
 export default memo(Avatar);

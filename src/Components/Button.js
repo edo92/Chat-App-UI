@@ -67,36 +67,37 @@ export const Button = styled(ButtonSimple)`
 /**
  *
  * @component
- * @param {Function} onClick  onClick handler function
- * @param {String} icon       button icon
- * @param {String} [color]    color code
- * @param {String} [size]     sm | md | lg options
- * @param {String} [title]    button title
- * @param {String} [type]     button type/color primary | success | error | warning ..etc
+ * @param {Function} onClick      onClick handler function
+ * @param {String}   [className]  className passed for styled components
+ * @param {String}   [icon]       button icon
+ * @param {String}   [color]      color code
+ * @param {String}   [size]       sm | md | lg options
+ * @param {String}   [title]      button title
+ * @param {String}   [type]       button type/color primary | success | error | warning ..etc
  */
 
 const ButtonComponent = memo(
   ({
-    onClick,
-    className,
     icon,
     color,
     fill,
     size,
     title,
     type,
+    onClick,
+    className,
   }) => (
     <Button
       type={type}
-      className={className}
       onClick={onClick}
+      className={className}
     >
       {icon ? (
         <Icon
           icon={icon}
-          color={color}
           size={size}
           fill={fill}
+          color={color}
         />
       ) : (
         <span>{title}</span>

@@ -1,21 +1,24 @@
 import React, { memo, useState, createRef } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import helpers from 'helpers';
 
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 import { Card } from 'Styled/shared';
 import Menu from 'Components/Menu';
 
+const dynamicAlign = css`
+  text-align: ${({ align }) =>
+    align ? align : 'center'};
+`;
+
 const Container = styled.div`
+  ${dynamicAlign};
   z-index: 12;
-  position: relative;
-  border-color: transparent;
   transform: none;
   cursor: pointer;
   transform: none;
-
-  text-align: ${(props) =>
-    props.align ? props.align : 'center'};
+  position: relative;
+  border-color: transparent;
 `;
 
 const ContentStyle = styled(Card)`
@@ -35,18 +38,30 @@ const MenuContainer = styled.div`
   transform: none;
 `;
 
-const Content = styled(ContentStyle)`
-  transform: ${(props) =>
+// Dynamic visibiliy
+const visibility = css`
+  visibility: ${({ isOpen }) =>
+    isOpen ? 'visible' : 'hidden'};
+`;
+
+// Dynamic spacing
+const spaceing = css`
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
+`;
+
+const transform = css`
+  transform: ${({ placement }) =>
     ({
       topRight: 'translate3d(12px, -143px, 0px)',
       bottomLeft: 'translate3d(-100px, 20px, 0px)',
-    }[props.placement])};
+    }[placement])};
+`;
 
-  visibility: ${(props) =>
-    props.isOpen ? 'visible' : 'hidden'};
-
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
+const Content = styled(ContentStyle)`
+  ${spaceing};
+  ${transform};
+  ${visibility};
 `;
 
 /**
@@ -77,14 +92,18 @@ const DropDown = memo(
     const [disabled, setDisabled] = useState(false);
     const ref = createRef();
 
-    // hooks
-    useOnClickOutside(ref, (data) => {
-      if (data.includes('inside')) {
+    // outside click hook
+    useOnClickOutside(ref, (target) => {
+      const isOutside = target.includes('outside');
+      const isInside = target.includes('inside');
+
+      if (isInside) {
+        // Delay dropdown on close, afte click exec.
         isOpen && helpers.promisify(setIsOpen);
         disabled && setDisabled(true);
       }
 
-      if (data.includes('outside')) {
+      if (isOutside) {
         setIsOpen(false);
       }
     });

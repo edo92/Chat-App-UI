@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import { TextSecondary } from 'Styled/styles';
 import UnselectedChat from 'assets/img/unselected-chat.svg';
@@ -38,29 +38,26 @@ const svgIcons = {
  * @param {String} [title]     title commands action
  * @param {Object} [children]  element passed as child
  */
-const EmptyComponent = ({
-  svg = 'unselected',
-  image,
-  title,
-  children,
-}) => {
-  const svgImage = image || svgIcons[svg];
+const EmptyComponent = memo(
+  ({ svg = 'unselected', image, title, children }) => {
+    const svgImage = image || svgIcons[svg];
 
-  return (
-    <UnselectedContainer>
-      <Unselected>
-        <Image
-          width={200}
-          src={svgImage}
-          alt="unselected"
-        />
-        <>
-          {title && <Text>{title}</Text>}
-          {children && children}
-        </>
-      </Unselected>
-    </UnselectedContainer>
-  );
-};
+    return (
+      <UnselectedContainer>
+        <Unselected>
+          <Image
+            width={200}
+            src={svgImage}
+            alt="unselected"
+          />
+          <>
+            {title && <Text>{title}</Text>}
+            {children && children}
+          </>
+        </Unselected>
+      </UnselectedContainer>
+    );
+  },
+);
 
 export default EmptyComponent;
