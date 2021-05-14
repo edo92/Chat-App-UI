@@ -10,12 +10,8 @@ import {
   AccountMenu,
 } from './submenu';
 
-const ButtonSave = styled(Button)`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 1rem;
-  color: #fff;
+const Wrapper = styled.div`
+  padding-top: 1.5rem;
 `;
 
 const Container = styled.div`
@@ -26,8 +22,12 @@ const Container = styled.div`
   padding: 0.5rem 0;
 `;
 
-const Wrapper = styled.div`
-  padding-top: 1.5rem;
+const ButtonSave = styled(Button)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 1rem;
+  color: #fff;
 `;
 
 const Settings = memo(() => {

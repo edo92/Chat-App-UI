@@ -57,80 +57,85 @@ const DropDown = styled(Dropdown)`
   text-align: right;
 `;
 
-const ChatView = ({
-  data,
-  handleFetch,
-  activeTab,
-  menu,
-}) => {
-  const [active, setactive] = useState({});
+const ChatView = memo(
+  ({ data, handleFetch, activeTab, overlay }) => {
+    const [active, setactive] = useState({});
 
-  const handleSelect = (item) => {
-    setactive({ ...active, [activeTab]: item });
-    handleFetch(item); // Get Content action
-  };
+    const handleSelect = (item) => {
+      setactive({ ...active, [activeTab]: item });
+      handleFetch(item); // Get Content action
+    };
 
-  if (!data) return <></>;
+    if (!data) return <></>;
 
-  return (
-    <>
-      {data.map((item, i) => {
-        const {
-          id,
-          date,
-          text,
-          name,
-          avatar,
-          status,
-          unread_messages,
-        } = item;
+    return (
+      <>
+        {data.map((item, i) => {
+          const {
+            id,
+            date,
+            text,
+            name,
+            avatar,
+            status,
+            unread_messages,
+          } = item;
 
-        return (
-          <ListView
-            key={i}
-            active={active[activeTab]?.id === id}
-            onClick={() => handleSelect(item)}
-          >
-            {avatar && (
-              <UserFigure
-                name={name}
-                avatar={avatar}
-                active={!!unread_messages}
-                text={<Text>{text}</Text>}
-                status={status}
-              />
-            )}
-            <ListAction>
-              <Action className="count">
-                {unread_messages ? (
-                  <Count>{unread_messages}</Count>
-                ) : (
-                  <></>
-                )}
-                <SmallPrimary active={unread_messages}>
-                  {date}
-                </SmallPrimary>
-              </Action>
-              <DropDown
-                id={id}
-                overlay={menu}
-                align="right"
-                placement="bottomLeft"
-                className="dropdown-item"
-              >
-                <ActiveColor>
-                  <Icon
-                    size="lg"
-                    icon="MoreHorizontal"
+          return (
+            <ListView
+              key={i}
+              active={active[activeTab]?.id === id}
+              onClick={() => handleSelect(item)}
+            >
+              <>
+                {avatar && (
+                  <UserFigure
+                    name={name}
+                    avatar={avatar}
+                    active={!!unread_messages}
+                    text={<Text>{text}</Text>}
+                    status={status}
                   />
-                </ActiveColor>
-              </DropDown>
-            </ListAction>
-          </ListView>
-        );
-      })}
-    </>
-  );
-};
+                )}
+              </>
+              <ListAction>
+                <>
+                  <Action className="count">
+                    {unread_messages ? (
+                      <Count>{unread_messages}</Count>
+                    ) : (
+                      <></>
+                    )}
+                    <SmallPrimary
+                      active={unread_messages}
+                    >
+                      {date}
+                    </SmallPrimary>
+                  </Action>
+                </>
+                <>
+                  <DropDown
+                    id={id}
+                    overlay={overlay}
+                    align="right"
+                    placement="bottomLeft"
+                    className="dropdown-item"
+                  >
+                    <ActiveColor>
+                      <Icon
+                        size="lg"
+                        icon="MoreHorizontal"
+                      />
+                    </ActiveColor>
+                  </DropDown>
+                </>
+              </ListAction>
+            </ListView>
+          );
+        })}
+      </>
+    );
+  },
+);
 
 export default memo(ChatView);
