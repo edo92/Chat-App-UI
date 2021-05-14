@@ -53,7 +53,11 @@ const NavItem = styled(ListItem)`
   margin: 1.5rem 20px 0;
 `;
 
-const Navigation = ({ activeTab, uiHandlers }) => {
+const Navigation = ({
+  uiState,
+  uiHandlers,
+  apiHandlers,
+}) => {
   const { toggleNavTab, toggleTheme } = uiHandlers;
 
   return (
@@ -69,8 +73,8 @@ const Navigation = ({ activeTab, uiHandlers }) => {
             <NavList>
               <TabPanel
                 tabsMenu={tabsMenu}
-                selected={activeTab}
                 toggle={toggleNavTab}
+                selected={uiState.navTab}
               />
             </NavList>
           </NavBody>
@@ -93,7 +97,10 @@ const Navigation = ({ activeTab, uiHandlers }) => {
                 >
                   <Dropdown
                     placement={'topRight'}
-                    overlay={dropmenu(uiHandlers)}
+                    overlay={dropmenu(
+                      uiHandlers,
+                      apiHandlers,
+                    )}
                   >
                     <Avatar size="md" />
                   </Dropdown>

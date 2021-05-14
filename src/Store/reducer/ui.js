@@ -2,6 +2,7 @@ import {
   SET_NAV_TAB,
   SET_DRAWER_STATE,
   SET_THEME_MODE,
+  SET_MODAL_STATE
 } from '../static';
 
 const theme = JSON.parse(localStorage.getItem('theme'));
@@ -44,6 +45,16 @@ const uiInterface = (state = initialState, action) => {
         ...state,
         theme: {
           ...state.theme,
+          ...action.payload,
+        },
+      };
+    }
+
+    case SET_MODAL_STATE: {
+      return {
+        ...state,
+        modal: {
+          ...state.modal,
           ...action.payload,
         },
       };

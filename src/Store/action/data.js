@@ -15,6 +15,7 @@ import { users } from '__Dataset/users';
 export const getUserProfile = (id) => {
   return async (dispatch) => {
     // Dev
+    console.log('getting user id', id);
     const dataset = await Promise.all([users[id]]);
     dispatch({
       type: SET_USER_INFO,

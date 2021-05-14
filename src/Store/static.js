@@ -5,3 +5,4 @@ export const SET_CHAT_LIST = 'SET_CHAT_LIST';
 export const GET_CONVERSATION = 'GET_CONVERSATION';
 export const SET_DRAWER_STATE = 'SET_DRAWER_STATE';
 export const SET_USER_INFO = 'SET_USER_INFO';
+export const SET_MODAL_STATE = 'SET_MODAL_STATE';

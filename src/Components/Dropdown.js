@@ -92,7 +92,6 @@ const DropDown = memo(
     return (
       <Container align={align} className={className}>
         <div
-          ref={ref}
           aria-label={className}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -105,7 +104,7 @@ const DropDown = memo(
           top={top}
           left={left}
         >
-          <MenuContainer>
+          <MenuContainer ref={ref}>
             <Menu>
               {overlay.map(
                 ({ name, toggle, divider }, index) => (

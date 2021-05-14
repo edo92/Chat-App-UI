@@ -21,7 +21,7 @@ export const tabsMenu = [
   },
 ];
 
-export const dropmenu = (handlers) => {
+export const dropmenu = (uiHandlers, apiHandlers) => {
   return [
     {
       name: 'Edit profile',
@@ -29,11 +29,16 @@ export const dropmenu = (handlers) => {
     },
     {
       name: 'Profile',
-      toggle: () => console.log(),
+      toggle: (cnt, id) => {
+        uiHandlers.toggleDrawer(true, cnt);
+        apiHandlers.getUserProfile(id);
+      },
     },
     {
       name: 'Settings',
-      toggle: (cnt) => handlers.toggleDrawer(true, cnt),
+      toggle: (cnt) => {
+        uiHandlers.toggleModal(true, cnt);
+      },
     },
     { divider: true },
     {

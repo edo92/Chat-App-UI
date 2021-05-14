@@ -112,10 +112,11 @@ const ChatView = ({
                 </SmallPrimary>
               </Action>
               <DropDown
-                className="dropdown-item"
-                placement="bottomLeft"
-                align="right"
+                id={id}
                 overlay={menu}
+                align="right"
+                placement="bottomLeft"
+                className="dropdown-item"
               >
                 <ActiveColor>
                   <Icon
