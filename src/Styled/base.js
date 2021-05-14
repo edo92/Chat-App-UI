@@ -14,6 +14,12 @@ export const InnerContainer = styled.div`
   margin: 0;
 `;
 
+export const Inner = styled.div`
+  width: 100%;
+  position: relative;
+  display: block;
+`;
+
 export const List = styled.ul`
   width: 100%;
   margin: 0;

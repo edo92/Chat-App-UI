@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { background } from 'Styled/colors';
+
+const platform = navigator.platform.includes('Win');
 
 const Scrollbar = styled.div`
   position: relative;
   overflow-y: scroll;
   
   &:: -webkit-scrollbar {
-    display: ${navigator.platform.includes('Win')
+    display: ${platform}
       ? 'none'
       : 'block'};
   }

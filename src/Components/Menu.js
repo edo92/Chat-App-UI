@@ -18,14 +18,19 @@ const Divider = styled.div`
   margin: 0.4rem 0;
 `;
 
-const MenuComponent = ({ children }) => {
+/**
+ * @component Menu
+ * @param {Object} children  menu component wraps menu item
+ */
+const MenuComponent = memo(({ children }) => {
   return <List>{children}</List>;
-};
+});
 
 /**
- *
- * @param {Object}   children
- * @param {Function} onClick
+ * @component Menu
+ * @param {Object}    Menu.Item  menu iteme component object
+ * @param {Object}    children   content passed as children
+ * @param {Function}  onClick    menu item onClick
  */
 const ItemMenuComponent = memo(
   ({ children, onClick }) => {

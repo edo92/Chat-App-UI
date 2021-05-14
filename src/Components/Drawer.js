@@ -4,16 +4,15 @@ import styled from 'styled-components';
 import helpers from 'helpers';
 import Button from 'Components/Button';
 
-import {
-  slidein,
-  slideout,
-} from 'Styled/anim';
+import { slidein, slideout } from 'Styled/anim';
 
 const ContainerStyles = styled.div`
   transition: visibility 1s ease-in;
-  ${({ open }) => (open ? slidein : slideout)}
+
   visibility: ${({ open }) =>
     open ? 'visible' : 'hidden'};
+
+  ${({ open }) => (open ? slidein : slideout)};
 `;
 
 const Container = styled(ContainerStyles)`
@@ -58,6 +57,16 @@ const Body = styled.div`
   overflow: auto;
   padding: 2rem;
 `;
+
+/**
+ *
+ * @component
+ * @param {Boolean}   open      is drawer open
+ * @param {String}    title     drawer header title
+ * @param {Function}  toggle    toggle drawer open/close state
+ * @param {String}    className parent passed className
+ * @param {Object}    children  passed content to drawer as childrne
+ */
 
 const Drawer = memo(
   ({ open, title, toggle, className, children }) => {

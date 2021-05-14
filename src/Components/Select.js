@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
 import { button } from 'Styled/styles';
 import {
   highlightPrimary,
@@ -9,33 +8,40 @@ import {
   fontInactive,
 } from 'Styled/colors';
 
-const SelectButton = styled.span`
-  ${button};
-  padding: 0.9rem;
+const color = css`
+  color: ${({ active }) =>
+    active ? fontActive : fontInactive};
 `;
-
-const ButtonSelect = styled(SelectButton)`
-  background-color: ${(props) =>
-    props.active && highlightPrimary};
-
-  color: ${(props) =>
-    props.active ? fontActive : fontInactive};
-
+const bgColor = css`
+  background-color: ${({ active }) =>
+    active && highlightPrimary};
+`;
+const bgColorHover = css`
   &: hover {
-    background-color: ${(props) =>
-      !props.active && highlightSecondary};
+    background-color: ${({ active }) =>
+      !active && highlightSecondary};
   }
 `;
 
+const ButtonSelect = styled.span`
+  ${color};
+  ${button};
+  ${bgColor};
+  ${bgColorHover};
+  padding: 0.9rem;
+`;
+
 /**
+ *
  * @component
  * @param {Boolean} active    background color change
  * @param {Function} onClick  onClick prop
  * @param {Object}  children  <Icon passed as children
  */
-const Button = memo(({ active, onClick, children }) => (
-  <ButtonSelect active={active} onClick={onClick}>
-    {children && children}
+
+const Button = memo((props) => (
+  <ButtonSelect {...props}>
+    {props.children && props.children}
   </ButtonSelect>
 ));
 

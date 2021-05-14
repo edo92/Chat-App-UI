@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -78,7 +78,6 @@ const inputAfter = css`
   margin-top: ${({ size }) => sizes[size].input.top};
 `;
 
-// Styled
 const CheckBoxWrapper = styled.div`
   position: relative;
 `;
@@ -143,38 +142,40 @@ const Input = styled.input`
   }
 `;
 
-const App = ({ size = 'md', label, id = uuidv4() }) => {
-  const [status, setStatus] = useState(false);
-  const [anim, setAnimate] = useState(false);
+const App = memo(
+  ({ size = 'md', label, id = uuidv4() }) => {
+    const [status, setStatus] = useState(false);
+    const [anim, setAnimate] = useState(false);
 
-  const onChange = () => {
     // status & anim state
-    setStatus(!status);
-    setAnimate(true);
+    const onChange = () => {
+      setStatus(!status);
+      setAnimate(true);
 
-    // Triggers wave animation for .ms
-    setTimeout(() => {
-      anim && setAnimate(false);
-    }, 600);
-  };
+      // Triggers wave animation for .ms
+      setTimeout(() => {
+        anim && setAnimate(false);
+      }, 600);
+    };
 
-  return (
-    <CheckBoxWrapper>
-      <Input
-        onClick={onChange}
-        id={id}
-        size={size}
-        type="checkbox"
-      />
-      <Slider
-        status={status}
-        anim={anim}
-        size={size}
-        htmlFor={id}
-      />
-      {label && <Lable size={size}>{label}</Lable>}
-    </CheckBoxWrapper>
-  );
-};
+    return (
+      <CheckBoxWrapper>
+        <Input
+          onClick={onChange}
+          id={id}
+          size={size}
+          type="checkbox"
+        />
+        <Slider
+          status={status}
+          anim={anim}
+          size={size}
+          htmlFor={id}
+        />
+        {label && <Lable size={size}>{label}</Lable>}
+      </CheckBoxWrapper>
+    );
+  },
+);
 
 export default App;
