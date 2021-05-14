@@ -122,8 +122,10 @@ const SideBar = memo(
                 menu={[
                   {
                     name: 'Profile',
-                    toggle: (cnt) =>
-                      toggleDrawer(true, cnt),
+                    toggle: (cnt, id) => {
+                      toggleDrawer(true, cnt);
+                      apiHandlers.getUserProfile(id);
+                    },
                   },
                   {
                     name: 'Delete',
