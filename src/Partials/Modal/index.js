@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'Components/Modal';
-import SettingsMenu from './menus/Settings';
+import SettingsMenu from './menus/settings';
 
 const ModalMenu = ({ modal, toggle }) => (
   <div>
