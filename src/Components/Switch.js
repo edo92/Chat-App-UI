@@ -7,7 +7,7 @@ import {
   fontSecondary,
   highlightSecondary,
   borderTertiary,
-} from 'Components/Common';
+} from 'Styled/colors';
 
 const sizes = {
   md: {

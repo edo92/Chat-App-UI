@@ -11,7 +11,9 @@ const error = 'red';
 const border100 = '#293145';
 const border200 = '#e6e6e6';
 const border300 = '#e9ecef';
-const boroder400 = '#384054';
+const border400 = '#384054';
+const border500 = '#adb5bd';
+const border600 = '#424a5e';
 
 const highlight100 = 'rgba(0, 0, 0, 0.5)';
 const highlight200 = 'rgba(255, 255, 255, 0.3)';
@@ -51,6 +53,7 @@ const lightColors = {
 
   borderPrimary: border200,
   borderSecondary: border300,
+  borderTertiary: border500,
 
   highlightActive: border200,
   highlightPrimary: border200,
@@ -72,7 +75,8 @@ const darkColors = {
   activeTertiary: active200,
 
   borderPrimary: border100,
-  borderSecondary: boroder400,
+  borderSecondary: border400,
+  borderTertiary: border600,
 
   highlightActive: highlight300,
   highlightPrimary: primary,
