@@ -1,9 +1,15 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { Section, Input } from 'Styled/shared';
-import { TextSecondary } from 'Styled/styles';
+import Icon from 'Components/Icon';
+import Tooltip from 'Components/Tooltip';
+import Scrollbar from 'Components/Scrollbar';
+import { ButtonSimple } from 'Components/Button';
+import UserList from './UserList';
+
 import { border } from 'Styled/colors';
+import { TextSecondary } from 'Styled/styles';
+import { Section, Input } from 'Styled/shared';
 import {
   Container as MainContainer,
   InnerContainer,
@@ -11,18 +17,10 @@ import {
   List,
 } from 'Styled/base';
 
-import Tooltip from 'Components/Tooltip';
-import Icon from 'Components/Icon';
-import { ButtonSimple } from 'Components/Button';
-import Scrollbar from 'Components/Scrollbar';
-import UserList from './UserList';
-
-const SectionArea = styled(Section)`
-  border-right: 1px solid ${border};
-`;
-
-const Container = styled(MainContainer)`
-  width: 350px;
+const Title = styled.span`
+  color: ${TextSecondary};
+  font-size: 22px;
+  font-weight: 600;
 `;
 
 const Header = styled.header`
@@ -32,20 +30,6 @@ const Header = styled.header`
   padding: 0 30px;
   height: 80px;
   font-weight: 500;
-`;
-
-const Title = styled.span`
-  color: ${TextSecondary};
-  font-size: 22px;
-  font-weight: 600;
-`;
-
-const ButtonList = styled(List)`
-  display: flex;
-`;
-
-const ButtonItem = styled(ListItem)`
-  margin-left: 0.5rem;
 `;
 
 const Form = styled.form`
@@ -60,6 +44,22 @@ const SearchBox = styled.div`
   position: relative;
   width: 100%;
   height: 5.75rem;
+`;
+
+const SectionArea = styled(Section)`
+  border-right: 1px solid ${border};
+`;
+
+const Container = styled(MainContainer)`
+  width: 350px;
+`;
+
+const ButtonList = styled(List)`
+  display: flex;
+`;
+
+const ButtonItem = styled(ListItem)`
+  margin-left: 0.5rem;
 `;
 
 const SearchInput = styled(Input)`
