@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import { ListItem } from 'Styled/base';
-
 import Icon from 'Components/Icon';
 import Tootip from 'Components/Tooltip';
 import ButtonSelect from 'Components/Select';

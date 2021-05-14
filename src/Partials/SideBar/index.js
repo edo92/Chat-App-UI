@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import UserList from './UserList';
+import { dropmenu } from './menu';
+
 import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
 import Scrollbar from 'Components/Scrollbar';
 import { ButtonSimple } from 'Components/Button';
-import UserList from './UserList';
 
 import { border } from 'Styled/colors';
 import { TextSecondary } from 'Styled/styles';
@@ -116,22 +118,13 @@ const SideBar = memo(
           <SidebarBody>
             {(uiState.navTab === 'chat' || 'users') && (
               <UserList
-                handleFetch={apiHandlers.getMessage}
-                activeTab={uiState.navTab}
                 data={data}
-                menu={[
-                  {
-                    name: 'Profile',
-                    toggle: (cnt, id) => {
-                      uiHandlers.toggleDrawer(true, cnt);
-                      apiHandlers.getUserProfile(id);
-                    },
-                  },
-                  {
-                    name: 'Delete',
-                    toggle: () => console.log(),
-                  },
-                ]}
+                activeTab={uiState.navTab}
+                handleFetch={apiHandlers.getMessage}
+                overlay={dropmenu(
+                  uiHandlers,
+                  apiHandlers,
+                )}
               />
             )}
           </SidebarBody>
