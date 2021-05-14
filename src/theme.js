@@ -28,7 +28,12 @@ const font700 = '#ebebeb';
 const active100 = '#f0f0f0';
 const active200 = '#1f273b';
 
+const soloColor = {
+  smooth: highlight200,
+};
+
 const baseColors = {
+  ...soloColor,
   dark,
   light,
   primary,
