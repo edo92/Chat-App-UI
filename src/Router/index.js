@@ -5,25 +5,38 @@ import { Route } from 'react-router-dom';
 const auth = true; // needs to be in context
 // ************
 
-export const PrivateRoute = (props) => {
-  const Component = props.component;
-
-  if (!auth) return <Redirect to="/login" />;
-
+export const PrivateRoute = ({
+  component: Component,
+  ...rest
+}) => {
   return (
-    <Route exact={props.exact} path={props.path}>
-      <Component />
-    </Route>
+    <Route
+      {...rest}
+      render={(props) =>
+        auth ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
   );
 };
 
-export const ProtectedRoute = (props) => {
-  const Component = props.component;
-  if (auth) return <Redirect to="/" />;
-
+export const ProtectedRoute = ({
+  component: Component,
+  ...rest
+}) => {
   return (
-    <Route exact={props.exact} path={props.path}>
-      <Component />
-    </Route>
+    <Route
+      {...rest}
+      render={(props) =>
+        auth ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/" />
+        )
+      }
+    />
   );
 };
