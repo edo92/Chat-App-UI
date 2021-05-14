@@ -61,6 +61,7 @@ const ChatView = memo(
   ({ data, handleFetch, activeTab, overlay }) => {
     const [active, setactive] = useState({});
 
+    // Select target user
     const handleSelect = (item) => {
       setactive({ ...active, [activeTab]: item });
       handleFetch(item); // Get Content action
