@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import Modal from 'Components/Modal';
-import SettingsMenu from './menus/settings';
+import SettingsMenu from './menus/Settings';
 
 const ModalMenu = memo(({ modal, toggle }) => (
   <Modal
