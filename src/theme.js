@@ -33,6 +33,7 @@ const active200 = '#1f273b';
 
 const soloColor = {
   smooth: highlight200,
+  font: font500,
 };
 
 const baseColors = {

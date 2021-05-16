@@ -2,11 +2,13 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { TextSecondary } from 'Styled/styles';
 import UnselectedChat from 'assets/img/unselected-chat.svg';
+import { TextBase } from 'Styled/base';
+import { fontSecondary } from 'Styled/colors';
 
 const Text = styled.p`
-  ${TextSecondary};
+  ${TextBase};
+  color: ${fontSecondary};
   font-size: 16px;
   font-weight: 300;
 `;

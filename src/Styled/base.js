@@ -67,6 +67,12 @@ export const CountBase = styled.div`
   padding-top: 1px;
 `;
 
+export const Form = styled.form`
+  position: relative;
+  display: block;
+  width: 100%;
+`;
+
 export const button = css`
   display: flex;
   justify-content: center;
@@ -76,8 +82,7 @@ export const button = css`
   cursor: pointer;
 `;
 
-export const Form = styled.form`
-  position: relative;
-  display: block;
-  width: 100%;
+export const TextBase = css`
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 `;

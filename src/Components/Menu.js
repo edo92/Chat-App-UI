@@ -1,11 +1,16 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { List } from 'Styled/base';
-import { HighlightOnHover } from 'Styled/styles';
-import { borderSecondary } from 'Styled/colors';
 
-const ItemMenu = styled.div`
-  ${HighlightOnHover};
+import { List, ListItem } from 'Styled/base';
+import {
+  borderSecondary,
+  highlightActive,
+} from 'Styled/colors';
+
+const ItemMenu = styled(ListItem)`
+  &: hover {
+    background-color: ${highlightActive};
+  }
   padding: 0.25rem 1.5rem;
   cursor: pointer;
   font-weight: 400;

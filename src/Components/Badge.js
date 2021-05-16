@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { background, statuses } from 'Styled/colors';
+import { background } from 'Styled/colors';
+import { colorType } from 'Styled/styles';
 
 const BadgeBase = styled.span`
   position: absolute;
@@ -16,8 +17,8 @@ const borderStyle = css`
 `;
 
 const BadgeComponent = styled(BadgeBase)`
-  background-color: ${statuses};
-  border: ${(props) => props.border && borderStyle};
+  background-color: ${colorType};
+  border: ${({ border }) => border && borderStyle};
 `;
 
 /**

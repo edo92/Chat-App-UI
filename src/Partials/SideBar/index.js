@@ -8,8 +8,8 @@ import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
 import { ButtonBase } from 'Components/Button';
 
-import { border } from 'Styled/colors';
-import { TextSecondary } from 'Styled/styles';
+import { TextBase } from 'Styled/base';
+import { border, fontSecondary } from 'Styled/colors';
 
 import {
   Section,
@@ -25,7 +25,8 @@ import {
 } from 'Styled/base';
 
 const Title = styled.span`
-  color: ${TextSecondary};
+  ${TextBase};
+  color: ${fontSecondary};
   font-size: 22px;
   font-weight: 600;
 `;
