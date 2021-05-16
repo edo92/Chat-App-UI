@@ -49,6 +49,7 @@ const ButtonComponent = styled(ButtonBase)`
   font-size: 14px;
   width: auto;
   display: inline-flex;
+  justify-content: center;
   line-height: 14px;
   outline: none;
 
