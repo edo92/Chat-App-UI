@@ -58,12 +58,13 @@ export const CountBase = styled.div`
   align-items: center;
   justify-content: center;
   line-height: 0;
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 500;
   height: 23px;
   color: white;
   border-radius: 50%;
   margin-left: auto;
+  padding-top: 1px;
 `;
 
 export const button = css`
