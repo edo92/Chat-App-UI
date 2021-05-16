@@ -6,7 +6,7 @@ import { dropmenu } from './menu';
 
 import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
-import { ButtonSimple } from 'Components/Button';
+import { ButtonBase } from 'Components/Button';
 
 import { border } from 'Styled/colors';
 import { TextSecondary } from 'Styled/styles';
@@ -69,6 +69,11 @@ const ButtonItem = styled(ListItem)`
   margin-left: 0.5rem;
 `;
 
+const Button = styled(ButtonBase)`
+  position: relative;
+  display: block;
+`;
+
 const SearchInput = styled(Input)`
   padding: 11.5px 15px;
 `;
@@ -91,9 +96,9 @@ const SideBar = memo(
                     placement="bottom"
                     title="Add Group"
                   >
-                    <ButtonSimple>
+                    <Button>
                       <Icon size="sm" icon={'users'} />
-                    </ButtonSimple>
+                    </Button>
                   </Tooltip>
                 </ButtonItem>
                 <ButtonItem>
@@ -101,12 +106,12 @@ const SideBar = memo(
                     placement="bottom"
                     title="New Chat"
                   >
-                    <ButtonSimple>
+                    <Button>
                       <Icon
                         size="sm"
                         icon={'plusCircle'}
                       />
-                    </ButtonSimple>
+                    </Button>
                   </Tooltip>
                 </ButtonItem>
               </ButtonList>

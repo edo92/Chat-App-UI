@@ -40,7 +40,7 @@ const svgIcons = {
  * @param {String} [title]     title commands action
  * @param {Object} [children]  element passed as child
  */
-const EmptyComponent = memo(
+const Empty = memo(
   ({ svg = 'unselected', image, title, children }) => {
     const svgImage = image || svgIcons[svg];
 
@@ -62,8 +62,8 @@ const EmptyComponent = memo(
   },
 );
 
-EmptyComponent.propTypes = {
+Empty.propTypes = {
   svg: PropTypes.string.isRequired,
 };
 
-export default EmptyComponent;
+export default Empty;
