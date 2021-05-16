@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-
 import Badge from 'Components/Badge';
 import { TextPrimary } from 'Styled/styles';
 
@@ -42,6 +41,15 @@ const ListBody = styled.div`
   display: flex;
 `;
 
+const TitleSize = styled.h5`
+  ${TextPrimary};
+  font-size: ${({ fontSize }) =>
+    ({
+      sm: '15px',
+      md: '16px',
+    }[fontSize || 'md'])};
+`;
+
 const ContentTitle = styled(TitleSize)`
   font-weight: 500;
   margin: 0;
@@ -51,15 +59,6 @@ const ContentTitle = styled(TitleSize)`
 const CustomBadge = styled(Badge)`
   top: -2px;
   right: -2px;
-`;
-
-const TitleSize = styled.h5`
-  ${TextPrimary};
-  font-size: ${({ fontSize }) =>
-    ({
-      sm: '15px',
-      md: '16px',
-    }[fontSize || 'md'])};
 `;
 
 const AvatarFigure = memo(({ children, status }) => (
