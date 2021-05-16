@@ -1,5 +1,5 @@
 import React from 'react';
-import { PrivateRoute } from 'Router';
+import { PrivateRoute, ProtectedRoute } from 'Router';
 import Layout from 'Layout';
 
 // Dom
@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom';
 
 // Pages
-import Home from 'Pages/Dashboard';
+import Dashboard from 'Pages/Dashboard';
+import Login from 'Pages/Auth/Login';
 
 const App = () => (
   <Router>
@@ -18,7 +19,12 @@ const App = () => (
         <PrivateRoute
           exact
           path={'/'}
-          component={Home}
+          component={Dashboard}
+        />
+        <ProtectedRoute
+          exact
+          path={'/login'}
+          component={Login}
         />
       </Switch>
     </Layout>

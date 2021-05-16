@@ -75,3 +75,9 @@ export const button = css`
   position: relative;
   cursor: pointer;
 `;
+
+export const Form = styled.form`
+  position: relative;
+  display: block;
+  width: 100%;
+`;
