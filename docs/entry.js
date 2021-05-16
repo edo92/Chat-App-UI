@@ -61,14 +61,14 @@ reactComponents['Menu'] = Component11;
 import Component12 from '../src/Components/Menu.js';
 reactComponents['Menu'] = Component12;
 
-import Component13 from '../src/Components/Modal.js';
-reactComponents['Modal'] = Component13;
+import Component13 from '../src/Components/Metadata.js';
+reactComponents['Metadata'] = Component13;
 
-import Component14 from '../src/Components/Page.js';
-reactComponents['Page'] = Component14;
+import Component14 from '../src/Components/Modal.js';
+reactComponents['Modal'] = Component14;
 
-import Component15 from '../src/Components/Metadata.js';
-reactComponents['PageMetadata'] = Component15;
+import Component15 from '../src/Components/Page.js';
+reactComponents['Page'] = Component15;
 
 import Component16 from '../src/Components/Tooltip.js';
 reactComponents['Tooltip'] = Component16;

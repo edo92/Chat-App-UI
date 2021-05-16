@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Components/Select.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,311 +83,67 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Modal</h1>
+                    <p>Source</p>
+                    <h1>Components/Select.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltModal  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
-        
-        <span class="code-name">
-            
-                &ltModal  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>active</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Boolean</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>is modal active</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>title</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>title in the header</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>icon</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
-            <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled, { css } from 'styled-components';
+import { button } from 'Styled/base';
+import {
+  highlightPrimary,
+  highlightSecondary,
+  fontActive,
+  fontInactive,
+} from 'Styled/colors';
+
+const color = css`
+  color: ${({ active }) =>
+    active ? fontActive : fontInactive};
+`;
+const bgColor = css`
+  background-color: ${({ active }) =>
+    active &amp;&amp; highlightPrimary};
+`;
+const bgColorHover = css`
+  &amp;: hover {
+    background-color: ${({ active }) =>
+      !active &amp;&amp; highlightSecondary};
+  }
+`;
+
+const ButtonSelect = styled.span`
+  ${color};
+  ${button};
+  ${bgColor};
+  ${bgColorHover};
+  padding: 0.9rem;
+`;
+
+/**
+ *
+ * @component
+ * @param {Boolean} active    background color change
+ * @param {Function} onClick  onClick prop
+ * @param {Object}  children  &lt;Icon passed as children
+ */
+
+const Button = memo((props) => (
+  &lt;ButtonSelect {...props}>
+    {props.children &amp;&amp; props.children}
+  &lt;/ButtonSelect>
+));
+
+export default Button;
+</code></pre>
+        </article>
+    </section>
 
 
 

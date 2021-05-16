@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Components/Badge.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,311 +83,57 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Modal</h1>
+                    <p>Source</p>
+                    <h1>Components/Badge.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltModal  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
-        
-        <span class="code-name">
-            
-                &ltModal  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>active</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Boolean</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>is modal active</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>title</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>title in the header</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>icon</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
-            <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled, { css } from 'styled-components';
+import { background, statuses } from 'Styled/colors';
+
+const BadgeBase = styled.span`
+  position: absolute;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  top: 10px;
+  right: 10px;
+`;
+
+const borderStyle = css`
+    3px solid ${background};
+`;
+
+const BadgeComponent = styled(BadgeBase)`
+  background-color: ${statuses};
+  border: ${(props) => props.border &amp;&amp; borderStyle};
+`;
+
+/**
+ *
+ * @component
+ * @param {Boolean} border     adds border around badge
+ * @param {String}  status     success | warning | error
+ * @param {String}  className  passed by styled compnent
+ */
+const Badge = memo(({ border, status, className }) => (
+  &lt;BadgeComponent
+    className={className}
+    border={border}
+    status={status}
+  />
+));
+
+export default Badge;
+</code></pre>
+        </article>
+    </section>
 
 
 
