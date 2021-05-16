@@ -3,14 +3,10 @@ import styled, { css } from 'styled-components';
 
 import { rotate } from 'Styled/anim';
 import { border, activePrimary } from 'Styled/colors';
+import { cursorDynamic } from 'Styled/dynamic';
 
 const active = css`
   ${({ checked }) => (checked ? activePrimary : '#fff')};
-`;
-
-const cursor = css`
-  ${({ disabled }) =>
-    disabled ? 'not-allowed' : 'pointer'};
 `;
 
 const Input = styled.input`
@@ -21,7 +17,7 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  cursor: ${cursor}
+  ${cursorDynamic};
   position: relative;
   display: inline-block;
 `;
