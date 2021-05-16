@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import UserFigure from 'Components/UserFigure';
-import Scrollbar from 'Components/Scrollbar';
+import { Scrollbar } from 'Styled/shared';
 
 import {
   SmallPrimary,

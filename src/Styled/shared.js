@@ -16,6 +16,12 @@ import {
   fontSecondary,
 } from 'Styled/colors';
 
+// Platform
+const platform = navigator.platform;
+const isWin = platform.includes('Win');
+
+// *** Styles ***
+
 export const Section = styled.div`
   @media (${({ md }) =>
       md === 'visible' ? 'min' : 'max'}-width: 1200px) {
@@ -76,7 +82,16 @@ export const BorderBox = styled.div`
 export const MessageStyle = styled.div`
   background-color: ${(props) =>
     props.outgoing ? activePrimary : fontHighlight};
-    
+
   color: ${(props) =>
     props.outgoing ? 'white' : fontSecondary};
+`;
+
+export const Scrollbar = styled.div`
+  position: relative;
+  overflow-y: scroll;
+
+  &:: -webkit-scrollbar {
+    display: ${isWin ? 'none' : 'block'};
+  }
 `;
