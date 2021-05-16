@@ -6,12 +6,17 @@ import { dropmenu } from './menu';
 
 import Icon from 'Components/Icon';
 import Tooltip from 'Components/Tooltip';
-import Scrollbar from 'Components/Scrollbar';
 import { ButtonSimple } from 'Components/Button';
 
 import { border } from 'Styled/colors';
 import { TextSecondary } from 'Styled/styles';
-import { Section, Input } from 'Styled/shared';
+
+import {
+  Section,
+  Scrollbar,
+  Input,
+} from 'Styled/shared';
+
 import {
   Container as MainContainer,
   InnerContainer,
