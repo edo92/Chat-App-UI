@@ -10,7 +10,7 @@ import { Location } from '@reach/router';
  * @param {String} title        page title
  * @param {String} canonicalUrl page pathnamee
  */
-const PageMetadata = memo(
+const Metadata = memo(
   ({ description, title, canonicalUrl }) => {
     return (
       <Location>
@@ -97,18 +97,18 @@ const site = {
   logo: 'http://chatx.com/og-image.png',
 };
 
-PageMetadata.defaultProps = {
+Metadata.defaultProps = {
   description: `communication tool`,
   title: `Chat X`,
   canonicalUrl: '/',
   meta: ['chat', 'chat x', 'communication'],
 };
 
-PageMetadata.propTypes = {
+Metadata.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   canonicalUrl: PropTypes.string,
   meta: PropTypes.array,
 };
 
-export default memo(PageMetadata);
+export default Metadata;

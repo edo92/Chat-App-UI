@@ -4,7 +4,7 @@ import { List } from 'Styled/base';
 import { HighlightOnHover } from 'Styled/styles';
 import { borderSecondary } from 'Styled/colors';
 
-const MenuItem = styled.div`
+const ItemMenu = styled.div`
   ${HighlightOnHover};
   padding: 0.25rem 1.5rem;
   cursor: pointer;
@@ -19,31 +19,30 @@ const Divider = styled.div`
 `;
 
 /**
- * @component Menu
+ * @component
  * @param {Object} children  menu component wraps menu item
  */
-const MenuComponent = memo(({ children }) => {
+const Menu = memo(({ children }) => {
   return <List>{children}</List>;
 });
 
 /**
- * @component Menu
+ *
+ * @component
  * @param {Object}    Menu.Item  menu iteme component object
  * @param {Object}    children   content passed as children
  * @param {Function}  onClick    menu item onClick
  */
-const ItemMenuComponent = memo(
-  ({ children, onClick }) => {
-    return (
-      <MenuItem
-        onClick={() => onClick(children.props.children)}
-      >
-        <span>{children}</span>
-      </MenuItem>
-    );
-  },
-);
+const MenuItem = memo(({ children, onClick }) => {
+  return (
+    <ItemMenu
+      onClick={() => onClick(children.props.children)}
+    >
+      <span>{children}</span>
+    </ItemMenu>
+  );
+});
 
-MenuComponent.Item = ItemMenuComponent;
-MenuComponent.Divider = Divider;
-export default MenuComponent;
+Menu.Item = MenuItem;
+Menu.Divider = Divider;
+export default Menu;

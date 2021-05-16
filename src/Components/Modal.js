@@ -25,7 +25,7 @@ const ModalBase = styled.div`
   overflow: hidden;
 `;
 
-const Modal = styled(ModalBase)`
+const ModalComponent = styled(ModalBase)`
   visibility: ${({ active }) =>
     active ? 'visible' : 'hidden'};
 
@@ -111,7 +111,7 @@ const CloseHandler = ({ toggle }) => (
  * @param {Object}   children passed components
  */
 
-const ModalComponent = memo(
+const Modal = memo(
   ({ active, title, icon, toggle, children }) => {
     // hook ref on content
     const ref = createRef();
@@ -124,7 +124,7 @@ const ModalComponent = memo(
     });
 
     return (
-      <Modal active={active}>
+      <ModalComponent active={active}>
         <Content ref={ref}>
           <Header>
             <Title icon={icon} title={title} />
@@ -132,9 +132,9 @@ const ModalComponent = memo(
           </Header>
           <Body>{children}</Body>
         </Content>
-      </Modal>
+      </ModalComponent>
     );
   },
 );
 
-export default ModalComponent;
+export default Modal;

@@ -76,7 +76,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Avatar.html">Avatar</a></li><li><a href="BadgeComponent.html">BadgeComponent</a></li><li><a href="Button.html">Button</a></li><li><a href="ButtonComponent.html">ButtonComponent</a></li><li><a href="Drawer.html">Drawer</a></li><li><a href="DropDown.html">DropDown</a></li><li><a href="EmptyComponent.html">EmptyComponent</a></li><li><a href="HorizontalMenu.html">HorizontalMenu</a></li><li><a href="Icon.html">Icon</a></li><li><a href="ItemMenuComponent.html">ItemMenuComponent</a></li><li><a href="Link.html">Link</a></li><li><a href="MenuComponent.html">MenuComponent</a></li><li><a href="ModalComponent.html">ModalComponent</a></li><li><a href="Page.html">Page</a></li><li><a href="PageMetadata.html">PageMetadata</a></li><li><a href="Tooltip.html">Tooltip</a></li><li><a href="UserFigure.html">UserFigure</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Avatar.html">Avatar</a></li><li><a href="Badge.html">Badge</a></li><li><a href="Button.html">Button</a></li><li><a href="Drawer.html">Drawer</a></li><li><a href="DropDown.html">DropDown</a></li><li><a href="Empty.html">Empty</a></li><li><a href="HorizontalMenu.html">HorizontalMenu</a></li><li><a href="Icon.html">Icon</a></li><li><a href="Link.html">Link</a></li><li><a href="Logo.html">Logo</a></li><li><a href="Menu.html">Menu</a></li><li><a href="MenuItem.html">MenuItem</a></li><li><a href="Modal.html">Modal</a></li><li><a href="Page.html">Page</a></li><li><a href="PageMetadata.html">PageMetadata</a></li><li><a href="Tooltip.html">Tooltip</a></li><li><a href="UserFigure.html">UserFigure</a></li></ul></div>
                 
             </nav>
         </div>
@@ -99,7 +99,7 @@ import { List } from 'Styled/base';
 import { HighlightOnHover } from 'Styled/styles';
 import { borderSecondary } from 'Styled/colors';
 
-const MenuItem = styled.div`
+const ItemMenu = styled.div`
   ${HighlightOnHover};
   padding: 0.25rem 1.5rem;
   cursor: pointer;
@@ -114,34 +114,33 @@ const Divider = styled.div`
 `;
 
 /**
- * @component Menu
+ * @component
  * @param {Object} children  menu component wraps menu item
  */
-const MenuComponent = memo(({ children }) => {
+const Menu = memo(({ children }) => {
   return &lt;List>{children}&lt;/List>;
 });
 
 /**
- * @component Menu
+ *
+ * @component
  * @param {Object}    Menu.Item  menu iteme component object
  * @param {Object}    children   content passed as children
  * @param {Function}  onClick    menu item onClick
  */
-const ItemMenuComponent = memo(
-  ({ children, onClick }) => {
-    return (
-      &lt;MenuItem
-        onClick={() => onClick(children.props.children)}
-      >
-        &lt;span>{children}&lt;/span>
-      &lt;/MenuItem>
-    );
-  },
-);
+const MenuItem = memo(({ children, onClick }) => {
+  return (
+    &lt;ItemMenu
+      onClick={() => onClick(children.props.children)}
+    >
+      &lt;span>{children}&lt;/span>
+    &lt;/ItemMenu>
+  );
+});
 
-MenuComponent.Item = ItemMenuComponent;
-MenuComponent.Divider = Divider;
-export default MenuComponent;
+Menu.Item = MenuItem;
+Menu.Divider = Divider;
+export default Menu;
 </code></pre>
         </article>
     </section>

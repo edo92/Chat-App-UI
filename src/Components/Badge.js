@@ -1,9 +1,6 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  background,
-  statuses,
-} from 'Styled/colors';
+import { background, statuses } from 'Styled/colors';
 
 const BadgeBase = styled.span`
   position: absolute;
@@ -18,25 +15,24 @@ const borderStyle = css`
     3px solid ${background};
 `;
 
-const Badge = styled(BadgeBase)`
+const BadgeComponent = styled(BadgeBase)`
   background-color: ${statuses};
   border: ${(props) => props.border && borderStyle};
 `;
 
 /**
+ *
  * @component
  * @param {Boolean} border     adds border around badge
  * @param {String}  status     success | warning | error
  * @param {String}  className  passed by styled compnent
  */
-const BadgeComponent = memo(
-  ({ border, status, className }) => (
-    <Badge
-      className={className}
-      border={border}
-      status={status}
-    />
-  ),
-);
+const Badge = memo(({ border, status, className }) => (
+  <BadgeComponent
+    className={className}
+    border={border}
+    status={status}
+  />
+));
 
-export default BadgeComponent;
+export default Badge;

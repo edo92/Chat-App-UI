@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import Icon from 'Components/Icon';
 
+import Icon from 'Components/Icon';
 import { ColorType } from 'Styled/styles';
 import {
   border,
@@ -9,7 +9,7 @@ import {
   activeSecondary,
 } from 'Styled/colors';
 
-export const BtnSimple = styled.button`
+const BaseButton = styled.button`
   display: inline-flex;
   padding: 9px 14px;
   background: transparent;
@@ -25,7 +25,7 @@ export const BtnSimple = styled.button`
     box-shadow 0.15s ease-in-out;
 `;
 
-export const ButtonSimple = styled(BtnSimple)`
+export const ButtonBase = styled(BaseButton)`
   border: 1px solid ${border};
   color: ${fontSecondary};
 
@@ -40,7 +40,7 @@ export const ButtonSimple = styled(BtnSimple)`
   }
 `;
 
-export const Button = styled(ButtonSimple)`
+const ButtonComponent = styled(ButtonBase)`
   background: ${ColorType};
 
   border-radius: 0.25rem;
@@ -66,28 +66,29 @@ export const Button = styled(ButtonSimple)`
 
 /**
  *
- * @component
+ * @component Button
  * @param {Function} onClick      onClick handler function
- * @param {String}   [className]  className passed for styled components
  * @param {String}   [icon]       button icon
  * @param {String}   [color]      color code
+ * @param {String}   [fill]       fill icon color
  * @param {String}   [size]       sm | md | lg options
  * @param {String}   [title]      button title
  * @param {String}   [type]       button type/color primary | success | error | warning ..etc
+ * @param {String}   [className]  className passed for styled components
  */
 
-const ButtonComponent = memo(
+const Button = memo(
   ({
+    onClick,
     icon,
     color,
     fill,
     size,
     title,
     type,
-    onClick,
     className,
   }) => (
-    <Button
+    <ButtonComponent
       type={type}
       onClick={onClick}
       className={className}
@@ -102,8 +103,8 @@ const ButtonComponent = memo(
       ) : (
         <span>{title}</span>
       )}
-    </Button>
+    </ButtonComponent>
   ),
 );
 
-export default memo(ButtonComponent);
+export default Button;

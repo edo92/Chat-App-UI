@@ -12,7 +12,7 @@ const iconSize = css`
     }[size])};
 `;
 
-const Logo = styled(logo)`
+const LogoIcon = styled(logo)`
   fill: #0a80ff;
   width: ${iconSize};
   height: ${iconSize};
@@ -22,12 +22,12 @@ const Logo = styled(logo)`
  * @component
  * @param {String} size  Logo size (sm | md | lg)
  */
-const LogoComponent = memo(({ size = 'sm' }) => {
-  return <Logo size={size} />;
+const Logo = memo(({ size = 'sm' }) => {
+  return <LogoIcon size={size} />;
 });
 
-LogoComponent.propTypes = {
+Logo.propTypes = {
   size: PropTypes.string.isRequired,
 };
 
-export default LogoComponent;
+export default Logo;
