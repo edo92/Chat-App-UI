@@ -84,4 +84,4 @@ const Messages = memo(({ messages = [] }) => (
   </Container>
 ));
 
-export default memo(Messages);
+export default Messages;
