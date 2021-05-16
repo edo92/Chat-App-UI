@@ -66,6 +66,7 @@ class HomePage extends Component {
 
         <SideDrawer
           drawer={uiState.drawer}
+          profile={dataState.profile}
           toggle={uiHandlers.toggleDrawer}
         />
 

@@ -56,6 +56,10 @@ export const fontSecondary = css`
   ${({ theme }) => theme.colors.fontSecondary};
 `;
 
+export const fontTertiary = css`
+  ${({ theme }) => theme.colors.fontTertiary};
+`;
+
 export const fontActive = css`
   ${({ theme }) => theme.colors.fontActive};
 `;

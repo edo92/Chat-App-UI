@@ -26,6 +26,7 @@ const font400 = 'rgba(255, 255, 255, 0.75)';
 const font500 = '#6c757d';
 const font600 = '#969696';
 const font700 = '#ebebeb';
+const font800 = 'rgba(255, 255, 255, 0.4)';
 
 const active100 = '#f0f0f0';
 const active200 = '#1f273b';
@@ -60,9 +61,11 @@ const lightColors = {
   highlightSecondary: light,
   highlightTertiary: highlight100,
 
-  fontHighlight: font700,
   fontPrimary: font600,
   fontSecondary: font300,
+  fontTertiary: font500,
+
+  fontHighlight: font700,
   fontActive: primary,
   fontInactive: font100,
 };
@@ -83,9 +86,11 @@ const darkColors = {
   highlightSecondary: border100,
   highlightTertiary: highlight200,
 
-  fontHighlight: border100,
   fontPrimary: font500,
   fontSecondary: font400,
+  fontTertiary: font800,
+
+  fontHighlight: border100,
   fontActive: light,
   fontInactive: font200,
 };

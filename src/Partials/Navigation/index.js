@@ -55,6 +55,7 @@ const NavItem = styled(ListItem)`
 
 const Navigation = ({
   uiState,
+  dataState,
   uiHandlers,
   apiHandlers,
 }) => {
@@ -96,6 +97,7 @@ const Navigation = ({
                   title="User Menu"
                 >
                   <Dropdown
+                    id={dataState.masterUser.id}
                     placement={'topRight'}
                     overlay={dropmenu(
                       uiHandlers,
