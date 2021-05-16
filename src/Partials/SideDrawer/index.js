@@ -5,7 +5,7 @@ import Drawer from 'Components/Drawer';
 import { background } from 'Styled/colors';
 
 // Menus
-// import ProfileMenu from './menus/Profile';
+import ProfileMenu from './menu/Profile';
 // import SettingMenu from './menus/Setting';
 
 const Container = styled.div`
@@ -16,7 +16,7 @@ const Content = styled.div`
   text-align: center;
 `;
 
-const Profile = memo(({ drawer, toggle }) => {
+const Profile = memo(({ drawer, toggle, profile }) => {
   if (!drawer.activeMenu) return <></>;
 
   const { isOpen, activeMenu } = drawer;
@@ -29,9 +29,11 @@ const Profile = memo(({ drawer, toggle }) => {
         title={activeMenu}
       >
         <Content>
-          <h3>hello</h3>
-          {/* {activeMenu === 'profile' && <ProfileMenu />}
-          {activeMenu === 'settings' && <SettingMenu />} */}
+          <>
+            {activeMenu === 'profile' && (
+              <ProfileMenu profile={profile} />
+            )}
+          </>
         </Content>
       </Drawer>
     </Container>
