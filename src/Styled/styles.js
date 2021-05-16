@@ -1,35 +1,29 @@
 import { css } from 'styled-components';
+import { TextBase } from 'Styled/base';
 import {
-  highlightActive,
-  fontSecondary,
+  success,
+  warning,
+  error,
   activePrimary,
 } from 'Styled/colors';
 
-export const HighlightOnHover = css`
-  &: hover {
-    background-color: ${highlightActive};
-  }
+export const colorType = css`
+  ${({ type = 'default' }) =>
+    ({
+      success,
+      warning,
+      error,
+      primary: activePrimary,
+      default: 'none',
+    }[type])};
 `;
 
-export const TextBase = css`
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-`;
-
-export const TextPrimary = css`
+export const fontDynamic = css`
   ${TextBase};
-  color: ${(props) =>
-    props.active ? activePrimary : fontSecondary};
-`;
-
-export const TextSecondary = css`
-  ${TextBase};
-  color: ${fontSecondary};
-`;
-
-export const ColorType = css`
-  ${({ type, theme }) =>
-    type
-      ? theme.colors[type] || theme.colors.primary
-      : 'none'};
+  ${({ size = 'md' }) =>
+    ({
+      sm: '15px',
+      md: '16px',
+      lg: '17px',
+    }[size])};
 `;

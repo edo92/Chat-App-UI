@@ -1,15 +1,15 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Icon from 'Components/Icon';
-import { ColorType } from 'Styled/styles';
+import { colorType } from 'Styled/styles';
 import {
   border,
   fontSecondary,
   activeSecondary,
 } from 'Styled/colors';
 
-const BaseButton = styled.button`
+export const baseButton = css`
   display: inline-flex;
   padding: 9px 14px;
   background: transparent;
@@ -25,7 +25,8 @@ const BaseButton = styled.button`
     box-shadow 0.15s ease-in-out;
 `;
 
-export const ButtonBase = styled(BaseButton)`
+export const ButtonBase = styled.button`
+  ${baseButton};
   border: 1px solid ${border};
   color: ${fontSecondary};
 
@@ -41,7 +42,7 @@ export const ButtonBase = styled(BaseButton)`
 `;
 
 const ButtonComponent = styled(ButtonBase)`
-  background: ${ColorType};
+  background: ${colorType};
 
   border-radius: 0.25rem;
   border-width: 1px;

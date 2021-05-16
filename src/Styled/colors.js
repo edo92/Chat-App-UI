@@ -72,11 +72,14 @@ export const smooth = css`
   ${({ theme }) => theme.colors.smooth};
 `;
 
-export const statuses = css`
-  ${({ status, theme: { colors } }) =>
-    ({
-      success: colors.success,
-      warning: colors.warning,
-      error: colors.error,
-    }[status])};
+export const success = css`
+  ${({ theme }) => theme.colors.success};
+`;
+
+export const warning = css`
+  ${({ theme }) => theme.colors.warning};
+`;
+
+export const error = css`
+  ${({ theme }) => theme.colors.error};
 `;

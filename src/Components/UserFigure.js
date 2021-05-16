@@ -1,7 +1,12 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import Badge from 'Components/Badge';
-import { TextPrimary } from 'Styled/styles';
+
+import { fontDynamic } from 'Styled/styles';
+import {
+  activePrimary,
+  fontSecondary,
+} from 'Styled/colors';
 
 const Figure = styled.figure`
   display: inline-block;
@@ -42,12 +47,10 @@ const ListBody = styled.div`
 `;
 
 const TitleSize = styled.h5`
-  ${TextPrimary};
-  font-size: ${({ fontSize }) =>
-    ({
-      sm: '15px',
-      md: '16px',
-    }[fontSize || 'md'])};
+  ${fontDynamic};
+
+  color: ${({ active }) =>
+    active ? activePrimary : fontSecondary};
 `;
 
 const ContentTitle = styled(TitleSize)`
@@ -115,10 +118,7 @@ const UserFigure = memo(
       </Figure>
       <ListBody>
         <div>
-          <ContentTitle
-            fontSize={fontSize}
-            active={active}
-          >
+          <ContentTitle size={fontSize} active={active}>
             {name}
           </ContentTitle>
           {text}
@@ -128,4 +128,4 @@ const UserFigure = memo(
   ),
 );
 
-export default memo(UserFigure);
+export default UserFigure;

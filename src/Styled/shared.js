@@ -59,9 +59,9 @@ export const Section = styled.div`
 `;
 
 export const Card = styled.div`
-  box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
-  background: ${highlightSecondary};
   color: ${fontSecondary};
+  background: ${highlightSecondary};
+  box-shadow: rgb(0 0 0 / 45%) 0 0 20px -10px;
 `;
 
 export const SmallPrimary = styled(Small)`
