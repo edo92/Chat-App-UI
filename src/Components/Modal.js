@@ -62,16 +62,16 @@ const Body = styled.div`
 
 const Close = styled.span`
   background: ${smooth};
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 
   color: #fff;
   float: right;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
 
-  cursor: pointer;
-  padding: 0.15rem;
-  padding-top: 0.3rem;
-  width: 28px;
+  width: 25px;
   height: 25px;
   border-radius: 50%;
   text-align: center;
