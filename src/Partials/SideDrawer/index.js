@@ -5,7 +5,7 @@ import Drawer from 'Components/Drawer';
 import { background } from 'Styled/colors';
 
 // Menus
-import ProfileMenu from './menu/Profile';
+import ProfileMenu from './Menu/Profile';
 
 const Container = styled.div`
   background: ${background};
@@ -23,8 +23,8 @@ const Profile = memo(({ drawer, toggle, profile }) => {
   return (
     <Container>
       <Drawer
-        toggle={toggle}
         open={isOpen}
+        toggle={toggle}
         title={activeMenu}
       >
         <Content>

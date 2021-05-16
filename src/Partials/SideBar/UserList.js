@@ -139,4 +139,4 @@ const ChatView = memo(
   },
 );
 
-export default memo(ChatView);
+export default ChatView;
