@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { button } from 'Styled/styles';
+import { button } from 'Styled/base';
 import {
   highlightPrimary,
   highlightSecondary,

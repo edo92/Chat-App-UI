@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -58,4 +58,13 @@ export const CountBase = styled.div`
   color: white;
   border-radius: 50%;
   margin-left: auto;
+`;
+
+export const button = css`
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+  transition: all 0.23s;
+  position: relative;
+  cursor: pointer;
 `;
