@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Components/Tooltip.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,311 +83,106 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Modal</h1>
+                    <p>Source</p>
+                    <h1>Components/Tooltip.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltModal  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
-        
-        <span class="code-name">
-            
-                &ltModal  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>active</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Boolean</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>is modal active</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>title</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>title in the header</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>icon</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
-            <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled from 'styled-components';
+
+import { highlightTertiary } from 'Styled/colors';
+import helpers from 'helpers';
+
+const Content = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
+const Title = styled.div`
+  background: ${highlightTertiary};
+  position: absolute;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 6px 11.5px;
+  border-radius: 5px;
+  white-space: nowrap;
+`;
+
+const Container = styled.span`
+  z-index: 11;
+  position: relative;
+
+  display: ${(props) =>
+    ({
+      right: 'flex',
+      bottom: 'block',
+    }[props.placement])};
+
+  .tooltip {
+    visibility: hidden;
+  }
+
+  &amp;: hover .tooltip {
+    visibility: visible;
+    transition: visibility 0s linear 0.35s;
+  }
+`;
+
+const TitleWrapper = styled.div`
+  position: relative;
+  color: white;
+
+  ${(props) =>
+    ({
+      right: 'top: calc(100% - 38px)',
+      bottom: 'left: -50%',
+    }[props.placement])};
+
+  transform: ${(props) =>
+    ({
+      right: 'translate3d(6px, 0px, 0px)',
+      bottom: 'translate3d(0px, 5.5px, 0px)',
+    }[props.placement])};
+`;
+
+/**
+ * @component
+ * @param {String} title      Tooltip title showes on hover
+ * @param {String} placement  Position of title
+ * @param {Object} children   Children passed
+ */
+
+const Tooltip = memo(
+  ({ children, placement, title }) => {
+    const toUppercase = helpers.firstChartUppercase;
+
+    return (
+      &lt;Container placement={placement}>
+        &lt;Content>{children}&lt;/Content>
+
+        &lt;div>
+          &lt;TitleWrapper placement={placement}>
+            &lt;div className="tooltip">
+              &lt;Title>{toUppercase(title)}&lt;/Title>
+            &lt;/div>
+          &lt;/TitleWrapper>
+        &lt;/div>
+      &lt;/Container>
+    );
+  },
+);
+
+export default memo(Tooltip);
+</code></pre>
+        </article>
+    </section>
 
 
 

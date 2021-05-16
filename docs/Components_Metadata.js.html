@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Components/Metadata.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,311 +83,133 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Modal</h1>
+                    <p>Source</p>
+                    <h1>Components/Metadata.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltModal  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
-        
-        <span class="code-name">
-            
-                &ltModal  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>active</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Boolean</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>is modal active</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>title</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>title in the header</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>icon</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
-            <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { Location } from '@reach/router';
+
+/**
+ *
+ * @component
+ * @param {String} description  current page description
+ * @param {String} title        page title
+ * @param {String} canonicalUrl page pathnamee
+ */
+const Metadata = memo(
+  ({ description, title, canonicalUrl }) => {
+    return (
+      &lt;Location>
+        {({ location }) => {
+          const { pathname } = location;
+          let canonicalPath = pathname;
+
+          const canonical =
+            canonicalUrl ||
+            `${site.url}${canonicalPath}`;
+
+          const desc = description || site.description;
+          const siteTitle = site.siteTitle;
+          const siteUrl = site.url;
+          const siteUri = site.uri;
+
+          return (
+            &lt;Helmet
+              htmlAttributes={{ lang: 'en' }}
+              title={title}
+              titleTemplate={`%s | ${siteTitle}`}
+              link={[
+                {
+                  rel: 'canonical',
+                  key: canonical,
+                  href: canonical,
+                },
+              ]}
+              meta={[
+                {
+                  name: `description`,
+                  content: desc,
+                },
+                {
+                  property: `og:title`,
+                  content: `${title} | ${siteTitle}`,
+                },
+                {
+                  property: `og:description`,
+                  content: desc,
+                },
+                {
+                  property: `og:type`,
+                  content: `website`,
+                },
+                {
+                  property: `og:url`,
+                  content: siteUrl,
+                },
+                {
+                  property: `og:site_name`,
+                  content: siteUri,
+                },
+              ]}
+            >
+              &lt;script type="application/ld+json">
+                {`
+        {
+          "@context": "${site.url}",
+          "@type": "${site.type}",
+          "url": "${site.url}",
+          "email": "${site.emai}",
+          "name": "${site.name}",
+          "logo": "${site.logo}"
+        }
+      `}
+              &lt;/script>
+            &lt;/Helmet>
+          );
+        }}
+      &lt;/Location>
+    );
+  },
+);
+
+const site = {
+  name: 'ChatX',
+  type: 'application',
+  siteTitle: 'Chat X',
+  description: `ChatX communication tool`,
+  email: 'chatx@gmail.com',
+  url: 'http://chatx.com',
+  uri: 'chatx.com',
+  logo: 'http://chatx.com/og-image.png',
+};
+
+Metadata.defaultProps = {
+  description: `communication tool`,
+  title: `Chat X`,
+  canonicalUrl: '/',
+  meta: ['chat', 'chat x', 'communication'],
+};
+
+Metadata.propTypes = {
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  canonicalUrl: PropTypes.string,
+  meta: PropTypes.array,
+};
+
+export default Metadata;
+</code></pre>
+        </article>
+    </section>
 
 
 

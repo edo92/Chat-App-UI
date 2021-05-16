@@ -9,7 +9,7 @@ import {
   ListItemHighlight,
   SmallPrimary,
   ActiveColor,
-  Count,
+  Circle,
 } from 'Styled/shared';
 
 const ListAction = styled.div`
@@ -103,7 +103,7 @@ const ChatView = memo(
                 <>
                   <Action className="count">
                     {unread_messages ? (
-                      <Count>{unread_messages}</Count>
+                      <Circle>{unread_messages}</Circle>
                     ) : (
                       <></>
                     )}

@@ -4,6 +4,7 @@ import {
   InputBase,
   ListItem,
   CountBase,
+  Small,
 } from 'Styled/base';
 
 import {
@@ -20,7 +21,35 @@ import {
 const platform = navigator.platform;
 const isWin = platform.includes('Win');
 
-// *** Styles ***
+export const Input = styled(InputBase)`
+  color: ${fontSecondary};
+  border: 1px solid ${border};
+
+  &:focus {
+    border: 1px solid ${activePrimary};
+    outline-style: none;
+    outline-offset: 0px;
+  }
+`;
+
+export const ListItemHighlight = styled(ListItem)`
+  border-bottom: 1px solid ${border};
+
+  background-color: ${({ active }) =>
+    active && activeTertiary};
+
+  font-weight: ${({ active }) =>
+    active ? '600' : '400'};
+`;
+
+export const Scrollbar = styled.div`
+  position: relative;
+  overflow-y: scroll;
+
+  &:: -webkit-scrollbar {
+    display: ${isWin ? 'none' : 'block'};
+  }
+`;
 
 export const Section = styled.div`
   @media (${({ md }) =>
@@ -35,43 +64,16 @@ export const Card = styled.div`
   color: ${fontSecondary};
 `;
 
-export const Input = styled(InputBase)`
-  color: ${fontSecondary};
-  border: 1px solid ${border};
-
-  &:focus {
-    outline-style: none;
-    outline-offset: 0px;
-    border: 1px solid ${activePrimary};
-  }
-`;
-
-export const ListItemHighlight = styled(ListItem)`
-  border-bottom: 1px solid ${border};
-
-  background-color: ${({ active }) =>
-    active && activeTertiary};
-
-  font-weight: ${({ active }) =>
-    active ? '600' : '400'};
-`;
-
-export const Small = styled.small`
-  font-size: 11px;
-  font-weight: 400;
-  position: relative;
-`;
-
 export const SmallPrimary = styled(Small)`
-  color: ${(props) =>
-    props.active ? activePrimary : fontPrimary};
+  color: ${({ active }) =>
+    active ? activePrimary : fontPrimary};
 `;
 
 export const ActiveColor = styled.span`
   color: ${activePrimary};
 `;
 
-export const Count = styled(CountBase)`
+export const Circle = styled(CountBase)`
   background-color: ${activePrimary};
 `;
 
@@ -80,18 +82,9 @@ export const BorderBox = styled.div`
 `;
 
 export const MessageStyle = styled.div`
-  background-color: ${(props) =>
-    props.outgoing ? activePrimary : fontHighlight};
+  background-color: ${({ outgoing }) =>
+    outgoing ? activePrimary : fontHighlight};
 
-  color: ${(props) =>
-    props.outgoing ? 'white' : fontSecondary};
-`;
-
-export const Scrollbar = styled.div`
-  position: relative;
-  overflow-y: scroll;
-
-  &:: -webkit-scrollbar {
-    display: ${isWin ? 'none' : 'block'};
-  }
+  color: ${({ outgoing }) =>
+    outgoing ? 'white' : fontSecondary};
 `;

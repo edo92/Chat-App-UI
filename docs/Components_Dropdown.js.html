@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Components/Dropdown.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,311 +83,173 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Modal</h1>
+                    <p>Source</p>
+                    <h1>Components/Dropdown.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltModal  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
-        
-        <span class="code-name">
-            
-                &ltModal  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>active</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Boolean</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>is modal active</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>title</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>title in the header</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>icon</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
-            <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo, useState, createRef } from 'react';
+import styled, { css } from 'styled-components';
+import helpers from 'helpers';
+
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
+import { Card } from 'Styled/shared';
+import Menu from 'Components/Menu';
+
+const dynamicAlign = css`
+  text-align: ${({ align }) =>
+    align ? align : 'center'};
+`;
+
+const Container = styled.div`
+  ${dynamicAlign};
+  z-index: 12;
+  transform: none;
+  cursor: pointer;
+  transform: none;
+  position: relative;
+  border-color: transparent;
+`;
+
+const ContentStyle = styled(Card)`
+  text-align: left;
+  position: absolute;
+  font-size: 14px;
+  top: 0px;
+  border-radius: 5px;
+  z-index: 1;
+`;
+
+const MenuContainer = styled.div`
+  margin: 0.125rem 0 0;
+  padding: 0.5rem 0;
+  line-height: 1.5;
+  min-width: 10rem;
+  transform: none;
+`;
+
+// Dynamic visibiliy
+const visibility = css`
+  visibility: ${({ isOpen }) =>
+    isOpen ? 'visible' : 'hidden'};
+`;
+
+// Dynamic spacing
+const spaceing = css`
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
+`;
+
+const transform = css`
+  transform: ${({ placement }) =>
+    ({
+      topRight: 'translate3d(12px, -143px, 0px)',
+      bottomLeft: 'translate3d(-100px, 20px, 0px)',
+    }[placement])};
+`;
+
+const Content = styled(ContentStyle)`
+  ${spaceing};
+  ${transform};
+  ${visibility};
+`;
+
+/**
+ *
+ * @component
+ * @param {string}  id                       target id
+ * @param {Object} children                  child component
+ * @param {String} className                 passed by styled-components or overwritten by user
+ * @param {Array} [overlay]                  dropdown menu items array
+ * @param {String | undefined} [align]       align item for parent div
+ * @param {String | undefined} [placement]   menu component placement
+ * @param {String | undefined} [top]         margin top in px
+ * @param {String | undefined} [left]        margin left in px
+ */
+
+const DropDown = memo(
+  ({
+    id,
+    children,
+    className,
+    align,
+    placement,
+    top,
+    left,
+    overlay,
+  }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [disabled, setDisabled] = useState(false);
+    const ref = createRef();
+
+    // outside click hook
+    useOnClickOutside(ref, (target) => {
+      const isOutside = target.includes('outside');
+      const isInside = target.includes('inside');
+
+      if (isInside) {
+        // Delay dropdown on close, afte click exec.
+        isOpen &amp;&amp; helpers.promisify(setIsOpen);
+        disabled &amp;&amp; setDisabled(true);
+      }
+
+      if (isOutside) {
+        setIsOpen(false);
+      }
+    });
+
+    return (
+      &lt;Container align={align} className={className}>
+        &lt;div
+          aria-label={className}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {children}
+        &lt;/div>
+
+        &lt;Content
+          placement={placement}
+          isOpen={isOpen}
+          top={top}
+          left={left}
+        >
+          &lt;MenuContainer ref={ref}>
+            &lt;Menu>
+              {overlay.map(
+                ({ name, toggle, divider }, index) => (
+                  &lt;span key={name + index}>
+                    &lt;>
+                      {name &amp;&amp; (
+                        &lt;Menu.Item
+                          onClick={(cnt) =>
+                            toggle(cnt, id)
+                          }
+                        >
+                          &lt;span>{name}&lt;/span>
+                        &lt;/Menu.Item>
+                      )}
+                    &lt;/>
+                    {divider &amp;&amp; &lt;Menu.Divider />}
+                  &lt;/span>
+                ),
+              )}
+            &lt;/Menu>
+          &lt;/MenuContainer>
+        &lt;/Content>
+      &lt;/Container>
+    );
+  },
+);
+
+export default memo(DropDown);
+</code></pre>
+        </article>
+    </section>
 
 
 

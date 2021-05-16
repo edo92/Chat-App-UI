@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Metadata</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -82,7 +82,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>Modal</h1>
+                    <h1>Metadata</h1>
                 </header>
                 
 
@@ -94,7 +94,7 @@
 <header>
     
         <h2>
-            &ltModal  /&gt
+            &ltMetadata <i>description</i> <i>title</i> <i>canonicalUrl</i> <i>meta</i> /&gt
         </h2>
         
     
@@ -114,12 +114,12 @@
 
 
     
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
+    <h4 class="name" id="Metadata">
+        <a class="href-link" href="#Metadata">#</a>
         
         <span class="code-name">
             
-                &ltModal  /&gt
+                &ltMetadata <i>description</i> <i>title</i> <i>canonicalUrl</i> <i>meta</i> /&gt
             
         </span>
     </h4>
@@ -134,6 +134,70 @@
 
 
 
+    
+        <h5>PropTypes:</h5>
+        
+<div class="table-container">
+  <table class="params table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th class="last">Default</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>description</code></td>
+            <td>
+              string
+            </td>
+            <td>No</td>
+            <td></td>
+            <td>`communication tool`</td>
+          </tr>
+          
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>title</code></td>
+            <td>
+              string
+            </td>
+            <td>No</td>
+            <td></td>
+            <td>`Chat X`</td>
+          </tr>
+          
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>canonicalUrl</code></td>
+            <td>
+              string
+            </td>
+            <td>No</td>
+            <td></td>
+            <td>'/'</td>
+          </tr>
+          
+    
+          <tr class="deep-level-0">
+            <td class="name"><code>meta</code></td>
+            <td>
+              array
+            </td>
+            <td>No</td>
+            <td></td>
+            <td>['chat', 'chat x', 'communication']</td>
+          </tr>
+          
+    
+    </tbody>
+  </table>
+</div>
     
 
 
@@ -164,13 +228,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>active</code></td>
+      <td class="name"><code>description</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Boolean</span>
+<span class="param-type">String</span>
 
 
   
@@ -180,7 +244,7 @@
 
   
 
-  <td class="description last"><p>is modal active</p></td>
+  <td class="description last"><p>current page description</p></td>
 </tr>
 
 
@@ -205,7 +269,7 @@
 
   
 
-  <td class="description last"><p>title in the header</p></td>
+  <td class="description last"><p>page title</p></td>
 </tr>
 
 
@@ -214,7 +278,7 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>icon</code></td>
+      <td class="name"><code>canonicalUrl</code></td>
   
 
   <td class="type">
@@ -230,57 +294,7 @@
 
   
 
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
+  <td class="description last"><p>page pathnamee</p></td>
 </tr>
 
 
@@ -326,9 +340,9 @@
 
     
         <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
+            <a href="Components_Metadata.js.html" class="button">View Source</a>
             <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
+                <a href="Components_Metadata.js.html">Components/Metadata.js</a>, <a href="Components_Metadata.js.html#line13">line 13</a>
             </span>
         </p>
     

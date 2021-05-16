@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Modal</title>
+  <title> Components/UserFigure.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,311 +83,150 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Modal</h1>
+                    <p>Source</p>
+                    <h1>Components/UserFigure.js</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltModal  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Modal">
-        <a class="href-link" href="#Modal">#</a>
-        
-        <span class="code-name">
-            
-                &ltModal  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>active</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Boolean</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>is modal active</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>title</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>title in the header</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>icon</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>icon name</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>toggle</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">function</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>toggle modal</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>passed components</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="Components_Modal.js.html" class="button">View Source</a>
-            <span>
-                <a href="Components_Modal.js.html">Components/Modal.js</a>, <a href="Components_Modal.js.html#line114">line 114</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled from 'styled-components';
+import Badge from 'Components/Badge';
+import { TextPrimary } from 'Styled/styles';
+
+const Figure = styled.figure`
+  display: inline-block;
+  height: 2.3rem;
+  width: 2.3rem;
+  margin: 0;
+  margin-right: 1rem;
+  position: relative;
+`;
+
+const AvatarTitle = styled.span`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 19px;
+  background: #ffb822 !important;
+  color: white !important;
+  border-radius: 50%;
+`;
+
+const AvatarImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% !important;
+  vertical-align: middle;
+  border-style: none;
+`;
+
+const ListBody = styled.div`
+  flex: 1 1;
+  position: relative;
+  min-width: 0px;
+  display: flex;
+`;
+
+const TitleSize = styled.h5`
+  ${TextPrimary};
+  font-size: ${({ fontSize }) =>
+    ({
+      sm: '15px',
+      md: '16px',
+    }[fontSize || 'md'])};
+`;
+
+const ContentTitle = styled(TitleSize)`
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+`;
+
+const CustomBadge = styled(Badge)`
+  top: -2px;
+  right: -2px;
+`;
+
+const AvatarFigure = memo(({ children, status }) => (
+  &lt;>
+    &lt;Figure>
+      {status &amp;&amp; (
+        &lt;CustomBadge
+          border={true}
+          status={
+            status === 'active' ? 'success' : 'warning'
+          }
+        />
+      )}
+      {children}
+    &lt;/Figure>
+  &lt;/>
+));
+
+/**
+ *
+ * @component
+ * @param {String} avatar     image url
+ * @param {String} name       user's name
+ * @param {String} [text]     underlaying text
+ * @param {String} [active]   is active state
+ * @param {String} [status]   badge status
+ * @param {String} [fontSize] name font size
+ */
+
+const UserFigure = memo(
+  ({ text, avatar, name, fontSize, active, status }) => (
+    &lt;>
+      &lt;Figure>
+        {status &amp;&amp; (
+          &lt;CustomBadge
+            border={true}
+            status={
+              status === 'active' ? 'success' : 'warning'
+            }
+          />
+        )}
+        &lt;AvatarFigure status={status} avatar={avatar}>
+          &lt;>
+            {avatar.image ? (
+              &lt;AvatarImg
+                src={avatar.image}
+                alt="avatar"
+              />
+            ) : (
+              &lt;AvatarTitle>{avatar.title}&lt;/AvatarTitle>
+            )}
+          &lt;/>
+        &lt;/AvatarFigure>
+      &lt;/Figure>
+      &lt;ListBody>
+        &lt;div>
+          &lt;ContentTitle
+            fontSize={fontSize}
+            active={active}
+          >
+            {name}
+          &lt;/ContentTitle>
+          {text}
+        &lt;/div>
+      &lt;/ListBody>
+    &lt;/>
+  ),
+);
+
+export default memo(UserFigure);
+</code></pre>
+        </article>
+    </section>
 
 
 

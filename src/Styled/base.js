@@ -32,6 +32,12 @@ export const ListItem = styled.li`
   margin: 0;
 `;
 
+export const Small = styled.small`
+  font-size: 11px;
+  font-weight: 400;
+  position: relative;
+`;
+
 export const InputBase = styled.input`
   outline: none;
   border-radius: 5px;
