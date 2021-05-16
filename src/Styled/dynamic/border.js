@@ -6,29 +6,29 @@ import {
 } from 'Styled/colors';
 
 export const borderWidth = css`
-  ${({ size = 1 }) =>
+  ${({ brSize = 1 }) =>
     ({
       1: '1px',
       2: '2px',
       3: '3px',
-    }[size])};
+    }[brSize])};
 `;
 
 export const borderColor = css`
-  ${({ color = 'primary' }) =>
+  ${({ brColor = 'primary' }) =>
     ({
       primary: border,
       secondary: borderSecondary,
       tertiary: borderTertiary,
-    }[color])};
+    }[brColor])};
 `;
 
 export const borderStyle = css`
-  ${({ style = 'solid' }) =>
+  ${({ brStyle = 'solid' }) =>
     ({
       solid: 'solid',
       groove: 'groove',
-    }[style])};
+    }[brStyle])};
 `;
 
 export const borderDynamic = css`
