@@ -38,7 +38,9 @@ const Button = styled(Btn)`
   padding: 10px 15px;
 `;
 
-const Footer = () => {
+const Footer = memo(() => {
+  // Handlers
+
   const onSubmit = (e) => {
     e.preventDefault();
     console.log('onSubmit');
@@ -82,6 +84,6 @@ const Footer = () => {
       </Form>
     </Container>
   );
-};
+});
 
-export default memo(Footer);
+export default Footer;
