@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
 import { background } from 'Styled/colors';
-import { colorType } from 'Styled/styles';
+import { colorType } from 'Styled/dynamic';
 
 const BadgeBase = styled.span`
   position: absolute;

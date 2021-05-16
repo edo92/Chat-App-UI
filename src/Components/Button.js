@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
 
 import Icon from 'Components/Icon';
-import { colorType } from 'Styled/styles';
+import { colorType } from 'Styled/dynamic';
 import {
   border,
   fontSecondary,
