@@ -6,7 +6,6 @@ import { background } from 'Styled/colors';
 
 // Menus
 import ProfileMenu from './menu/Profile';
-// import SettingMenu from './menus/Setting';
 
 const Container = styled.div`
   background: ${background};
