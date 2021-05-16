@@ -20,7 +20,6 @@ const Input = styled(FormInput)`
 
 const Button = styled(ButtonBase)`
   text-align: center;
-
   width: 100%;
 `;
 
