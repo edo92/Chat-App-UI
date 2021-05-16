@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> Badge.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,33 +83,61 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>Badge.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled, { css } from 'styled-components';
+import {
+  background,
+  statuses,
+} from 'Styled/colors';
 
+const BadgeBase = styled.span`
+  position: absolute;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  top: 10px;
+  right: 10px;
+`;
 
-    <h3> </h3>
+const borderStyle = css`
+    3px solid ${background};
+`;
 
+const Badge = styled(BadgeBase)`
+  background-color: ${statuses};
+  border: ${(props) => props.border &amp;&amp; borderStyle};
+`;
 
+/**
+ * @component
+ * @param {Boolean} border     adds border around badge
+ * @param {String}  status     success | warning | error
+ * @param {String}  className  passed by styled compnent
+ */
+const BadgeComponent = memo(
+  ({ border, status, className }) => (
+    &lt;Badge
+      className={className}
+      border={border}
+      status={status}
+    />
+  ),
+);
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default BadgeComponent;
+</code></pre>
+        </article>
+    </section>
 
 
 

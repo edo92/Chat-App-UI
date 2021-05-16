@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> Tooltip.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,33 +83,106 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>Tooltip.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled from 'styled-components';
 
+import { highlightTertiary } from 'Styled/colors';
+import helpers from 'helpers';
 
-    <h3> </h3>
+const Content = styled.div`
+  width: 100%;
+  position: relative;
+`;
 
+const Title = styled.div`
+  background: ${highlightTertiary};
+  position: absolute;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 6px 11.5px;
+  border-radius: 5px;
+  white-space: nowrap;
+`;
 
+const Container = styled.span`
+  z-index: 11;
+  position: relative;
 
+  display: ${(props) =>
+    ({
+      right: 'flex',
+      bottom: 'block',
+    }[props.placement])};
 
+  .tooltip {
+    visibility: hidden;
+  }
 
+  &amp;: hover .tooltip {
+    visibility: visible;
+    transition: visibility 0s linear 0.35s;
+  }
+`;
 
+const TitleWrapper = styled.div`
+  position: relative;
+  color: white;
 
+  ${(props) =>
+    ({
+      right: 'top: calc(100% - 38px)',
+      bottom: 'left: -50%',
+    }[props.placement])};
 
+  transform: ${(props) =>
+    ({
+      right: 'translate3d(6px, 0px, 0px)',
+      bottom: 'translate3d(0px, 5.5px, 0px)',
+    }[props.placement])};
+`;
 
+/**
+ * @component
+ * @param {String} title      Tooltip title showes on hover
+ * @param {String} placement  Position of title
+ * @param {Object} children   Children passed
+ */
 
-    
+const Tooltip = memo(
+  ({ children, placement, title }) => {
+    const toUppercase = helpers.firstChartUppercase;
 
+    return (
+      &lt;Container placement={placement}>
+        &lt;Content>{children}&lt;/Content>
 
+        &lt;div>
+          &lt;TitleWrapper placement={placement}>
+            &lt;div className="tooltip">
+              &lt;Title>{toUppercase(title)}&lt;/Title>
+            &lt;/div>
+          &lt;/TitleWrapper>
+        &lt;/div>
+      &lt;/Container>
+    );
+  },
+);
 
-
-
+export default memo(Tooltip);
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> Avatar.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,33 +83,59 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>Avatar.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled, { css } from 'styled-components';
 
+import WomenAvatar5 from 'assets/img/women_avatar5.jpg';
 
-    <h3> </h3>
+const figureSize = css`
+  ${({ size }) =>
+    ({
+      sm: '1.5rem',
+      md: '2.3rem',
+      xl: '6.1rem',
+    }[size ? size : 'md'])};
+`;
 
+const Figure = styled.figure`
+  height: ${figureSize};
+  width: ${figureSize};
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0;
+`;
 
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+`;
 
+/**
+ * @component
+ * @param {String} size  sm | md
+ */
+const Avatar = memo(({ size }) => (
+  &lt;Figure size={size}>
+    &lt;Img src={WomenAvatar5} alt="avatar" />
+  &lt;/Figure>
+));
 
-
-
-
-
-
-
-    
-
-
-
-
-
+export default memo(Avatar);
+</code></pre>
+        </article>
+    </section>
 
 
 

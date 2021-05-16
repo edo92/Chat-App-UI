@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { ReactComponent as logo } from 'assets/logo.svg';
 
@@ -11,7 +12,7 @@ const iconSize = css`
     }[size])};
 `;
 
-const LogoIcon = styled(logo)`
+const Logo = styled(logo)`
   fill: #0a80ff;
   width: ${iconSize};
   height: ${iconSize};
@@ -21,8 +22,12 @@ const LogoIcon = styled(logo)`
  * @component
  * @param {String} size  Logo size (sm | md | lg)
  */
-const Logo = memo(({ size = 'sm' }) => {
-  return <LogoIcon size={size} />;
+const LogoComponent = memo(({ size = 'sm' }) => {
+  return <Logo size={size} />;
 });
 
-export default Logo;
+LogoComponent.propTypes = {
+  size: PropTypes.string.isRequired,
+};
+
+export default LogoComponent;
