@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> Link.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,33 +83,55 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>Link.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import styled from 'styled-components';
 
+const LinkElem = styled.a`
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  hight: 100%;
+  width: auto;
+`;
 
-    <h3> </h3>
+/**
+ * @component
+ * @param {String} to         link to href
+ * @param {String} className  className passed by styled-comp. or overwritten
+ * @param {Object} children   child component
+ */
 
+const Link = memo(({ to, className, children }) => {
+  // regex to test inner or outer link
+  const DOMAIN_PATTERN = /^(?:https?:)?[/]{2,}([^/]+)/;
+  const isExternal = DOMAIN_PATTERN.test(to);
 
+  return (
+    &lt;LinkElem
+      className={className}
+      href={to}
+      target={isExternal ? '_blank' : ''}
+      rel="noopener noreferrer"
+    >
+      {children}
+    &lt;/LinkElem>
+  );
+});
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+export default memo(Link);
+</code></pre>
+        </article>
+    </section>
 
 
 

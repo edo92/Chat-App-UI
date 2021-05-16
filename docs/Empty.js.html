@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> Empty.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,33 +83,88 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>Empty.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
+import { TextSecondary } from 'Styled/styles';
+import UnselectedChat from 'assets/img/unselected-chat.svg';
 
-    <h3> </h3>
+const Text = styled.p`
+  ${TextSecondary};
+  font-size: 16px;
+  font-weight: 300;
+`;
 
+const Image = styled.img`
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 1.7rem;
+`;
 
+const UnselectedContainer = styled.div`
+  height: 100%;
+  width: 100%;
+`;
 
+const Unselected = styled.div`
+  top: 37%;
+  position: relative;
+  text-align: center;
+`;
 
+// Svg icons options
+const svgIcons = {
+  unselected: UnselectedChat,
+};
 
+/**
+ * @component
+ * @param {String} [svg]       static svg file
+ * @param {String} [image]     image file or url
+ * @param {String} [title]     title commands action
+ * @param {Object} [children]  element passed as child
+ */
+const EmptyComponent = memo(
+  ({ svg = 'unselected', image, title, children }) => {
+    const svgImage = image || svgIcons[svg];
 
+    return (
+      &lt;UnselectedContainer>
+        &lt;Unselected>
+          &lt;Image
+            width={200}
+            src={svgImage}
+            alt="unselected"
+          />
+          &lt;>
+            {title &amp;&amp; &lt;Text>{title}&lt;/Text>}
+            {children &amp;&amp; children}
+          &lt;/>
+        &lt;/Unselected>
+      &lt;/UnselectedContainer>
+    );
+  },
+);
 
+EmptyComponent.propTypes = {
+  svg: PropTypes.string.isRequired,
+};
 
-
-
-    
-
-
-
-
-
+export default EmptyComponent;
+</code></pre>
+        </article>
+    </section>
 
 
 

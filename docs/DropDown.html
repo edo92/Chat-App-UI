@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Page</title>
+  <title> DropDown</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -82,7 +82,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>Page</h1>
+                    <h1>DropDown</h1>
                 </header>
                 
 
@@ -94,7 +94,7 @@
 <header>
     
         <h2>
-            &ltPage  /&gt
+            &ltDropDown  /&gt
         </h2>
         
     
@@ -114,12 +114,12 @@
 
 
     
-    <h4 class="name" id="Page">
-        <a class="href-link" href="#Page">#</a>
+    <h4 class="name" id="DropDown">
+        <a class="href-link" href="#DropDown">#</a>
         
         <span class="code-name">
             
-                &ltPage  /&gt
+                &ltDropDown  /&gt
             
         </span>
     </h4>
@@ -151,6 +151,8 @@
             <th>Type</th>
 
             
+            <th>Attributes</th>
+            
 
             
 
@@ -164,23 +166,31 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>metadata</code></td>
+      <td class="name"><code>id</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
   
   </td>
 
   
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
 
   
 
-  <td class="description last"><p>Metadata for PageMetadata</p></td>
+  <td class="description last"><p>target id</p></td>
 </tr>
 
 
@@ -202,10 +212,238 @@
   </td>
 
   
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
 
   
 
   <td class="description last"><p>child component</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>className</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>passed by styled-components or overwritten by user</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>overlay</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Array</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>dropdown menu items array</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>align</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>align item for parent div</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>placement</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>menu component placement</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>top</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>margin top in px</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>left</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>margin left in px</p></td>
 </tr>
 
 
@@ -251,9 +489,9 @@
 
     
         <p class="tag-source">
-            <a href="Page.js.html" class="button">View Source</a>
+            <a href="Dropdown.js.html" class="button">View Source</a>
             <span>
-                <a href="Page.js.html">Page.js</a>, <a href="Page.js.html#line20">line 20</a>
+                <a href="Dropdown.js.html">Dropdown.js</a>, <a href="Dropdown.js.html#line80">line 80</a>
             </span>
         </p>
     

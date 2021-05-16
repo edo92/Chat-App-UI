@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import { TextSecondary } from 'Styled/styles';
 import UnselectedChat from 'assets/img/unselected-chat.svg';
 
@@ -59,5 +61,9 @@ const EmptyComponent = memo(
     );
   },
 );
+
+EmptyComponent.propTypes = {
+  svg: PropTypes.string.isRequired,
+};
 
 export default EmptyComponent;

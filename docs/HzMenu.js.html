@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> HzMenu.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -81,33 +83,83 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>HzMenu.js</h1>
                 </header>
                 
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { memo, useState } from 'react';
+import styled from 'styled-components';
 
+import { List, ListItem } from 'Styled/base';
+import { fontSecondary } from 'Styled/colors';
 
-    <h3> </h3>
+const MenuItem = styled.div`
+  padding: 0.5rem;
+  display: flex;
+`;
 
+const MenuList = styled(List)`
+  display: flex;
+  justify-content: center;
+`;
 
+const ButtonBase = styled.button`
+  color: ${fontSecondary};
+  background: transparent;
+  border: none;
+  font-size: 15px;
+`;
 
+const MenuTitle = styled(ButtonBase)`
+  border-bottom: ${({ active }) =>
+    active ? '2px solid #0a80ff' : 'none'};
 
+  margin-right: 0.5rem;
+  padding-bottom: 0.6rem;
+  cursor: pointer;
+`;
 
+/**
+ * @component
+ * @param {Array}     menus       menu list
+ * @param {Function}  children   callback function as child returns active menu
+ */
 
+const HorizontalMenu = memo(({ menus, children }) => {
+  // Initial menu is first index
+  const [menu, setMenu] = useState(menus[0]);
 
+  return (
+    &lt;>
+      &lt;MenuList>
+        {menus.map((name, indx) => (
+          &lt;ListItem key={`${name}${indx}`}>
+            &lt;MenuItem>
+              &lt;MenuTitle
+                onClick={() => setMenu(name)}
+                active={menu === name}
+              >
+                &lt;span>{name}&lt;/span>
+              &lt;/MenuTitle>
+            &lt;/MenuItem>
+          &lt;/ListItem>
+        ))}
+      &lt;/MenuList>
+      {children(menu)}
+    &lt;/>
+  );
+});
 
-
-
-    
-
-
-
-
-
+export default HorizontalMenu;
+</code></pre>
+        </article>
+    </section>
 
 
 
