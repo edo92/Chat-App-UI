@@ -30,6 +30,8 @@ const Link = styled(Linkto)`
 const Button = styled(ButtonBase)`
   text-align: center;
   width: 100%;
+  padding: 8px 0;
+  font-size: 14px;
 `;
 
 const ButtonLink = styled(Linkto)`
@@ -72,7 +74,12 @@ const LoginPage = () => {
           </Link>
         </FormItem>
         <FormItem>
-          <Button title="Login" />
+          <Button
+            size="sm"
+            title={'Login'}
+            color={'#fff'}
+            type={'primary'}
+          />
         </FormItem>
       </Form>
       <div>
@@ -80,9 +87,9 @@ const LoginPage = () => {
           Don't have an account ?
         </TextSecondary> */}
 
-        <ButtonLink to={'/signup'}>
+        {/* <ButtonLink to={'/signup'}>
           Register now
-        </ButtonLink>
+        </ButtonLink> */}
       </div>
     </AuthLayout>
   );

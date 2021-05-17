@@ -24,13 +24,13 @@ export const fontColorDynamic = css`
 `;
 
 export const fontSizeDynamic = css`
-  ${({ fontSize = 'md' }) =>
+  ${({ size = 'md' }) =>
     ({
       xs: '14px',
       sm: '15px',
       md: '16px',
       lg: '17px',
-    }[fontSize])};
+    }[size])};
 `;
 
 export const fontDynamic = css`

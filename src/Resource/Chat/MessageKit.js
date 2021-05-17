@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import Btn from 'Components/Button';
+import Button from 'Components/Button';
 import { Input, BorderBox } from 'Styled/shared';
 import { List as Ul, ListItem as Ui } from 'Styled/base';
 
@@ -32,10 +32,6 @@ const Form = styled.form`
 const InputMessage = styled(Input)`
   padding: 11px 15px;
   width: 100%;
-`;
-
-const Button = styled(Btn)`
-  padding: 10px 15px;
 `;
 
 const Footer = memo(() => {

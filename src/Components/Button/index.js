@@ -12,9 +12,9 @@ import {
 
 // Button custom styles
 import {
-  sizing,
   onFocus,
   onHover,
+  spaceing,
   baseStyle,
   transitions,
   backgroundColor,
@@ -22,24 +22,26 @@ import {
 
 // Reusable button base style
 export const baseButton = css`
-  ${sizing};
+  ${spaceing};
   ${baseStyle};
   ${transitions};
+  ${fontDynamic};
   ${cursorDynamic};
+  ${backgroundColor};
 `;
 
 // Reusable button styled component
-export const ButtonBase = styled.button.attrs({
-  brColor: 'primary',
-  fontSize: 'xs',
-  fontColor: 'secondary',
-})`
+export const ButtonBase = styled.button.attrs(
+  ({ children: { props } }) => ({
+    brColor: 'primary',
+    fontColor: 'secondary',
+    fontSize: props.size,
+  }),
+)`
+  ${baseButton};
+  ${borderDynamic};
   ${onHover};
   ${onFocus};
-  ${baseButton};
-  ${fontDynamic};
-  ${borderDynamic};
-  ${backgroundColor};
 `;
 
 /**
@@ -69,6 +71,8 @@ const Button = memo(
     className,
   }) => (
     <ButtonBase
+      radius="base"
+      size={size}
       type={type}
       onClick={onClick}
       disabled={disabled}
@@ -82,7 +86,7 @@ const Button = memo(
           color={color}
         />
       ) : (
-        <span>{title}</span>
+        <span style={{ color }}>{title}</span>
       )}
     </ButtonBase>
   ),

@@ -1,15 +1,14 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import UserList from './UserList';
-import { dropmenu } from './menu';
-
-import Icon from 'Components/Icon';
-import Tooltip from 'Components/Tooltip';
-import { ButtonBase } from 'Components/Button';
-
 import { TextBase } from 'Styled/base';
 import { border, fontSecondary } from 'Styled/colors';
+
+import Tooltip from 'Components/Tooltip';
+import Button from 'Components/Button';
+
+import UserList from './UserList';
+import { dropmenu } from './menu';
 
 import {
   Section,
@@ -70,11 +69,6 @@ const ButtonItem = styled(ListItem)`
   margin-left: 0.5rem;
 `;
 
-const Button = styled(ButtonBase)`
-  position: relative;
-  display: block;
-`;
-
 const SearchInput = styled(Input)`
   padding: 11.5px 15px;
 `;
@@ -97,9 +91,7 @@ const SideBar = memo(
                     placement="bottom"
                     title="Add Group"
                   >
-                    <Button>
-                      <Icon size="sm" icon={'users'} />
-                    </Button>
+                    <Button icon={'users'} size="sm" />
                   </Tooltip>
                 </ButtonItem>
                 <ButtonItem>
@@ -107,12 +99,10 @@ const SideBar = memo(
                     placement="bottom"
                     title="New Chat"
                   >
-                    <Button>
-                      <Icon
-                        size="sm"
-                        icon={'plusCircle'}
-                      />
-                    </Button>
+                    <Button
+                      icon={'plusCircle'}
+                      size="sm"
+                    />
                   </Tooltip>
                 </ButtonItem>
               </ButtonList>
