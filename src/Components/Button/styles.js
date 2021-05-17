@@ -2,13 +2,17 @@ import { css } from 'styled-components';
 import { activeSecondary } from 'Styled/colors';
 import { colorType, borderColor } from 'Styled/dynamic';
 
-export const transitions = css`
-  transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
+// btn dynamic sizing
+export const spaceing = css`
+  padding: ${({ size = 'md' }) =>
+    ({
+      sm: '9px 14px',
+      md: '10px 15px',
+      lg: '11px 16px',
+    }[size])};
 `;
 
+// btn styels
 export const baseStyle = css`
   outline: none;
   width: auto;
@@ -17,12 +21,11 @@ export const baseStyle = css`
   justify-content: center;
 `;
 
-export const sizing = css`
-  border-width: 1px;
-  border-radius: 0.25rem;
-  font-size: 14px;
-  line-height: 14px;
-  padding: 9px 14px;
+export const transitions = css`
+  transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 `;
 
 export const onFocus = css`

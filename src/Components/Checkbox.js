@@ -19,7 +19,7 @@ const Input = styled.input`
 const Label = styled.label`
   ${cursorDynamic};
   position: relative;
-  display: inline-block;
+  display: flex;
 `;
 
 const Indicator = styled.div`

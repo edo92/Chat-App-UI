@@ -31,8 +31,18 @@ export const borderStyle = css`
     }[brStyle])};
 `;
 
+export const borderRadius = css`
+  ${({ radius = 'none' }) =>
+    ({
+      circle: '50%',
+      base: '0.25rem',
+      none: 'none',
+    }[radius])};
+`;
+
 export const borderDynamic = css`
   border-width: ${borderWidth};
   border-style: ${borderStyle};
   border-color: ${borderColor};
+  border-radius: ${borderRadius};
 `;
