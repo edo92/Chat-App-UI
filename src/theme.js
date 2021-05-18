@@ -7,6 +7,7 @@ const primary = '#0a80ff';
 const success = '#0abb87';
 const warning = '#ffc107';
 const error = 'red';
+const ghost = '#0e9bff';
 
 const border100 = '#293145';
 const border200 = '#e6e6e6';
@@ -44,6 +45,7 @@ const baseColors = {
   success,
   warning,
   error,
+  ghost,
 };
 
 const lightColors = {

@@ -3,6 +3,7 @@ import {
   borderPrimary,
   borderSecondary,
   borderTertiary,
+  ghost,
 } from 'Styled/colors';
 
 export const borderWidth = css`
@@ -20,6 +21,7 @@ export const borderColor = css`
       primary: borderPrimary,
       secondary: borderSecondary,
       tertiary: borderTertiary,
+      ghost: ghost,
     }[type])};
 `;
 
@@ -28,6 +30,7 @@ export const borderRadius = css`
     ({
       circle: '50%',
       base: '0.25rem',
+      pill: '15px',
       none: 'none',
     }[radius])};
 `;

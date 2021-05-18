@@ -83,3 +83,7 @@ export const warning = css`
 export const error = css`
   ${({ theme }) => theme.colors.error};
 `;
+
+export const ghost = css`
+  ${({ theme }) => theme.colors.ghost};
+`;
