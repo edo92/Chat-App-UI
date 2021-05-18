@@ -22,10 +22,6 @@ import {
 import TabPanel from './Tabs';
 import { dropmenu, tabsMenu } from './menu';
 
-const SectionArea = styled(Section)`
-  border-right: 1px solid ${border};
-`;
-
 const Container = styled(Wrapper)`
   width: 100px;
   text-align: center;
@@ -62,7 +58,7 @@ const Navigation = ({
   const { toggleNavTab, toggleTheme } = uiHandlers;
 
   return (
-    <SectionArea md="visisble">
+    <Section md="visisble">
       <Container>
         <InnerContainer>
           <NavHeader>
@@ -112,7 +108,7 @@ const Navigation = ({
           </NavFooter>
         </InnerContainer>
       </Container>
-    </SectionArea>
+    </Section>
   );
 };
 

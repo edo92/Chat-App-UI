@@ -2,8 +2,11 @@ import React, { memo, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import { rotate } from 'Styled/anim';
-import { border, activePrimary } from 'Styled/colors';
-import { cursorDynamic } from 'Styled/dynamic';
+import { activePrimary } from 'Styled/colors';
+import {
+  borderDynamic,
+  cursorDynamic,
+} from 'Styled/dynamic';
 
 const active = css`
   ${({ checked }) => (checked ? activePrimary : '#fff')};
@@ -23,6 +26,7 @@ const Label = styled.label`
 `;
 
 const Indicator = styled.div`
+  ${borderDynamic};
   background: ${active};
 
   width: 1rem;
@@ -30,7 +34,6 @@ const Indicator = styled.div`
 
   position: absolute;
   top: -1px;
-  border: 1px solid ${border};
   border-radius: 0.2em;
 
   ${Input}:not(:disabled):checked & {

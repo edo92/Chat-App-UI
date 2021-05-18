@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 const Content = styled.div`
   max-width: 65%;
   margin-bottom: 3rem;
-  margin-left: ${(props) => props.outgoing && 'auto'};
+  margin-left: ${({ outgoing }) => outgoing && 'auto'};
 `;
 
 const UserContainer = styled.div`
@@ -33,7 +33,7 @@ const UserInfo = styled.div`
   display: flex;
   margin-bottom: 1rem;
   line-height: 1.4;
-  float: ${(props) => props.outgoing && 'right'};
+  float: ${({ outgoing }) => outgoing && 'right'};
 `;
 
 const MessageContent = styled.div`

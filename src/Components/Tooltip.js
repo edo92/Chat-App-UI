@@ -24,11 +24,11 @@ const Container = styled.span`
   z-index: 11;
   position: relative;
 
-  display: ${(props) =>
+  display: ${({ placement }) =>
     ({
       right: 'flex',
       bottom: 'block',
-    }[props.placement])};
+    }[placement])};
 
   .tooltip {
     visibility: hidden;
@@ -44,20 +44,21 @@ const TitleWrapper = styled.div`
   position: relative;
   color: white;
 
-  ${(props) =>
+  ${({ placement }) =>
     ({
       right: 'top: calc(100% - 38px)',
       bottom: 'left: -50%',
-    }[props.placement])};
+    }[placement])};
 
-  transform: ${(props) =>
+  transform: ${({ placement }) =>
     ({
       right: 'translate3d(6px, 0px, 0px)',
       bottom: 'translate3d(0px, 5.5px, 0px)',
-    }[props.placement])};
+    }[placement])};
 `;
 
 /**
+ *
  * @component
  * @param {String} title      Tooltip title showes on hover
  * @param {String} placement  Position of title
@@ -84,4 +85,4 @@ const Tooltip = memo(
   },
 );
 
-export default memo(Tooltip);
+export default Tooltip;

@@ -7,8 +7,9 @@ import {
   smooth,
   background,
   activePrimary,
-  fontSecondary,
 } from 'Styled/colors';
+
+import { fontDynamic } from 'Styled/dynamic';
 
 const H3 = styled.h3`
   padding: 0.25rem;
@@ -53,8 +54,8 @@ const Header = styled.header`
 `;
 
 const Body = styled.div`
+  ${fontDynamic};
   background: ${background};
-  color: ${fontSecondary};
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   padding: 20px;

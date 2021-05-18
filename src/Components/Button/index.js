@@ -5,6 +5,7 @@ import Icon from 'Components/Icon';
 
 // Dynamic styles
 import {
+  spaceing,
   fontDynamic,
   borderDynamic,
   cursorDynamic,
@@ -14,7 +15,6 @@ import {
 import {
   onFocus,
   onHover,
-  spaceing,
   baseStyle,
   transitions,
   backgroundColor,
@@ -47,14 +47,14 @@ export const ButtonBase = styled.button.attrs(
 /**
  *
  * @component
- * @param {Boolean}   disabled     button type/color primary | success | error | warning ..etc
+ * @param {Boolean}   disabled     true | false
  * @param {Function}  onClick      onClick handler function
  * @param {String}    [icon]       button icon
  * @param {String}    [color]      color code
  * @param {String}    [fill]       fill icon color
  * @param {String}    [size]       sm | md | lg options
  * @param {String}    [title]      button title
- * @param {String}    [type]       button type/color primary | success | error | warning ..etc
+ * @param {String}    [type]       primary | success | error | warning ..etc button type/color
  * @param {String}    [className]  className passed for styled components
  */
 

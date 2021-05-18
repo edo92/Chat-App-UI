@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
+
 import { background } from 'Styled/colors';
 import { colorType } from 'Styled/dynamic';
 
@@ -24,16 +25,19 @@ const BadgeComponent = styled(BadgeBase)`
 /**
  *
  * @component
- * @param {Boolean} border     adds border around badge
- * @param {String}  status     success | warning | error
- * @param {String}  className  passed by styled compnent
+ * @param {Boolean | undefined} [border]    adds border around badge
+ * @param {String | undefined}  [status]    success | warning | error
+ * @param {String | undefined}  [type]      same as status, may need for consistency
+ * @param {String}  className               passed by styled compnent or custom class
  */
-const Badge = memo(({ border, status, className }) => (
-  <BadgeComponent
-    className={className}
-    border={border}
-    status={status}
-  />
-));
+const Badge = memo(
+  ({ border, status, type, className }) => (
+    <BadgeComponent
+      border={border}
+      className={className}
+      type={status || type}
+    />
+  ),
+);
 
 export default Badge;

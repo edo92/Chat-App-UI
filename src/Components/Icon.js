@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import * as FeatherIcon from 'react-feather';
 import Helpers from 'helpers';
+import * as FeatherIcon from 'react-feather';
 
 /**
  *

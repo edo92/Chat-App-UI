@@ -2,10 +2,8 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import { List, ListItem } from 'Styled/base';
-import {
-  borderSecondary,
-  highlightActive,
-} from 'Styled/colors';
+import { highlightActive } from 'Styled/colors';
+import { borderDynamic } from 'Styled/dynamic';
 
 const ItemMenu = styled(ListItem)`
   &: hover {
@@ -16,8 +14,10 @@ const ItemMenu = styled(ListItem)`
   font-weight: 400;
 `;
 
-const Divider = styled.div`
-  border-color: ${borderSecondary};
+const Divider = styled.div.attrs({
+  type: 'secondary',
+})`
+  ${borderDynamic};
   border-width: 1px;
   border-style: solid;
   margin: 0.4rem 0;

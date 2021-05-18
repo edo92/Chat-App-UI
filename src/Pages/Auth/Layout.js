@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { ReactComponent as logo } from 'assets/logo.svg';
-import { border } from 'Styled/colors';
+import { borderDynamic } from 'Styled/dynamic';
 import { toggleTheme } from 'Store/action/ui';
 
 const Wrapper = styled.div`
-  border: 1px solid ${border};
+  ${borderDynamic};
   background-color: white;
   padding: 3rem;
   border-radius: 5px;

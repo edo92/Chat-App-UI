@@ -4,7 +4,7 @@ export const background = css`
   ${({ theme }) => theme.colors.backgroundPrimary};
 `;
 
-export const border = css`
+export const borderPrimary = css`
   ${({ theme }) => theme.colors.borderPrimary};
 `;
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import helpers from 'helpers';
 import Button from 'Components/Button';
-
 import { slidein, slideout } from 'Styled/anim';
 
 const ContainerStyles = styled.div`

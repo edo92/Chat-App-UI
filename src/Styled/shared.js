@@ -17,13 +17,18 @@ import {
   fontSecondary,
 } from 'Styled/colors';
 
+import {
+  fontDynamic,
+  borderDynamic,
+} from 'Styled/dynamic';
+
 // Platform
 const platform = navigator.platform;
 const isWin = platform.includes('Win');
 
 export const Input = styled(InputBase)`
+  ${borderDynamic};
   color: ${fontSecondary};
-  border: 1px solid ${border};
 
   &:focus {
     border: 1px solid ${activePrimary};
@@ -33,13 +38,12 @@ export const Input = styled(InputBase)`
 `;
 
 export const ListItemHighlight = styled(ListItem)`
-  border-bottom: 1px solid ${border};
+  ${borderDynamic};
 
-  background-color: ${({ active }) =>
-    active && activeTertiary};
-
-  font-weight: ${({ active }) =>
-    active ? '600' : '400'};
+  ${({ active }) => `
+    background-color: ${active && activeTertiary};
+    font-weight: ${active ? '600' : '400'};
+  `}
 `;
 
 export const Scrollbar = styled.div`
@@ -78,7 +82,7 @@ export const Circle = styled(CountBase)`
 `;
 
 export const BorderBox = styled.div`
-  border-top: 1px solid ${border};
+  ${borderDynamic};
 `;
 
 export const MessageStyle = styled.div`
@@ -87,4 +91,12 @@ export const MessageStyle = styled.div`
 
   color: ${({ outgoing }) =>
     outgoing ? 'white' : fontSecondary};
+`;
+
+export const H1 = styled.h1.attrs({
+  size: 'h1',
+  fontColor: 'secondary',
+})`
+  ${fontDynamic};
+  font-weight: 600;
 `;

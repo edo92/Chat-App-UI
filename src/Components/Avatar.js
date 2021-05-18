@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-
 import WomenAvatar5 from 'assets/img/women_avatar5.jpg';
 
 const figureSize = css`

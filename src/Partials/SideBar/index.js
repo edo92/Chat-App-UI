@@ -1,34 +1,26 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { TextBase } from 'Styled/base';
-import { border, fontSecondary } from 'Styled/colors';
-
 import Tooltip from 'Components/Tooltip';
 import Button from 'Components/Button';
 
 import UserList from './UserList';
 import { dropmenu } from './menu';
 
+import { borderDynamic } from 'Styled/dynamic';
 import {
+  H1,
+  Input,
   Section,
   Scrollbar,
-  Input,
 } from 'Styled/shared';
 
 import {
-  Container as MainContainer,
-  InnerContainer,
-  ListItem,
   List,
+  ListItem,
+  InnerContainer,
+  Container as MainContainer,
 } from 'Styled/base';
-
-const Title = styled.span`
-  ${TextBase};
-  color: ${fontSecondary};
-  font-size: 22px;
-  font-weight: 600;
-`;
 
 const Header = styled.header`
   display: flex;
@@ -54,7 +46,9 @@ const SearchBox = styled.div`
 `;
 
 const SectionArea = styled(Section)`
-  border-right: 1px solid ${border};
+  ${borderDynamic};
+  border-top: none;
+  border-bottom: none;
 `;
 
 const Container = styled(MainContainer)`
@@ -83,7 +77,7 @@ const SideBar = memo(
       <Container>
         <InnerContainer>
           <Header>
-            <Title>Chats</Title>
+            <H1>Chats</H1>
             <div>
               <ButtonList>
                 <ButtonItem>
