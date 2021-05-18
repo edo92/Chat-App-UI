@@ -4,14 +4,10 @@ import { button } from 'Styled/base';
 import {
   highlightPrimary,
   highlightSecondary,
-  fontActive,
-  fontInactive,
 } from 'Styled/colors';
 
-const color = css`
-  color: ${({ active }) =>
-    active ? fontActive : fontInactive};
-`;
+import { fontDynamic } from 'Styled/dynamic';
+
 const bgColor = css`
   background-color: ${({ active }) =>
     active && highlightPrimary};
@@ -24,11 +20,18 @@ const bgColorHover = css`
 `;
 
 const ButtonSelect = styled.span`
-  ${color};
   ${button};
   ${bgColor};
   ${bgColorHover};
   padding: 0.9rem;
+`;
+
+const ButtonContent = styled.span.attrs(
+  ({ selected }) => ({
+    fontColor: selected ? 'active' : 'inactive',
+  }),
+)`
+  ${fontDynamic};
 `;
 
 /**
@@ -39,10 +42,14 @@ const ButtonSelect = styled.span`
  * @param {Object}  children  <Icon passed as children
  */
 
-const Button = memo((props) => (
-  <ButtonSelect {...props}>
-    {props.children && props.children}
-  </ButtonSelect>
-));
+const Select = memo(({ active, onClick, children }) => {
+  return (
+    <ButtonSelect active={active} onClick={onClick}>
+      <ButtonContent selected={active}>
+        {children && children}
+      </ButtonContent>
+    </ButtonSelect>
+  );
+});
 
-export default Button;
+export default Select;

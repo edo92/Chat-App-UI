@@ -20,6 +20,16 @@ export const colorType = css`
     }[type])};
 `;
 
+// spacing
+export const spaceing = css`
+  padding: ${({ size = 'md' }) =>
+    ({
+      sm: '9px 14px',
+      md: '10px 15px',
+      lg: '11px 16px',
+    }[size])};
+`;
+
 // Cursor
 export const cursorDynamic = css`
   cursor: ${({ disabled }) =>

@@ -9,6 +9,17 @@ import {
   fontInactive,
 } from 'Styled/colors';
 
+export const fontSizeDynamic = css`
+  ${({ size = 'md' }) =>
+    ({
+      xs: '14px',
+      sm: '15px',
+      md: '16px',
+      lg: '17px',
+      h1: '22px',
+    }[size])};
+`;
+
 export const fontColorDynamic = css`
   ${({ active, fontColor = 'fontActive' }) =>
     active
@@ -21,16 +32,6 @@ export const fontColorDynamic = css`
           active: fontActive,
           inactive: fontInactive,
         }[fontColor]};
-`;
-
-export const fontSizeDynamic = css`
-  ${({ size = 'md' }) =>
-    ({
-      xs: '14px',
-      sm: '15px',
-      md: '16px',
-      lg: '17px',
-    }[size])};
 `;
 
 export const fontDynamic = css`

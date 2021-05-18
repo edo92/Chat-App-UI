@@ -2,16 +2,6 @@ import { css } from 'styled-components';
 import { activeSecondary } from 'Styled/colors';
 import { colorType, borderColor } from 'Styled/dynamic';
 
-// btn dynamic sizing
-export const spaceing = css`
-  padding: ${({ size = 'md' }) =>
-    ({
-      sm: '9px 14px',
-      md: '10px 15px',
-      lg: '11px 16px',
-    }[size])};
-`;
-
 // btn styels
 export const baseStyle = css`
   outline: none;
@@ -30,7 +20,6 @@ export const transitions = css`
 
 export const onFocus = css`
   &: focus {
-    border-width: 1px;
     box-shadow: rgb(133, 133, 133);
     border-color: ${activeSecondary};
   }
@@ -38,8 +27,8 @@ export const onFocus = css`
 
 export const onHover = css`
   &: hover {
-    background-color: ${borderColor};
-  }
+    background-color: ${({ type }) =>
+      type !== 'primary' && borderColor};
 `;
 
 export const backgroundColor = css`

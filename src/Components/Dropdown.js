@@ -7,8 +7,7 @@ import { Card } from 'Styled/shared';
 import Menu from 'Components/Menu';
 
 const dynamicAlign = css`
-  text-align: ${({ align }) =>
-    align ? align : 'center'};
+  text-align: ${({ align }) => align || 'center'};
 `;
 
 const Container = styled.div`

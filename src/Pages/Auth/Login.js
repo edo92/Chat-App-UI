@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import AuthLayout from './Layout';
+import Layout from './Layout';
 
 import Linkto from 'Components/Link';
 import Checkbox from 'Components/Checkbox';
-import ButtonBase, {
-  baseButton,
-} from 'Components/Button';
+import ButtonBase from 'Components/Button';
 
 import { Form } from 'Styled/base';
 import { Input as FormInput } from 'Styled/shared';
-import { activePrimary, border } from 'Styled/colors';
+import { fontDynamic } from 'Styled/dynamic';
 
 const FormItem = styled.div`
   display: flex;
@@ -22,8 +20,10 @@ const Input = styled(FormInput)`
   height: 35px;
 `;
 
-const Link = styled(Linkto)`
-  color: ${activePrimary};
+const Link = styled(Linkto).attrs({
+  active: true,
+})`
+  ${fontDynamic};
   font-size: 13.3px;
 `;
 
@@ -34,10 +34,10 @@ const Button = styled(ButtonBase)`
   font-size: 14px;
 `;
 
-const ButtonLink = styled(Linkto)`
-  ${baseButton};
-  border: 1px solid ${border};
-`;
+// const ButtonLink = styled(Linkto)`
+//   ${baseButton};
+//   ${borderDynamic};
+// `;
 
 const LoginPage = () => {
   // handlers
@@ -52,7 +52,7 @@ const LoginPage = () => {
   };
 
   return (
-    <AuthLayout title={'Sign In'}>
+    <Layout title={'Sign In'}>
       <Form onSubmit={onSubmit}>
         <FormItem>
           <Input name="email" placeholder="Email" />
@@ -91,7 +91,7 @@ const LoginPage = () => {
           Register now
         </ButtonLink> */}
       </div>
-    </AuthLayout>
+    </Layout>
   );
 };
 

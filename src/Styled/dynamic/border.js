@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import {
-  border,
+  borderPrimary,
   borderSecondary,
   borderTertiary,
 } from 'Styled/colors';
@@ -15,20 +15,12 @@ export const borderWidth = css`
 `;
 
 export const borderColor = css`
-  ${({ brColor = 'primary' }) =>
+  ${({ type = 'primary' }) =>
     ({
-      primary: border,
+      primary: borderPrimary,
       secondary: borderSecondary,
       tertiary: borderTertiary,
-    }[brColor])};
-`;
-
-export const borderStyle = css`
-  ${({ brStyle = 'solid' }) =>
-    ({
-      solid: 'solid',
-      groove: 'groove',
-    }[brStyle])};
+    }[type])};
 `;
 
 export const borderRadius = css`
@@ -38,6 +30,14 @@ export const borderRadius = css`
       base: '0.25rem',
       none: 'none',
     }[radius])};
+`;
+
+export const borderStyle = css`
+  ${({ brStyle = 'solid' }) =>
+    ({
+      solid: 'solid',
+      groove: 'groove',
+    }[brStyle])};
 `;
 
 export const borderDynamic = css`
