@@ -2,7 +2,7 @@ import { Redirect } from 'react-router';
 import { Route } from 'react-router-dom';
 
 // Test Only **
-const auth = false; // needs to be in context
+const auth = true; // needs to be in context
 // ************
 
 export const PrivateRoute = ({
