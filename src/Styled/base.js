@@ -81,8 +81,3 @@ export const button = css`
   position: relative;
   cursor: pointer;
 `;
-
-export const TextBase = css`
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-`;

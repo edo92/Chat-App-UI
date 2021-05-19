@@ -23,7 +23,7 @@ const Profile = memo(({ drawer, toggle, profile }) => {
   return (
     <Container>
       <Drawer
-        open={isOpen}
+        isOpen={isOpen}
         toggle={toggle}
         title={activeMenu}
       >

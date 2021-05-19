@@ -46,7 +46,7 @@ reactComponents['Empty'] = Component6;
 import Component7 from '../src/Components/HzMenu.js';
 reactComponents['HorizontalMenu'] = Component7;
 
-import Component8 from '../src/Components/Icon.js';
+import Component8 from '../src/Components/Icons/index.js';
 reactComponents['Icon'] = Component8;
 
 import Component9 from '../src/Components/Link.js';

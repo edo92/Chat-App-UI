@@ -85,7 +85,7 @@ const SideBar = memo(
                     placement="bottom"
                     title="Add Group"
                   >
-                    <Button icon={'users'} size="sm" />
+                    <Button icon={'Users'} size="sm" />
                   </Tooltip>
                 </ButtonItem>
                 <ButtonItem>
@@ -94,7 +94,7 @@ const SideBar = memo(
                     title="New Chat"
                   >
                     <Button
-                      icon={'plusCircle'}
+                      icon={'PlusCircle'}
                       size="sm"
                     />
                   </Tooltip>

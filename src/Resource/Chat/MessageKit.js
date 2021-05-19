@@ -5,7 +5,7 @@ import { Input, BorderBox } from 'Styled/shared';
 import { List as Ul, ListItem as Ui } from 'Styled/base';
 
 const Container = styled(BorderBox)`
-  padding: 17px 20px;
+  padding: 18px 20px;
   position: relative;
 
   & .inputmessage {

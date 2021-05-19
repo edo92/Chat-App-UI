@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { ListItem } from 'Styled/base';
 
-import Icon from 'Components/Icon';
+import Icon from 'Components/Icons';
 import Badge from 'Components/Badge';
 import Tootip from 'Components/Tooltip';
 import ButtonSelect from 'Components/Select';

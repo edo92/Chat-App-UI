@@ -1,38 +1,30 @@
 import React, { memo } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { button } from 'Styled/base';
-import {
-  highlightPrimary,
-  highlightSecondary,
-} from 'Styled/colors';
+import { fontDynamic, bgDynamic } from 'Styled/dynamic';
 
-import { fontDynamic } from 'Styled/dynamic';
-
-const bgColor = css`
-  background-color: ${({ active }) =>
-    active && highlightPrimary};
-`;
-const bgColorHover = css`
-  &: hover {
-    background-color: ${({ active }) =>
-      !active && highlightSecondary};
-  }
-`;
-
-const ButtonSelect = styled.span`
+const selectBase = styled.span`
   ${button};
-  ${bgColor};
-  ${bgColorHover};
+  ${bgDynamic};
   padding: 0.9rem;
 `;
 
-const ButtonContent = styled.span.attrs(
+const contentBase = styled.span`
+  ${fontDynamic};
+`;
+
+const ButtonSelect = styled(selectBase).attrs(
+  ({ active }) => ({
+    activebg: active,
+    hover: !active && 'secondary',
+  }),
+)``;
+
+const ButtonContent = styled(contentBase).attrs(
   ({ selected }) => ({
     fontColor: selected ? 'active' : 'inactive',
   }),
-)`
-  ${fontDynamic};
-`;
+)``;
 
 /**
  *

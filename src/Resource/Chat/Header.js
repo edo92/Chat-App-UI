@@ -58,7 +58,7 @@ const Header = memo(({ user }) => (
           <Tooltip placement="bottom" title="Voice Call">
             <Button
               size={'sm'}
-              icon={'phone'}
+              icon={'Phone'}
               color={'#0abb87'}
             />
           </Tooltip>
@@ -67,7 +67,7 @@ const Header = memo(({ user }) => (
           <Tooltip placement="bottom" title="Video call">
             <Button
               size={'sm'}
-              icon={'video'}
+              icon={'Video'}
               color={'#ffb822'}
             />
           </Tooltip>
@@ -80,7 +80,7 @@ const Header = memo(({ user }) => (
             overlay={dropmenu()}
           >
             <Button
-              icon={'moreHorizontal'}
+              icon={'MoreHorizontal'}
               size={'sm'}
             />
           </Dropdown>

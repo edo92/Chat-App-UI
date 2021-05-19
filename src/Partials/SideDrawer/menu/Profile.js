@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Avatar from 'Components/Avatar';
 import Switch from 'Components/Switch';
-import Social from 'Components/SocialIcon';
+import Social from 'Components/Social';
 
 import { Small, List, ListItem } from 'Styled/base';
 
@@ -60,7 +60,7 @@ const SocialIcons = memo(({ profile }) => (
   <SocialMedia>
     {profile.social.map((social) => (
       <ItemList key={social.name}>
-        <Social social={social} size="xs" />
+        <Social social={social} size="md" />
       </ItemList>
     ))}
   </SocialMedia>

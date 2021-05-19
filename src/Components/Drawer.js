@@ -1,20 +1,19 @@
 import React, { memo } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import helpers from 'helpers';
 import Button from 'Components/Button';
+
 import { slidein, slideout } from 'Styled/anim';
+import { visibleDynamic } from 'Styled/dynamic';
 
-const ContainerStyles = styled.div`
-  transition: visibility 1s ease-in;
-
-  visibility: ${({ open }) =>
-    open ? 'visible' : 'hidden'};
-
-  ${({ open }) => (open ? slidein : slideout)};
+const slideAnim = css`
+  ${({ visible }) => (visible ? slidein : slideout)};
 `;
 
-const Container = styled(ContainerStyles)`
+const Container = styled.div`
+  ${slideAnim};
+  ${visibleDynamic};
   width: 350px;
   position: fixed;
   flex-direction: column;
@@ -25,6 +24,7 @@ const Container = styled(ContainerStyles)`
   background-color: inherit;
   border-radius: 5px;
   box-shadow: 25px 0px 30px 5px black;
+  transition: visibility 1s ease-in;
 `;
 
 const Wrapper = styled.div`
@@ -68,9 +68,9 @@ const Body = styled.div`
  */
 
 const Drawer = memo(
-  ({ open, title, toggle, className, children }) => {
+  ({ isOpen, title, toggle, className, children }) => {
     return (
-      <Container className={className} open={open}>
+      <Container className={className} visible={isOpen}>
         <Wrapper>
           <Header>
             <Title>

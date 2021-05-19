@@ -1,16 +1,12 @@
 import React, { memo, useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { rotate } from 'Styled/anim';
-import { activePrimary } from 'Styled/colors';
 import {
-  borderDynamic,
   cursorDynamic,
+  borderDynamic,
+  bgColorDynamic,
 } from 'Styled/dynamic';
-
-const active = css`
-  ${({ checked }) => (checked ? activePrimary : '#fff')};
-`;
 
 const Input = styled.input`
   height: 0;
@@ -25,9 +21,12 @@ const Label = styled.label`
   display: flex;
 `;
 
-const Indicator = styled.div`
+const Indicator = styled.div.attrs(({ active }) => ({
+  activebg: active,
+  typebg: 'base',
+}))`
   ${borderDynamic};
-  background: ${active};
+  ${bgColorDynamic};
 
   width: 1rem;
   height: 1rem;
@@ -35,10 +34,6 @@ const Indicator = styled.div`
   position: absolute;
   top: -1px;
   border-radius: 0.2em;
-
-  ${Input}:not(:disabled):checked & {
-    background: #d1d1d1;
-  }
 
   &::after {
     content: '';
@@ -55,10 +50,6 @@ const Indicator = styled.div`
     height: 8px;
     border: solid #fff;
     border-width: 0 0.17em 0.18em 0;
-  }
-
-  &::disabled {
-    cursor: not-allowed;
   }
 `;
 
@@ -99,12 +90,12 @@ const Checkbox = memo(
           id={id}
           type="checkbox"
           name={name}
-          value={value || state}
-          checked={state}
+          active={state}
           disabled={disabled}
+          value={value || state}
           onChange={handleOnChange}
         />
-        <Indicator checked={state} />
+        <Indicator disabled={true} active={state} />
       </Label>
     );
   },

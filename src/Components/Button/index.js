@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
 
-import Icon from 'Components/Icon';
+import Icon from 'Components/Icons';
 
 // Dynamic styles
 import {
