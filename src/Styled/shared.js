@@ -83,6 +83,8 @@ export const Circle = styled(CountBase)`
 
 export const BorderBox = styled.div`
   ${borderDynamic};
+  border-right: none;
+  border-left: none;
 `;
 
 export const MessageStyle = styled.div`

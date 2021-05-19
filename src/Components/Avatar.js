@@ -3,12 +3,12 @@ import styled, { css } from 'styled-components';
 import WomenAvatar5 from 'assets/img/women_avatar5.jpg';
 
 const figureSize = css`
-  ${({ size }) =>
+  ${({ size = 'md' }) =>
     ({
       sm: '1.5rem',
       md: '2.3rem',
       xl: '6.1rem',
-    }[size ? size : 'md'])};
+    }[size])};
 `;
 
 const Figure = styled.figure`

@@ -72,6 +72,10 @@ export const smooth = css`
   ${({ theme }) => theme.colors.smooth};
 `;
 
+export const light = css`
+  ${({ theme }) => theme.colors.light};
+`;
+
 export const success = css`
   ${({ theme }) => theme.colors.success};
 `;

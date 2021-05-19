@@ -8,6 +8,7 @@ import {
 
 export * from './font';
 export * from './border';
+export * from './background';
 
 export const colorType = css`
   ${({ type = 'none' }) =>
@@ -39,4 +40,16 @@ export const cursorDynamic = css`
 export const activeDynamic = css`
   ${({ active }) =>
     active ? activePrimary : 'inherit'};
+`;
+
+export const visibleDynamic = css`
+  ${({ visible }) => `
+    visibility: ${visible ? 'visible' : 'hidden'}
+  `};
+`;
+
+export const alignDynamic = css`
+  ${({ align = 'center' }) => `
+      text-align: ${align}
+  `};
 `;

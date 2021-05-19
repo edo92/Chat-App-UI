@@ -2,7 +2,7 @@ import React, { memo, createRef } from 'react';
 import styled from 'styled-components';
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
-import Icon from 'Components/Icon';
+import Icon from 'Components/Icons';
 import {
   smooth,
   background,

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { ReactComponent as logo } from 'assets/logo.svg';
 
 const iconSize = css`
-  ${({ size }) =>
+  ${({ size = 'sm' }) =>
     ({
       sm: '25px',
       md: '30px',
@@ -22,7 +22,7 @@ const LogoIcon = styled(logo)`
  * @component
  * @param {String} size  Logo size (sm | md | lg)
  */
-const Logo = memo(({ size = 'sm' }) => {
+const Logo = memo(({ size }) => {
   return <LogoIcon size={size} />;
 });
 

@@ -34,12 +34,6 @@ const Lable = styled.span`
   white-space: nowrap;
 `;
 
-const labelBase = css`
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
-
 const labelAfter = css`
   ${afterMargin};
   ${sliderAfterSize};
@@ -52,20 +46,27 @@ const labelAfter = css`
   box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 10%);
 `;
 
+const sliderBase = css`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
 const Slider = styled.label.attrs(({ status }) => ({
   type: status ? 'ghost' : 'tertiary',
   radius: 'pill',
 }))`
-  ${labelBase};
+  ${sliderBase};
   ${sliderSize};
   ${borderDynamic};
   ${cursorDynamic};
   background: ${highlightSecondary};
-  &::before {
-    ${({ anim }) => anim && waveAnimation};
-  }
+
   &::after {
     ${labelAfter};
+  }
+  &::before {
+    ${({ anim }) => anim && waveAnimation};
   }
 `;
 
@@ -79,7 +80,6 @@ const Input = styled.input`
 
     &::after {
       ${inputAfter};
-
       content: '';
       transition: 0.15s;
       display: block;
@@ -87,7 +87,7 @@ const Input = styled.input`
   }
 `;
 
-const App = memo(
+const Switch = memo(
   ({ size = 'md', label, id = uuidv4() }) => {
     const [status, setStatus] = useState(false);
     const [anim, setAnimate] = useState(false);
@@ -123,4 +123,4 @@ const App = memo(
   },
 );
 
-export default App;
+export default Switch;

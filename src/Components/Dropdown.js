@@ -3,15 +3,16 @@ import styled, { css } from 'styled-components';
 import helpers from 'helpers';
 
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
-import { Card } from 'Styled/shared';
 import Menu from 'Components/Menu';
 
-const dynamicAlign = css`
-  text-align: ${({ align }) => align || 'center'};
-`;
+import { Card } from 'Styled/shared';
+import {
+  alignDynamic,
+  visibleDynamic,
+} from 'Styled/dynamic';
 
 const Container = styled.div`
-  ${dynamicAlign};
+  ${alignDynamic};
   z-index: 12;
   transform: none;
   cursor: pointer;
@@ -37,12 +38,6 @@ const MenuContainer = styled.div`
   transform: none;
 `;
 
-// Dynamic visibiliy
-const visibility = css`
-  visibility: ${({ isOpen }) =>
-    isOpen ? 'visible' : 'hidden'};
-`;
-
 // Dynamic spacing
 const spaceing = css`
   top: ${({ top }) => top};
@@ -60,7 +55,7 @@ const transform = css`
 const Content = styled(ContentStyle)`
   ${spaceing};
   ${transform};
-  ${visibility};
+  ${visibleDynamic};
 `;
 
 /**
@@ -118,7 +113,7 @@ const DropDown = memo(
 
         <Content
           placement={placement}
-          isOpen={isOpen}
+          visible={isOpen}
           top={top}
           left={left}
         >
