@@ -1,25 +1,26 @@
 import React, { memo } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { background } from 'Styled/colors';
-import { colorType } from 'Styled/dynamic';
+import {
+  colorTypeDynamic,
+  borderDynamic,
+} from 'Styled/dynamic';
 
 const BadgeBase = styled.span`
-  position: absolute;
-  border-radius: 50%;
   width: 8px;
   height: 8px;
   top: 10px;
   right: 10px;
+  position: absolute;
+  border-radius: 50%;
 `;
 
-const borderStyle = css`
-    3px solid ${background};
-`;
-
-const BadgeComponent = styled(BadgeBase)`
-  background-color: ${colorType};
-  border: ${({ border }) => border && borderStyle};
+const BadgeComponent = styled(BadgeBase).attrs({
+  sizebr: 3,
+  typebr: 'background',
+})`
+  background-color: ${colorTypeDynamic};
+  ${({ border }) => border && borderDynamic};
 `;
 
 /**

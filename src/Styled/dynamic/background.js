@@ -4,20 +4,22 @@ import {
   light,
   highlightPrimary,
   highlightSecondary,
+  highlightActive,
+  highlightTertiary,
 } from 'Styled/colors';
 
-import { activeDynamic } from './index';
-
 const bgColors = {
-  light: light,
-  base: background,
+  active: highlightActive,
   primary: highlightPrimary,
   secondary: highlightSecondary,
+  tertiary: highlightTertiary,
+  light: light,
+  base: background,
+  none: 'none',
 };
 
 export const bgColorDynamic = css`
-  ${({ typebg = 'base', activebg }) =>
-    activebg ? activeDynamic : bgColors[typebg]};
+  ${({ typebg = 'base' }) => bgColors[typebg]};
 `;
 
 export const bgHoverDynamic = css`

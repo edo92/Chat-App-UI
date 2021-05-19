@@ -1,6 +1,9 @@
 import { css } from 'styled-components';
 import { activeSecondary } from 'Styled/colors';
-import { colorType, borderColor } from 'Styled/dynamic';
+import {
+  colorTypeDynamic,
+  borderColorDynamic,
+} from 'Styled/dynamic';
 
 // btn styels
 export const baseStyle = css`
@@ -28,9 +31,9 @@ export const onFocus = css`
 export const onHover = css`
   &: hover {
     background-color: ${({ type }) =>
-      type !== 'primary' && borderColor};
+      type !== 'primary' && borderColorDynamic};
 `;
 
 export const backgroundColor = css`
-  background: ${colorType};
+  background: ${colorTypeDynamic};
 `;

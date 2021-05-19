@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import UnselectedChat from 'assets/img/unselected-chat.svg';
-import { fontSecondary } from 'Styled/colors';
+import { fontDynamic } from 'Styled/dynamic';
 
 const Text = styled.p`
-  color: ${fontSecondary};
-  font-size: 16px;
-  font-weight: 300;
+  ${fontDynamic};
 `;
 
 const Image = styled.img`
@@ -53,7 +51,9 @@ const Empty = memo(
             alt="unselected"
           />
           <>
-            {title && <Text>{title}</Text>}
+            {title && (
+              <Text fontColor="secondary">{title}</Text>
+            )}
             {children && children}
           </>
         </Unselected>

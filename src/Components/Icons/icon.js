@@ -2,16 +2,15 @@ import React from 'react';
 import FeatherIcon from './feather';
 import SocialIcon from './social';
 
-const IconSVG = ({ icon, social, size, className }) => {
-  let Component;
+const Icon = ({ icon, social, className }) => {
+  const IconSVG = (() => {
+    return (
+      (icon && FeatherIcon(icon)) ||
+      (social && SocialIcon(social))
+    );
+  })();
 
-  if (icon) {
-    Component = FeatherIcon(icon);
-  } else if (social) {
-    Component = SocialIcon(social);
-  }
-
-  return <Component size={size} className={className} />;
+  return <IconSVG className={className} />;
 };
 
-export default IconSVG;
+export default Icon;

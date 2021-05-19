@@ -41,7 +41,8 @@ export const sizes = {
 
 // Colors
 export const backgroundStyle = css`
-  ${({ status }) => (status ? '#fff' : '#adb5bd')};
+  background: ${({ status }) =>
+    status ? '#fff' : '#adb5bd'};
 `;
 
 // Spaceing

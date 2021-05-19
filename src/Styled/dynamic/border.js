@@ -1,31 +1,34 @@
 import { css } from 'styled-components';
 import {
+  background,
   borderPrimary,
   borderSecondary,
   borderTertiary,
   ghost,
 } from 'Styled/colors';
 
-export const borderWidth = css`
-  ${({ brSize = 1 }) =>
+export const borderWidthDynamic = css`
+  ${({ sizebr = 1 }) =>
     ({
       1: '1px',
       2: '2px',
       3: '3px',
-    }[brSize])};
+      none: 'none',
+    }[sizebr])};
 `;
 
-export const borderColor = css`
-  ${({ type = 'primary' }) =>
+export const borderColorDynamic = css`
+  ${({ typebr = 'primary' }) =>
     ({
       primary: borderPrimary,
       secondary: borderSecondary,
       tertiary: borderTertiary,
-      ghost: ghost,
-    }[type])};
+      ghost,
+      background,
+    }[typebr])};
 `;
 
-export const borderRadius = css`
+export const borderRadiusDynamic = css`
   ${({ radius = 'none' }) =>
     ({
       circle: '50%',
@@ -35,17 +38,17 @@ export const borderRadius = css`
     }[radius])};
 `;
 
-export const borderStyle = css`
-  ${({ brStyle = 'solid' }) =>
+export const borderStyleDynamic = css`
+  ${({ styleBr = 'solid' }) =>
     ({
       solid: 'solid',
       groove: 'groove',
-    }[brStyle])};
+    }[styleBr])};
 `;
 
 export const borderDynamic = css`
-  border-width: ${borderWidth};
-  border-style: ${borderStyle};
-  border-color: ${borderColor};
-  border-radius: ${borderRadius};
+  border-width: ${borderWidthDynamic};
+  border-color: ${borderColorDynamic};
+  border-style: ${borderStyleDynamic};
+  border-radius: ${borderRadiusDynamic};
 `;

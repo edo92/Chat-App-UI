@@ -1,12 +1,10 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import Icon from 'Components/Icons';
+import IconSvg from 'Components/Icons';
 import { sizeDynamic, socialBgDynamic } from './styles';
 
-const SocialWrapper = styled.span`
-  ${sizeDynamic};
-  ${socialBgDynamic};
+const socialBase = styled.span`
   vertical-align: text-top;
   justify-content: center;
   display: inline-flex;
@@ -18,9 +16,14 @@ const SocialWrapper = styled.span`
   cursor: pointer;
 `;
 
-const SocialIcon = styled(Icon)`
+const Icon = styled(IconSvg)`
   vertical-align: text-top;
   color: #fff;
+`;
+
+const Social = styled(socialBase)`
+  ${sizeDynamic};
+  ${socialBgDynamic};
 `;
 
 /**
@@ -30,10 +33,10 @@ const SocialIcon = styled(Icon)`
  * @param {string}  size    xs | sm | md | lg - sizes
  */
 
-const SocialIconComponent = memo(({ social, size }) => (
-  <SocialWrapper socialSize={size} icon={social.name}>
-    <SocialIcon size={size} social={social.name} />
-  </SocialWrapper>
+const SocialIcon = memo(({ social, size }) => (
+  <Social socialSize={size} icon={social.name}>
+    <Icon size={size} social={social.name} />
+  </Social>
 ));
 
-export default SocialIconComponent;
+export default SocialIcon;

@@ -15,7 +15,7 @@ const contentBase = styled.span`
 
 const ButtonSelect = styled(selectBase).attrs(
   ({ active }) => ({
-    activebg: active,
+    typebg: active && 'primary',
     hover: !active && 'secondary',
   }),
 )``;

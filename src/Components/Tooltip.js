@@ -1,16 +1,18 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { highlightTertiary } from 'Styled/colors';
 import helpers from 'helpers';
+import { bgDynamic } from 'Styled/dynamic';
 
 const Content = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const Title = styled.div`
-  background: ${highlightTertiary};
+const Title = styled.div.attrs({
+  typebg: 'tertiary',
+})`
+  ${bgDynamic};
   position: absolute;
   font-size: 14px;
   font-weight: 400;

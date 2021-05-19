@@ -21,7 +21,7 @@ export const fontSizeDynamic = css`
 `;
 
 export const fontColorDynamic = css`
-  ${({ active, fontColor = 'fontActive' }) =>
+  ${({ active, fontColor = 'active' }) =>
     active
       ? activePrimary
       : {

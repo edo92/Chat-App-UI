@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import IconSVG from './icon';
 
-import { fontColorDynamic } from 'Styled/dynamic';
+import IconSVG from './Icon';
 import {
-  iconColorDynamic,
   iconSizeDynamic,
+  iconColorDynamic,
 } from './styles';
 
 const Wrapper = styled.span`
@@ -14,9 +13,8 @@ const Wrapper = styled.span`
 `;
 
 const MyIcon = styled(IconSVG)`
-  ${iconColorDynamic};
   ${iconSizeDynamic};
-  ${fontColorDynamic};
+  ${iconColorDynamic};
 `;
 
 /**
@@ -41,11 +39,11 @@ const Icon = memo(
     return (
       <Wrapper>
         <MyIcon
-          icon={icon}
           size={size}
-          color={color}
           fill={fill}
           type={type}
+          color={color}
+          icon={icon}
           social={social}
           className={className}
         />

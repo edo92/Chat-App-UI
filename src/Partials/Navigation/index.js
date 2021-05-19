@@ -9,7 +9,6 @@ import Icon from 'Components/Icons';
 import Dropdown from 'Components/Dropdown';
 import Avatar from 'Components/Avatar';
 
-import { border } from 'Styled/colors';
 import { Section } from 'Styled/shared';
 
 import {

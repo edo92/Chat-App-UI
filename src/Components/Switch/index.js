@@ -3,12 +3,11 @@ import styled, { css } from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
 import { waveAnimation } from 'Styled/anim';
-import { highlightSecondary } from 'Styled/colors';
-
 import {
-  borderDynamic,
+  bgDynamic,
   fontDynamic,
   cursorDynamic,
+  borderDynamic,
 } from 'Styled/dynamic';
 
 import {
@@ -37,7 +36,7 @@ const Lable = styled.span`
 const labelAfter = css`
   ${afterMargin};
   ${sliderAfterSize};
-  background: ${backgroundStyle};
+  ${backgroundStyle};
   content: '';
   display: block;
   border-radius: 50%;
@@ -53,14 +52,15 @@ const sliderBase = css`
 `;
 
 const Slider = styled.label.attrs(({ status }) => ({
-  type: status ? 'ghost' : 'tertiary',
   radius: 'pill',
+  typebg: 'secondary',
+  typebr: status ? 'ghost' : 'tertiary',
 }))`
+  ${bgDynamic};
   ${sliderBase};
   ${sliderSize};
   ${borderDynamic};
   ${cursorDynamic};
-  background: ${highlightSecondary};
 
   &::after {
     ${labelAfter};

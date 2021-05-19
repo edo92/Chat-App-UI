@@ -10,7 +10,7 @@ export * from './font';
 export * from './border';
 export * from './background';
 
-export const colorType = css`
+export const colorTypeDynamic = css`
   ${({ type = 'none' }) =>
     ({
       success,

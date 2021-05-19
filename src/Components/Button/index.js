@@ -21,7 +21,7 @@ import {
 } from './styles';
 
 // Reusable button base style
-export const baseButton = css`
+export const buttonBase = css`
   ${spaceing};
   ${baseStyle};
   ${transitions};
@@ -32,13 +32,13 @@ export const baseButton = css`
 
 // Reusable button styled component
 export const ButtonBase = styled.button.attrs(
-  ({ children: { props } }) => ({
+  ({ size, type }) => ({
     brColor: 'primary',
-    fontColor: 'secondary',
-    fontSize: props.size,
+    fontColor: type,
+    fontSize: size,
   }),
 )`
-  ${baseButton};
+  ${buttonBase};
   ${borderDynamic};
   ${onHover};
   ${onFocus};
@@ -78,16 +78,15 @@ const Button = memo(
       disabled={disabled}
       className={className}
     >
-      {icon ? (
+      {icon && (
         <Icon
           icon={icon}
           size={size}
           fill={fill}
           color={color}
         />
-      ) : (
-        <span style={{ color }}>{title}</span>
       )}
+      {title && <span style={{ color }}>{title}</span>}
     </ButtonBase>
   ),
 );

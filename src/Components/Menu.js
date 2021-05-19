@@ -2,24 +2,27 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import { List, ListItem } from 'Styled/base';
-import { highlightActive } from 'Styled/colors';
-import { borderDynamic } from 'Styled/dynamic';
+import {
+  bgDynamic,
+  borderDynamic,
+  cursorDynamic,
+} from 'Styled/dynamic';
 
-const ItemMenu = styled(ListItem)`
-  &: hover {
-    background-color: ${highlightActive};
-  }
+const ItemMenu = styled(ListItem).attrs({
+  hover: 'active',
+  typebg: 'none',
+})`
+  ${bgDynamic};
+  ${cursorDynamic};
   padding: 0.25rem 1.5rem;
-  cursor: pointer;
   font-weight: 400;
 `;
 
 const Divider = styled.div.attrs({
-  type: 'secondary',
+  typebr: 'secondary',
 })`
   ${borderDynamic};
-  border-width: 1px;
-  border-style: solid;
+  border-top: 1px;
   margin: 0.4rem 0;
 `;
 
