@@ -1,21 +1,20 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-
 import { List, ListItem } from 'Styled/base';
 import {
   bgDynamic,
-  borderDynamic,
   cursorDynamic,
+  borderDynamic,
 } from 'Styled/dynamic';
 
 const ItemMenu = styled(ListItem).attrs({
-  hover: 'active',
+  hoverbg: 'active',
   typebg: 'none',
 })`
   ${bgDynamic};
   ${cursorDynamic};
-  padding: 0.25rem 1.5rem;
   font-weight: 400;
+  padding: 0.25rem 1.5rem;
 `;
 
 const Divider = styled.div.attrs({

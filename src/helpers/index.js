@@ -1,5 +1,5 @@
 class Helpers {
-  static firstChartUppercase(string) {
+  static Uppercase(string) {
     return (
       string.charAt(0).toUpperCase() + string.slice(1)
     );

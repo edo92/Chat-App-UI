@@ -52,7 +52,7 @@ const Empty = memo(
           />
           <>
             {title && (
-              <Text fontColor="secondary">{title}</Text>
+              <Text typefont="secondary">{title}</Text>
             )}
             {children && children}
           </>

@@ -37,7 +37,7 @@ reactComponents['Button'] = Component3;
 import Component4 from '../src/Components/Drawer.js';
 reactComponents['Drawer'] = Component4;
 
-import Component5 from '../src/Components/Dropdown.js';
+import Component5 from '../src/Components/Dropdown/Dropdown.js';
 reactComponents['DropDown'] = Component5;
 
 import Component6 from '../src/Components/Empty.js';
@@ -70,7 +70,7 @@ reactComponents['Modal'] = Component14;
 import Component15 from '../src/Components/Page.js';
 reactComponents['Page'] = Component15;
 
-import Component16 from '../src/Components/Tooltip.js';
+import Component16 from '../src/Components/Tooltip/index.js';
 reactComponents['Tooltip'] = Component16;
 
 import Component17 from '../src/Components/UserFigure.js';

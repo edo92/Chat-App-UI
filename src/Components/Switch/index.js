@@ -11,13 +11,12 @@ import {
 } from 'Styled/dynamic';
 
 import {
-  backgroundStyle,
   sliderSize,
-  sliderAfterSize,
-  afterMargin,
   inputAfter,
-  sliderSpaceing,
-} from './styles';
+  labelStyle,
+  labelAfterStyle,
+  backgroundStyle,
+} from './dynamic';
 
 const CheckBoxWrapper = styled.div`
   position: relative;
@@ -25,43 +24,26 @@ const CheckBoxWrapper = styled.div`
 
 const Lable = styled.span`
   ${fontDynamic};
-  ${sliderSpaceing};
+  ${labelStyle};
   position: absolute;
-  font-size: 14px;
-  font-weight: 500;
   margin-left: 14px;
   white-space: nowrap;
 `;
 
 const labelAfter = css`
-  ${afterMargin};
-  ${sliderAfterSize};
-  ${backgroundStyle};
+  ${labelAfterStyle};
+  ${backgroundStyle}; // use dynamic styles **
   content: '';
   display: block;
   border-radius: 50%;
   -webkit-transition: 0.1s;
   transition: 0.1s;
-  box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 10%);
 `;
 
 const sliderBase = css`
   position: absolute;
   top: 0;
   left: 0;
-`;
-
-const Slider = styled.label.attrs(({ status }) => ({
-  radius: 'pill',
-  typebg: 'secondary',
-  typebr: status ? 'ghost' : 'tertiary',
-}))`
-  ${bgDynamic};
-  ${sliderBase};
-  ${sliderSize};
-  ${borderDynamic};
-  ${cursorDynamic};
-
   &::after {
     ${labelAfter};
   }
@@ -70,14 +52,23 @@ const Slider = styled.label.attrs(({ status }) => ({
   }
 `;
 
+const Slider = styled.label.attrs(({ status }) => ({
+  radiusbr: 'pill',
+  typebg: status ? 'light' : 'secondary',
+  typebr: status ? 'ghost' : 'tertiary',
+}))`
+  ${bgDynamic};
+  ${sliderBase};
+  ${sliderSize};
+  ${borderDynamic};
+  ${cursorDynamic};
+`;
+
 const Input = styled.input`
   opacity: 0;
   z-index: 1;
-  border-radius: 15px;
-
   &:checked + ${Slider} {
     background: #0a80ff;
-
     &::after {
       ${inputAfter};
       content: '';
@@ -88,7 +79,7 @@ const Input = styled.input`
 `;
 
 const Switch = memo(
-  ({ size = 'md', label, id = uuidv4() }) => {
+  ({ size = 'sm', label, id = uuidv4() }) => {
     const [status, setStatus] = useState(false);
     const [anim, setAnimate] = useState(false);
 

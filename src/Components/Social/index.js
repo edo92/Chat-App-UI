@@ -2,7 +2,8 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import IconSvg from 'Components/Icons';
-import { sizeDynamic, socialBgDynamic } from './styles';
+import { cursorDynamic } from 'Styled/dynamic';
+import { sizeDynamic, socialBgDynamic } from './dynamic';
 
 const socialBase = styled.span`
   vertical-align: text-top;
@@ -13,16 +14,16 @@ const socialBase = styled.span`
   margin-right: 0.35rem;
   margin-bottom: 0.35rme;
   padding: 0;
-  cursor: pointer;
 `;
 
 const Icon = styled(IconSvg)`
-  vertical-align: text-top;
   color: #fff;
+  vertical-align: text-top;
 `;
 
 const Social = styled(socialBase)`
   ${sizeDynamic};
+  ${cursorDynamic};
   ${socialBgDynamic};
 `;
 

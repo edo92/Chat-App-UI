@@ -6,7 +6,7 @@ import Logo from 'Components/Logo';
 import Tooltip from 'Components/Tooltip';
 import Select from 'Components/Select';
 import Icon from 'Components/Icons';
-import Dropdown from 'Components/Dropdown';
+import Dropdown from 'Components/Dropdown/Dropdown';
 import Avatar from 'Components/Avatar';
 
 import { Section } from 'Styled/shared';

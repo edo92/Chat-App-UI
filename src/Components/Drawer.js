@@ -73,9 +73,7 @@ const Drawer = memo(
       <Container className={className} visible={isOpen}>
         <Wrapper>
           <Header>
-            <Title>
-              {helpers.firstChartUppercase(title)}
-            </Title>
+            <Title>{helpers.Uppercase(title)}</Title>
             <Button
               onClick={() => toggle(false)}
               size={'sm'}

@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-
-import IconSVG from './Icon';
+import IconSVG from './allIcons';
 import {
   iconSizeDynamic,
   iconColorDynamic,
@@ -12,7 +11,12 @@ const Wrapper = styled.span`
   position: relative;
 `;
 
-const MyIcon = styled(IconSVG)`
+const MyIcon = styled(IconSVG).attrs(
+  ({ size, color }) => ({
+    sizeicon: size,
+    coloricon: color,
+  }),
+)`
   ${iconSizeDynamic};
   ${iconColorDynamic};
 `;

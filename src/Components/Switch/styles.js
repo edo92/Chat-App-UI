@@ -1,5 +1,3 @@
-import { css } from 'styled-components';
-
 export const sizes = {
   md: {
     slider: {
@@ -16,6 +14,7 @@ export const sizes = {
       top: '2.5px',
     },
     label: {
+      size: '16px',
       top: '1.5px',
     },
   },
@@ -34,50 +33,8 @@ export const sizes = {
       top: '1px',
     },
     label: {
+      size: '14px',
       top: '0px',
     },
   },
 };
-
-// Colors
-export const backgroundStyle = css`
-  background: ${({ status }) =>
-    status ? '#fff' : '#adb5bd'};
-`;
-
-// Spaceing
-export const sliderSpaceing = css`
-  ${({ size }) => `
-    left: ${sizes[size].slider.width};
-    top: ${sizes[size].label.top};
-  `};
-`;
-
-// Sizeing based on passed props
-export const sliderSize = css`
-  ${({ size }) => `
-    width: ${sizes[size].slider.width};
-    height: ${sizes[size].slider.height};
-  `};
-`;
-
-export const sliderAfterSize = css`
-  ${({ size }) => `
-    width: ${sizes[size].after.size};
-    height: ${sizes[size].after.size};
-  `};
-`;
-
-export const afterMargin = css`
-  ${({ size }) => `
-    margin-left: ${sizes[size].after.left};
-    margin-top: ${sizes[size].after.top};
-  `};
-`;
-
-export const inputAfter = css`
-  ${({ size }) => `
-    margin-left: ${sizes[size].input.left};
-    margin-top: ${sizes[size].input.top};
-  `};
-`;

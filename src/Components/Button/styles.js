@@ -1,39 +1,31 @@
 import { css } from 'styled-components';
-import { activeSecondary } from 'Styled/colors';
-import {
-  colorTypeDynamic,
-  borderColorDynamic,
-} from 'Styled/dynamic';
 
-// btn styels
-export const baseStyle = css`
-  outline: none;
-  width: auto;
-  display: inline-flex;
-  background: transparent;
-  justify-content: center;
+const pseudoClass = css`
+  &: focus {
+    box-shadow: rgb(133, 133, 133);
+  }
 `;
 
-export const transitions = css`
+const transitions = css`
   transition: color 0.15s ease-in-out,
     background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
 `;
 
-export const onFocus = css`
-  &: focus {
-    box-shadow: rgb(133, 133, 133);
-    border-color: ${activeSecondary};
-  }
+const baseStyle = css`
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.23s;
+  position: relative;
+  outline: none;
+  width: auto;
 `;
 
-export const onHover = css`
-  &: hover {
-    background-color: ${({ type }) =>
-      type !== 'primary' && borderColorDynamic};
-`;
-
-export const backgroundColor = css`
-  background: ${colorTypeDynamic};
+export default css`
+  ${baseStyle};
+  ${transitions};
+  ${pseudoClass};
 `;

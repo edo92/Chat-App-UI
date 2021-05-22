@@ -4,51 +4,66 @@ import {
   borderPrimary,
   borderSecondary,
   borderTertiary,
+  fontSecondary,
   ghost,
 } from 'Styled/colors';
 
+const sizes = {
+  1: '1px',
+  2: '2px',
+  3: '3px',
+  4: '4px',
+  none: 'none',
+};
+
+const brColors = {
+  primary: borderPrimary,
+  secondary: borderSecondary,
+  tertiary: borderTertiary,
+  highlight: fontSecondary,
+  ghost,
+  background,
+};
+
 export const borderWidthDynamic = css`
-  ${({ sizebr = 1 }) =>
-    ({
-      1: '1px',
-      2: '2px',
-      3: '3px',
-      none: 'none',
-    }[sizebr])};
+  border-width: ${({ sizebr = 1 }) => sizes[sizebr]};
 `;
 
 export const borderColorDynamic = css`
-  ${({ typebr = 'primary' }) =>
-    ({
-      primary: borderPrimary,
-      secondary: borderSecondary,
-      tertiary: borderTertiary,
-      ghost,
-      background,
-    }[typebr])};
+  border-color: ${({ typebr = 'primary' }) =>
+    brColors[typebr]};
 `;
 
 export const borderRadiusDynamic = css`
-  ${({ radius = 'none' }) =>
+  border-radius: ${({ radiusbr = 'none' }) =>
     ({
       circle: '50%',
       base: '0.25rem',
       pill: '15px',
       none: 'none',
-    }[radius])};
+    }[radiusbr])};
 `;
 
 export const borderStyleDynamic = css`
-  ${({ styleBr = 'solid' }) =>
+  border-style: ${({ stylebr = 'solid' }) =>
     ({
       solid: 'solid',
       groove: 'groove',
-    }[styleBr])};
+      none: 'none',
+    }[stylebr])};
+`;
+
+export const borderFocusDynamic = css`
+  &: focus {
+    border-color: ${({ focusbr }) =>
+      focusbr && brColors[focusbr]};
+  }
 `;
 
 export const borderDynamic = css`
-  border-width: ${borderWidthDynamic};
-  border-color: ${borderColorDynamic};
-  border-style: ${borderStyleDynamic};
-  border-radius: ${borderRadiusDynamic};
+  ${borderFocusDynamic};
+  ${borderWidthDynamic};
+  ${borderColorDynamic};
+  ${borderStyleDynamic};
+  ${borderRadiusDynamic};
 `;

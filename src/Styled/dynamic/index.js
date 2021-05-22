@@ -4,31 +4,38 @@ import {
   warning,
   error,
   activePrimary,
+  activeSecondary,
 } from 'Styled/colors';
 
 export * from './font';
 export * from './border';
 export * from './background';
 
+const actions = {
+  secondary: activeSecondary,
+};
+
+const colors = {
+  success,
+  warning,
+  error,
+  primary: activePrimary,
+  none: 'none',
+};
+
+const spaceSize = {
+  sm: '9px 14px',
+  md: '10px 15px',
+  lg: '11px 16px',
+};
+
 export const colorTypeDynamic = css`
-  ${({ type = 'none' }) =>
-    ({
-      success,
-      warning,
-      error,
-      primary: activePrimary,
-      none: 'none',
-    }[type])};
+  ${({ type }) => type && colors[type]};
 `;
 
 // spacing
-export const spaceing = css`
-  padding: ${({ size = 'md' }) =>
-    ({
-      sm: '9px 14px',
-      md: '10px 15px',
-      lg: '11px 16px',
-    }[size])};
+export const spaceDynamic = css`
+  padding: ${({ size = 'md' }) => spaceSize[size]};
 `;
 
 // Cursor
@@ -44,12 +51,16 @@ export const activeDynamic = css`
 
 export const visibleDynamic = css`
   ${({ visible }) => `
-    visibility: ${visible ? 'visible' : 'hidden'}
+    visibility: ${visible ? 'visible' : 'hidden'};
   `};
 `;
 
 export const alignDynamic = css`
   ${({ align = 'center' }) => `
-      text-align: ${align}
+      text-align: ${align};
   `};
+`;
+
+export const focusDynamic = css`
+  ${({ focus }) => focus && actions[focus]};
 `;

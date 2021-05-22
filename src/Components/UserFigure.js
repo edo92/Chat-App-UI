@@ -5,7 +5,7 @@ import Badge from 'Components/Badge';
 import { fontDynamic } from 'Styled/dynamic';
 
 const Figure = styled.figure`
-  display: inline-block;
+  display: grid;
   height: 2.3rem;
   width: 2.3rem;
   margin: 0;
@@ -37,16 +37,16 @@ const AvatarImg = styled.img`
 
 const ListBody = styled.div`
   flex: 1 1;
+  display: flex;
   position: relative;
   min-width: 0px;
-  display: flex;
 `;
 
 const ContentTitle = styled.h5`
   ${fontDynamic};
   font-weight: 500;
-  margin: 0;
   line-height: 1;
+  margin: 0;
 `;
 
 const CustomBadge = styled(Badge)`
@@ -84,34 +84,19 @@ const AvatarFigure = memo(({ children, status }) => (
 const UserFigure = memo(
   ({ text, avatar, name, fontSize, active, status }) => (
     <>
-      <Figure>
-        {status && (
-          <CustomBadge
-            border={true}
-            status={
-              status === 'active' ? 'success' : 'warning'
-            }
-          />
+      <AvatarFigure status={status} avatar={avatar}>
+        {avatar.image ? (
+          <AvatarImg src={avatar.image} alt="avatar" />
+        ) : (
+          <AvatarTitle>{avatar.title}</AvatarTitle>
         )}
-        <AvatarFigure status={status} avatar={avatar}>
-          <>
-            {avatar.image ? (
-              <AvatarImg
-                src={avatar.image}
-                alt="avatar"
-              />
-            ) : (
-              <AvatarTitle>{avatar.title}</AvatarTitle>
-            )}
-          </>
-        </AvatarFigure>
-      </Figure>
+      </AvatarFigure>
       <ListBody>
         <div>
           <ContentTitle
             size={fontSize}
             active={active}
-            fontColor="secondary"
+            fonttype="secondary"
           >
             {name}
           </ContentTitle>
