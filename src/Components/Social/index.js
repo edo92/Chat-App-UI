@@ -1,12 +1,11 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import Icon from 'Components/Icons';
-import { sizeDynamic, socialBgDynamic } from './styles';
+import IconSvg from 'Components/Icons';
+import { cursorDynamic } from 'Styled/dynamic';
+import { sizeDynamic, socialBgDynamic } from './dynamic';
 
-const SocialWrapper = styled.span`
-  ${sizeDynamic};
-  ${socialBgDynamic};
+const socialBase = styled.span`
   vertical-align: text-top;
   justify-content: center;
   display: inline-flex;
@@ -15,12 +14,17 @@ const SocialWrapper = styled.span`
   margin-right: 0.35rem;
   margin-bottom: 0.35rme;
   padding: 0;
-  cursor: pointer;
 `;
 
-const SocialIcon = styled(Icon)`
-  vertical-align: text-top;
+const Icon = styled(IconSvg)`
   color: #fff;
+  vertical-align: text-top;
+`;
+
+const Social = styled(socialBase)`
+  ${sizeDynamic};
+  ${cursorDynamic};
+  ${socialBgDynamic};
 `;
 
 /**
@@ -30,10 +34,10 @@ const SocialIcon = styled(Icon)`
  * @param {string}  size    xs | sm | md | lg - sizes
  */
 
-const SocialIconComponent = memo(({ social, size }) => (
-  <SocialWrapper socialSize={size} icon={social.name}>
-    <SocialIcon size={size} social={social.name} />
-  </SocialWrapper>
+const SocialIcon = memo(({ social, size }) => (
+  <Social socialSize={size} icon={social.name}>
+    <Icon size={size} social={social.name} />
+  </Social>
 ));
 
-export default SocialIconComponent;
+export default SocialIcon;

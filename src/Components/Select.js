@@ -1,47 +1,34 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import { button } from 'Styled/base';
-import { fontDynamic, bgDynamic } from 'Styled/dynamic';
+import { bgDynamic, fontDynamic } from 'Styled/dynamic';
 
-const selectBase = styled.span`
+const ButtonSelect = styled.span.attrs(
+  ({ selected }) => ({
+    typebg: selected && 'primary',
+    hoverbg: !selected && 'secondary',
+    hoverfont: !selected && 'active',
+    typefont: selected ? 'active' : 'inactive',
+  }),
+)`
   ${button};
   ${bgDynamic};
+  ${fontDynamic};
   padding: 0.9rem;
 `;
-
-const contentBase = styled.span`
-  ${fontDynamic};
-`;
-
-const ButtonSelect = styled(selectBase).attrs(
-  ({ active }) => ({
-    activebg: active,
-    hover: !active && 'secondary',
-  }),
-)``;
-
-const ButtonContent = styled(contentBase).attrs(
-  ({ selected }) => ({
-    fontColor: selected ? 'active' : 'inactive',
-  }),
-)``;
 
 /**
  *
  * @component
- * @param {Boolean} active    background color change
  * @param {Function} onClick  onClick prop
+ * @param {Boolean} active    active/inactive status
  * @param {Object}  children  <Icon passed as children
  */
 
-const Select = memo(({ active, onClick, children }) => {
-  return (
-    <ButtonSelect active={active} onClick={onClick}>
-      <ButtonContent selected={active}>
-        {children && children}
-      </ButtonContent>
-    </ButtonSelect>
-  );
-});
+const Select = memo(({ active, onClick, children }) => (
+  <ButtonSelect selected={active} onClick={onClick}>
+    {children && children}
+  </ButtonSelect>
+));
 
 export default Select;

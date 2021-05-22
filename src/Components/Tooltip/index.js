@@ -1,16 +1,23 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { highlightTertiary } from 'Styled/colors';
 import helpers from 'helpers';
+import { bgDynamic } from 'Styled/dynamic';
+import {
+  displayDynamic,
+  placementDynamic,
+  transformDynamic,
+} from './dynamic';
 
 const Content = styled.div`
   width: 100%;
   position: relative;
 `;
 
-const Title = styled.div`
-  background: ${highlightTertiary};
+const Title = styled.div.attrs({
+  typebg: 'tertiary',
+})`
+  ${bgDynamic};
   position: absolute;
   font-size: 14px;
   font-weight: 400;
@@ -21,14 +28,10 @@ const Title = styled.div`
 `;
 
 const Container = styled.span`
+  ${displayDynamic};
+
   z-index: 11;
   position: relative;
-
-  display: ${({ placement }) =>
-    ({
-      right: 'flex',
-      bottom: 'block',
-    }[placement])};
 
   .tooltip {
     visibility: hidden;
@@ -43,18 +46,8 @@ const Container = styled.span`
 const TitleWrapper = styled.div`
   position: relative;
   color: white;
-
-  ${({ placement }) =>
-    ({
-      right: 'top: calc(100% - 38px)',
-      bottom: 'left: -50%',
-    }[placement])};
-
-  transform: ${({ placement }) =>
-    ({
-      right: 'translate3d(6px, 0px, 0px)',
-      bottom: 'translate3d(0px, 5.5px, 0px)',
-    }[placement])};
+  ${placementDynamic};
+  ${transformDynamic};
 `;
 
 /**
@@ -67,7 +60,7 @@ const TitleWrapper = styled.div`
 
 const Tooltip = memo(
   ({ children, placement, title }) => {
-    const toUppercase = helpers.firstChartUppercase;
+    const toUppercase = helpers.Uppercase;
 
     return (
       <Container placement={placement}>

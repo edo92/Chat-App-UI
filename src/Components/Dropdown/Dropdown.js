@@ -1,15 +1,25 @@
 import React, { memo, useState, createRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import helpers from 'helpers';
 
 import { useOnClickOutside } from 'hooks/useOnClickOutside';
 import Menu from 'Components/Menu';
 
 import { Card } from 'Styled/shared';
+import { placement } from './dynamic';
+
 import {
   alignDynamic,
   visibleDynamic,
 } from 'Styled/dynamic';
+
+const MenuContainer = styled.div`
+  margin: 0.125rem 0 0;
+  padding: 0.5rem 0;
+  line-height: 1.5;
+  min-width: 10rem;
+  transform: none;
+`;
 
 const Container = styled.div`
   ${alignDynamic};
@@ -21,41 +31,15 @@ const Container = styled.div`
   border-color: transparent;
 `;
 
-const ContentStyle = styled(Card)`
+const Content = styled(Card)`
+  ${visibleDynamic};
+  ${placement};
   text-align: left;
   position: absolute;
   font-size: 14px;
   top: 0px;
   border-radius: 5px;
   z-index: 1;
-`;
-
-const MenuContainer = styled.div`
-  margin: 0.125rem 0 0;
-  padding: 0.5rem 0;
-  line-height: 1.5;
-  min-width: 10rem;
-  transform: none;
-`;
-
-// Dynamic spacing
-const spaceing = css`
-  top: ${({ top }) => top};
-  left: ${({ left }) => left};
-`;
-
-const transform = css`
-  transform: ${({ placement }) =>
-    ({
-      topRight: 'translate3d(12px, -143px, 0px)',
-      bottomLeft: 'translate3d(-100px, 20px, 0px)',
-    }[placement])};
-`;
-
-const Content = styled(ContentStyle)`
-  ${spaceing};
-  ${transform};
-  ${visibleDynamic};
 `;
 
 /**

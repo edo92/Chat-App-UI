@@ -64,7 +64,6 @@ export const CountBase = styled.div`
   color: white;
   border-radius: 50%;
   margin-left: auto;
-  padding-top: 1px;
 `;
 
 export const Form = styled.form`

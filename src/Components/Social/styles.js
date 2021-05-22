@@ -1,12 +1,10 @@
-import { css } from 'styled-components';
-
-const sizes = {
+export const sizes = {
   xs: '25px',
   sm: '27px',
   md: '30px',
 };
 
-const icons = {
+export const icons = {
   facebook: {
     background: '#3b5998',
     border: '#3b5998',
@@ -34,19 +32,3 @@ const icons = {
     background: '#ea4c89',
   },
 };
-
-export const sizeDynamic = css`
-  ${({ socialSize }) => `
-    height: ${sizes[socialSize]};
-    width: ${sizes[socialSize]};
-  `};
-`;
-
-export const socialBgDynamic = css`
-  ${({ icon = 'default' }) => `
-    background: ${
-      icons[icon]?.background ||
-      icons['default'].background
-    };
-  `};
-`;

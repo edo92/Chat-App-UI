@@ -4,12 +4,10 @@ import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 import Icon from 'Components/Icons';
 import {
-  smooth,
-  background,
-  activePrimary,
-} from 'Styled/colors';
-
-import { fontDynamic } from 'Styled/dynamic';
+  bgDynamic,
+  fontDynamic,
+  visibleDynamic,
+} from 'Styled/dynamic';
 
 const H3 = styled.h3`
   padding: 0.25rem;
@@ -26,10 +24,12 @@ const ModalBase = styled.div`
   overflow: hidden;
 `;
 
-const ModalComponent = styled(ModalBase)`
-  visibility: ${({ active }) =>
-    active ? 'visible' : 'hidden'};
-
+const ModalComponent = styled(ModalBase).attrs(
+  ({ active }) => ({
+    visible: active,
+  }),
+)`
+  ${visibleDynamic};
   background-color: rgb(0 0 0 / 51%);
   backdrop-filter: blur(2px);
   transition-duration: 0.01s;
@@ -43,8 +43,10 @@ const Content = styled.div`
   width: 35%;
 `;
 
-const Header = styled.header`
-  background: ${activePrimary};
+const Header = styled.header.attrs({
+  typebg: 'activePrimary',
+})`
+  ${bgDynamic};
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
   justify-content: space-between;
@@ -55,14 +57,16 @@ const Header = styled.header`
 
 const Body = styled.div`
   ${fontDynamic};
-  background: ${background};
+  ${bgDynamic};
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   padding: 20px;
 `;
 
-const Close = styled.span`
-  background: ${smooth};
+const Close = styled.span.attrs({
+  typebg: 'smooth',
+})`
+  ${bgDynamic};
   display: flex;
   justify-content: center;
   cursor: pointer;

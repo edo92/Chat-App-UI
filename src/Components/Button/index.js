@@ -1,47 +1,43 @@
 import React, { memo } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import Icon from 'Components/Icons';
+import bttnBaseStyle from './styles';
 
-// Dynamic styles
 import {
-  spaceing,
+  bgDynamic,
   fontDynamic,
+  spaceDynamic,
   borderDynamic,
   cursorDynamic,
 } from 'Styled/dynamic';
 
-// Button custom styles
-import {
-  onFocus,
-  onHover,
-  baseStyle,
-  transitions,
-  backgroundColor,
-} from './styles';
-
-// Reusable button base style
-export const baseButton = css`
-  ${spaceing};
-  ${baseStyle};
-  ${transitions};
-  ${fontDynamic};
-  ${cursorDynamic};
-  ${backgroundColor};
-`;
+const dynamicStyleProps = ({
+  type,
+  typebr,
+  typefont,
+  size,
+  focusbr,
+  hoverbg,
+}) => ({
+  typefont: typefont,
+  sizefont: size,
+  typebg: type,
+  hoverbg: hoverbg || 'active',
+  focusbr: focusbr || 'highlight',
+  typebr: typebr || 'primary',
+});
 
 // Reusable button styled component
 export const ButtonBase = styled.button.attrs(
-  ({ children: { props } }) => ({
-    brColor: 'primary',
-    fontColor: 'secondary',
-    fontSize: props.size,
-  }),
+  dynamicStyleProps,
 )`
-  ${baseButton};
+  ${bttnBaseStyle};
   ${borderDynamic};
-  ${onHover};
-  ${onFocus};
+  ${cursorDynamic};
+  ${spaceDynamic};
+  ${fontDynamic};
+  ${bgDynamic};
 `;
 
 /**
@@ -69,14 +65,22 @@ const Button = memo(
     title,
     type,
     className,
+    typebr,
+    typefont,
+    focusbr,
   }) => (
     <ButtonBase
-      radius="base"
+      radiusbr="base"
       size={size}
       type={type}
+      //
       onClick={onClick}
       disabled={disabled}
       className={className}
+      //
+      focusbr={focusbr}
+      typebr={typebr}
+      typefont={typefont}
     >
       {icon ? (
         <Icon

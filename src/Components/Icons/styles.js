@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 
 const iconSize = css`
-  ${({ size = 'md' }) =>
+  ${({ sizeicon = 'md' }) =>
     ({
       sm: '16px',
       md: '19px',
       lg: '24px',
-    }[size])};
+    }[sizeicon])};
 `;
 
 export const iconColorDynamic = css`
@@ -15,10 +15,10 @@ export const iconColorDynamic = css`
     `
     fill: ${fill};
   `};
-  ${({ color }) =>
-    color &&
+  ${({ coloricon }) =>
+    coloricon &&
     `
-    color: ${color};
+    color: ${coloricon};
   `};
 `;
 

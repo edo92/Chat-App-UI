@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Avatar from 'Components/Avatar';
 import Switch from 'Components/Switch';
-import Social from 'Components/Social';
+import Social from 'Components/social';
 
 import { Small, List, ListItem } from 'Styled/base';
 

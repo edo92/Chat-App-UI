@@ -9,32 +9,40 @@ import {
   fontInactive,
 } from 'Styled/colors';
 
+const fontColors = {
+  highlight: fontHighlight,
+  primary: fontPrimary,
+  secondary: fontSecondary,
+  tertiary: fontTertiary,
+  active: fontActive,
+  inactive: fontInactive,
+};
+
 export const fontSizeDynamic = css`
-  ${({ size = 'md' }) =>
+  ${({ sizefont = 'md' }) =>
     ({
       xs: '14px',
       sm: '15px',
       md: '16px',
       lg: '17px',
       h1: '22px',
-    }[size])};
+    }[sizefont])};
 `;
 
 export const fontColorDynamic = css`
-  ${({ active, fontColor = 'fontActive' }) =>
-    active
-      ? activePrimary
-      : {
-          highlight: fontHighlight,
-          primary: fontPrimary,
-          secondary: fontSecondary,
-          tertiary: fontTertiary,
-          active: fontActive,
-          inactive: fontInactive,
-        }[fontColor]};
+  ${({ active, typefont = 'active' }) =>
+    active ? activePrimary : fontColors[typefont]};
+`;
+
+export const fontHoverDynamic = css`
+  &: hover {
+    color: ${({ hoverfont }) =>
+      hoverfont && fontColors[hoverfont]};
+  }
 `;
 
 export const fontDynamic = css`
+  ${fontHoverDynamic};
   color: ${fontColorDynamic};
   font-size: ${fontSizeDynamic};
 `;

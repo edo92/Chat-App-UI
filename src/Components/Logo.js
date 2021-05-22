@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+
 import styled, { css } from 'styled-components';
 import { ReactComponent as logo } from 'assets/logo.svg';
 
@@ -19,9 +20,11 @@ const LogoIcon = styled(logo)`
 `;
 
 /**
+ * 
  * @component
  * @param {String} size  Logo size (sm | md | lg)
  */
+
 const Logo = memo(({ size }) => {
   return <LogoIcon size={size} />;
 });

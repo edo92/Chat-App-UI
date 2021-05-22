@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import styled from 'styled-components';
 
 import Icon from 'Components/Icons';
-import Dropdown from 'Components/Dropdown';
+import Dropdown from 'Components/Dropdown/Dropdown';
 import UserFigure from 'Components/UserFigure';
 
 import {

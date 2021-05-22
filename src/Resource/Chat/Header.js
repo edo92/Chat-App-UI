@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import UserFigure from 'Components/UserFigure';
 import Button from 'Components/Button';
 import Tooltip from 'Components/Tooltip';
-import Dropdown from 'Components/Dropdown';
+import Dropdown from 'Components/Dropdown/Dropdown';
 
 import { SmallPrimary, BorderBox } from 'Styled/shared';
 import { List, ListItem as ItemList } from 'Styled/base';

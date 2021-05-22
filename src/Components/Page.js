@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import { Container } from 'Styled/base';
-import { background } from 'Styled/colors';
 import Metadata from 'Components/Metadata';
+import { Container } from 'Styled/base';
+import { bgDynamic } from 'Styled/dynamic';
 
 const PageWrapper = styled.div`
-  background: ${background};
+  ${bgDynamic};
   height: 100vh;
   display: flex;
   overflow: hidden;
