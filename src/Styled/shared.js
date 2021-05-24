@@ -11,7 +11,6 @@ import {
   highlightSecondary,
   activePrimary,
   activeTertiary,
-  border,
   fontHighlight,
   fontPrimary,
   fontSecondary,
@@ -73,10 +72,6 @@ export const SmallPrimary = styled(Small)`
     active ? activePrimary : fontPrimary};
 `;
 
-export const ActiveColor = styled.span`
-  color: ${activePrimary};
-`;
-
 export const Circle = styled(CountBase)`
   background-color: ${activePrimary};
 `;
@@ -96,7 +91,7 @@ export const MessageStyle = styled.div`
 `;
 
 export const H1 = styled.h1.attrs({
-  size: 'h1',
+  sizefont: 'h1',
   fontColor: 'secondary',
 })`
   ${fontDynamic};

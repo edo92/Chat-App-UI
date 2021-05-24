@@ -8,7 +8,6 @@ import Select from 'Components/Select';
 import Icon from 'Components/Icons';
 import Dropdown from 'Components/Dropdown/Dropdown';
 import Avatar from 'Components/Avatar';
-
 import { Section } from 'Styled/shared';
 
 import {

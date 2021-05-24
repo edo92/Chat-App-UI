@@ -9,18 +9,18 @@ import { dropmenu } from './menu';
 
 import { borderDynamic } from 'Styled/dynamic';
 import {
-  H1,
-  Input,
-  Section,
-  Scrollbar,
-} from 'Styled/shared';
-
-import {
   List,
   ListItem,
   InnerContainer,
   Container as MainContainer,
 } from 'Styled/base';
+
+import {
+  H1,
+  Input,
+  Section,
+  Scrollbar,
+} from 'Styled/shared';
 
 const Header = styled.header`
   display: flex;
