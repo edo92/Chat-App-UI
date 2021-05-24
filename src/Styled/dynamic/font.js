@@ -18,15 +18,16 @@ const fontColors = {
   inactive: fontInactive,
 };
 
+const sizes = {
+  xs: '14px',
+  sm: '15px',
+  md: '16px',
+  lg: '17px',
+  h1: '22px',
+};
+
 export const fontSizeDynamic = css`
-  ${({ sizefont = 'md' }) =>
-    ({
-      xs: '14px',
-      sm: '15px',
-      md: '16px',
-      lg: '17px',
-      h1: '22px',
-    }[sizefont])};
+  ${({ sizefont = 'md' }) => sizes[sizefont]};
 `;
 
 export const fontColorDynamic = css`

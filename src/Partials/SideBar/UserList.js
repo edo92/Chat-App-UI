@@ -8,9 +8,14 @@ import UserFigure from 'Components/UserFigure';
 import {
   ListItemHighlight,
   SmallPrimary,
-  ActiveColor,
   Circle,
 } from 'Styled/shared';
+
+import { fontDynamic } from 'Styled/dynamic';
+
+const ActiveIcon = styled.div`
+  ${fontDynamic};
+`;
 
 const ListAction = styled.div`
   right: 0;
@@ -122,12 +127,12 @@ const ChatView = memo(
                     placement="bottomLeft"
                     className="dropdown-item"
                   >
-                    <ActiveColor>
+                    <ActiveIcon active={true}>
                       <Icon
                         size="lg"
                         icon="MoreHorizontal"
                       />
-                    </ActiveColor>
+                    </ActiveIcon>
                   </DropDown>
                 </>
               </ListAction>

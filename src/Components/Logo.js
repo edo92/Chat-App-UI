@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { ReactComponent as logo } from 'assets/logo.svg';
 
+const sizes = {
+  sm: '25px',
+  md: '30px',
+  lg: '37px',
+};
+
 const iconSize = css`
-  ${({ size = 'sm' }) =>
-    ({
-      sm: '25px',
-      md: '30px',
-      lg: '37px',
-    }[size])};
+  ${({ size = 'sm' }) => sizes[size]};
 `;
 
 const LogoIcon = styled(logo)`
@@ -20,7 +21,7 @@ const LogoIcon = styled(logo)`
 `;
 
 /**
- * 
+ *
  * @component
  * @param {String} size  Logo size (sm | md | lg)
  */

@@ -2,13 +2,13 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 
 import Drawer from 'Components/Drawer';
-import { background } from 'Styled/colors';
+import { bgDynamic } from 'Styled/dynamic';
 
 // Menus
 import ProfileMenu from './Menu/Profile';
 
 const Container = styled.div`
-  background: ${background};
+  ${bgDynamic};
 `;
 
 const Content = styled.div`

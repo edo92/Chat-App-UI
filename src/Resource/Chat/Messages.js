@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import UserFigure from 'Components/UserFigure';
-import { Scrollbar } from 'Styled/shared';
 
 import {
+  Scrollbar,
   SmallPrimary,
   MessageStyle,
 } from 'Styled/shared';

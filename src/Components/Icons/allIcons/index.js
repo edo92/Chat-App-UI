@@ -29,7 +29,7 @@ const SocialIcon = (icon) => {
   return socialIcon;
 };
 
-export default ({ icon, social, className }) => {
+const allIcons = ({ icon, social, className }) => {
   const IconSVG = (() => {
     return (
       (icon && FeatherIcon(icon)) ||
@@ -39,3 +39,5 @@ export default ({ icon, social, className }) => {
 
   return <IconSVG className={className} />;
 };
+
+export default allIcons;
